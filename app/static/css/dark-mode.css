@@ -1,0 +1,27 @@
+[data-bs-theme="dark"] {
+    --bg-body: #13111C;
+    --bg-surface: #1C1A29;
+    --bg-soft: #211F30;
+    --glass-bg: rgba(28, 26, 41, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.08);
+
+    --text-primary: #F2F1F8;
+    --text-secondary: #A9A6BE;
+    --text-muted: #726F86;
+
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+    --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.45);
+}
+
+[data-bs-theme="dark"] .navbar-glass,
+[data-bs-theme="dark"] .topbar { background: rgba(28, 26, 41, 0.75); border-color: rgba(255,255,255,0.06); }
+
+[data-bs-theme="dark"] .sidebar,
+[data-bs-theme="dark"] .footer-pro { border-color: rgba(255,255,255,0.06); }
+
+[data-bs-theme="dark"] .badge-pill { background: rgba(168, 85, 247, 0.18); }
+
+[data-bs-theme="dark"] .btn-outline-glass { background: var(--glass-bg); color: var(--text-primary); }
+
+[data-bs-theme="dark"] ::selection { background: var(--secondary); color: #fff; }

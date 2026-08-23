@@ -1,0 +1,167 @@
+{% extends "dashboard/_app_base.html" %}
+
+{% block title %}Interview Hub{% endblock %}
+{% block page_title %}AI Mock Interview{% endblock %}
+
+{% block content %}
+
+<div class="text-center mb-4" data-aos="fade-down">
+    <img
+        src="{{ url_for('static', filename='images/ai-robot.svg') }}"
+        alt="AI Interview Assistant"
+        style="max-width:140px;"
+    >
+</div>
+
+<div class="row g-4">
+
+    <!-- START INTERVIEW -->
+    <div class="col-lg-5">
+        <div class="dashboard-panel" data-aos="fade-up">
+
+            <h6 class="panel-title">Start a Mock Interview</h6>
+
+            <form method="POST"
+                  action="{{ url_for('interview_hub.start') }}">
+
+                <!-- CSRF TOKEN -->
+                <input type="hidden"
+                       name="csrf_token"
+                       value="{{ csrf_token() }}">
+
+                <!-- TARGET CAREER -->
+                <div class="mb-3">
+                    <label class="form-label small">
+                        Target Career
+                    </label>
+
+                    <select
+                        name="career_role_id"
+                        class="form-select"
+                        required
+                    >
+
+                        <option value="" disabled selected>
+                            Select a career...
+                        </option>
+
+                        {% for career in careers %}
+                        <option value="{{ career.id }}">
+                            {{ career.title }}
+                        </option>
+                        {% endfor %}
+
+                    </select>
+                </div>
+
+                <!-- QUESTION TYPE -->
+                <div class="mb-3">
+                    <label class="form-label small">
+                        Question Type
+                    </label>
+
+                    <select
+                        name="question_type"
+                        class="form-select"
+                    >
+
+                        <option value="">
+                            Mixed (HR + Technical + Coding + Behavioral + Scenario)
+                        </option>
+
+                        <option value="HR">
+                            HR Only
+                        </option>
+
+                        <option value="Technical">
+                            Technical Only
+                        </option>
+
+                        <option value="Coding">
+                            Coding Only
+                        </option>
+
+                        <option value="Behavioral">
+                            Behavioral Only
+                        </option>
+
+                        <option value="Scenario">
+                            Scenario-based Only
+                        </option>
+
+                    </select>
+                </div>
+
+                <!-- START BUTTON -->
+                <button
+                    class="btn btn-gradient w-100"
+                    type="submit"
+                >
+                    <i class="fa-solid fa-play me-2"></i>
+                    Start Interview
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+
+
+    <!-- PAST ATTEMPTS -->
+    <div class="col-lg-7">
+
+        <div class="dashboard-panel">
+
+            <h6 class="panel-title">
+                Past Attempts
+            </h6>
+
+            {% for r in history %}
+
+            <div class="d-flex justify-content-between align-items-center py-3
+                        {% if not loop.last %}border-bottom{% endif %}">
+
+                <div>
+
+                    <p class="mb-0 fw-semibold small">
+                        {{ r.career_role.title if r.career_role else 'General' }}
+                    </p>
+
+                    <span
+                        class="text-muted"
+                        style="font-size:0.75rem;"
+                    >
+                        {{ r.taken_at.strftime('%b %d, %Y') }}
+                    </span>
+
+                </div>
+
+                <div class="d-flex gap-2">
+
+                    <span class="badge-pill">
+                        {{ "%.0f"|format(r.interview_score) }}% score
+                    </span>
+
+                    <span class="badge-pill">
+                        {{ "%.0f"|format(r.readiness_score) }}% ready
+                    </span>
+
+                </div>
+
+            </div>
+
+            {% else %}
+
+            <p class="text-muted small mb-0">
+                No interview attempts yet.
+            </p>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

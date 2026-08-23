@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block body_class %}app-shell{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">{% endblock %}
+
+{% block body %}
+<div class="d-flex">
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand"><i class="fa-solid fa-shield-halved"></i><span class="brand-text">Admin Panel</span></div>
+        <nav class="sidebar-nav">
+            <a class="sidebar-link {% if request.endpoint == 'admin.dashboard' %}active{% endif %}" href="{{ url_for('admin.dashboard') }}"><i class="fa-solid fa-gauge-high"></i><span>Dashboard</span></a>
+            <a class="sidebar-link {% if request.endpoint in ['admin.students','admin.student_detail'] %}active{% endif %}" href="{{ url_for('admin.students') }}"><i class="fa-solid fa-user-graduate"></i><span>Students</span></a>
+            <a class="sidebar-link {% if request.endpoint == 'admin.skills' %}active{% endif %}" href="{{ url_for('admin.skills') }}"><i class="fa-solid fa-layer-group"></i><span>Industry Skills</span></a>
+            <a class="sidebar-link {% if 'career' in request.endpoint %}active{% endif %}" href="{{ url_for('admin.careers') }}"><i class="fa-solid fa-briefcase"></i><span>Career Roles</span></a>
+            <a class="sidebar-link {% if 'drive' in request.endpoint %}active{% endif %}" href="{{ url_for('admin.drives') }}"><i class="fa-solid fa-building"></i><span>Campus Drives</span></a>
+            <a class="sidebar-link {% if 'guide' in request.endpoint %}active{% endif %}" href="{{ url_for('admin.guides') }}"><i class="fa-solid fa-book"></i><span>Career Guides</span></a>
+            <a class="sidebar-link {% if request.endpoint == 'admin.analytics' %}active{% endif %}" href="{{ url_for('admin.analytics') }}"><i class="fa-solid fa-chart-pie"></i><span>Analytics</span></a>
+            <div class="sidebar-divider"></div>
+            <a class="sidebar-link {% if request.endpoint == 'admin.settings' %}active{% endif %}" href="{{ url_for('admin.settings') }}"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
+            <a class="sidebar-link" href="{{ url_for('auth.logout') }}"><i class="fa-solid fa-right-from-bracket"></i><span>Logout</span></a>
+        </nav>
+    </aside>
+    <div class="app-main">
+        <header class="topbar">
+            <button id="sidebar-toggle" class="btn btn-icon d-lg-none"><i class="fa-solid fa-bars"></i></button>
+            <h1 class="topbar-title">{% block page_title %}Admin{% endblock %}</h1>
+            <div class="topbar-actions"><span class="badge-pill">{{ current_user.name }}</span></div>
+        </header>
+        <div class="app-content">{% block content %}{% endblock %}</div>
+    </div>
+</div>
+{% endblock %}

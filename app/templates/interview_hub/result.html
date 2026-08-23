@@ -1,0 +1,76 @@
+{% extends "dashboard/_app_base.html" %}
+{% block title %}Interview Results{% endblock %}
+{% block page_title %}Interview Results{% endblock %}
+
+{% block content %}
+<div class="row g-4 mb-4">
+    <div class="col-md-6">
+        <div class="dashboard-panel text-center">
+            <div class="progress-ring-wrap">
+                <canvas id="interviewRing" width="160" height="160"></canvas>
+                <div class="mock-score-label" style="position:absolute;">
+                    <span class="score-value">{{ "%.0f"|format(result.interview_score) }}%</span>
+                    <span class="score-caption">Interview Score</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="dashboard-panel text-center">
+            <div class="progress-ring-wrap">
+                <canvas id="readinessRing" width="160" height="160"></canvas>
+                <div class="mock-score-label" style="position:absolute;">
+                    <span class="score-value">{{ "%.0f"|format(result.readiness_score) }}%</span>
+                    <span class="score-caption">Readiness Score</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="dashboard-panel mb-4">
+    <h6 class="panel-title">Overall Feedback</h6>
+    <p class="text-secondary small mb-0">{{ result.overall_feedback }}</p>
+</div>
+
+<div class="dashboard-panel">
+    <h6 class="panel-title">Question-by-Question Breakdown</h6>
+    {% for item in result.scored_answers %}
+    <div class="py-3 {% if not loop.last %}border-bottom{% endif %}">
+        <div class="d-flex justify-content-between align-items-start mb-2">
+            <p class="fw-semibold small mb-0">{{ item.question.question_text }}</p>
+            <span class="badge-pill">{{ item.score }}%</span>
+        </div>
+        <p class="text-muted small mb-2">{{ item.feedback }}</p>
+        {% if item.sample_answer %}
+        <div class="p-2 rounded mb-2" style="background: var(--bg-soft);">
+            <p class="small mb-1"><i class="fa-solid fa-lightbulb text-warning me-1"></i><strong>Sample Answer:</strong> {{ item.sample_answer }}</p>
+            {% if item.explanation %}<p class="small text-muted mb-0"><strong>Why this works:</strong> {{ item.explanation }}</p>{% endif %}
+        </div>
+        {% endif %}
+        {% if item.key_points %}
+        <p class="small mb-1"><strong>Key points to cover:</strong></p>
+        <ul class="small mb-2">{% for kp in item.key_points %}<li>{{ kp }}</li>{% endfor %}</ul>
+        {% endif %}
+        {% if item.evaluation_criteria %}
+        <p class="small text-muted mb-0"><strong>Evaluated on:</strong> {{ item.evaluation_criteria }}</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+
+<div class="mt-4 d-flex gap-2">
+    <a href="{{ url_for('interview_hub.index') }}" class="btn btn-outline-glass btn-sm">Practice Again</a>
+    <a href="{{ url_for('reports.index') }}" class="btn btn-gradient btn-sm"><i class="fa-solid fa-file-pdf me-1"></i>Download Interview Report (PDF)</a>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        renderScoreRing('interviewRing', {{ result.interview_score }}, { color: SMX_CHART_COLORS.primary });
+        renderScoreRing('readinessRing', {{ result.readiness_score }}, { color: SMX_CHART_COLORS.success });
+    });
+</script>
+{% endblock %}

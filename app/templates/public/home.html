@@ -1,0 +1,768 @@
+{% extends "base.html" %}
+
+{% block title %}Personalized Career Advisor for Diploma Students{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/landing.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- =========================================================
+     HERO SECTION
+========================================================= -->
+<section class="hero-section">
+
+    <div id="hero-particles"></div>
+
+    <div class="container position-relative">
+
+        <div class="row align-items-center min-vh-hero">
+
+            <!-- LEFT CONTENT -->
+            <div class="col-lg-6 hero-content"
+                 data-aos="fade-right">
+
+                <span class="badge-pill mb-3">
+                    <i class="fa-solid fa-sparkles me-1"></i>
+                    AI-Powered Career Guidance
+                </span>
+
+                <h1 class="hero-title">
+                    Build Your
+                    <span class="text-gradient">
+                        Career
+                    </span>
+                    with SkillMatrix AI
+                </h1>
+
+                <p class="hero-subtitle">
+                    SkillMatrix AI analyzes your skills, projects,
+                    resume, CGPA and employability...
+                </p>
+
+                <div class="hero-buttons mt-4">
+
+                    <a href="{{ url_for('auth.register') }}"
+                       class="btn btn-gradient btn-lg">
+
+                        Get Started Free
+                        <i class="fa-solid fa-arrow-right ms-2"></i>
+
+                    </a>
+
+                    <a href="{{ url_for('career_explorer.index') }}"
+                       class="btn btn-outline-glass btn-lg">
+
+                        <i class="fa-solid fa-compass me-2"></i>
+                        Explore Careers
+
+                    </a>
+
+                </div>
+
+                <!-- HERO STATS -->
+                <div class="hero-stats mt-5">
+
+                    <div class="hero-stat">
+                        <h3>
+                            <span data-countup="{{ total_careers }}">0</span>+
+                        </h3>
+                        <p>Career Roles</p>
+                    </div>
+
+                    <div class="hero-stat">
+                        <h3>
+                            <span data-countup="100">0</span>%
+                        </h3>
+                        <p>Free for Students</p>
+                    </div>
+
+                    <div class="hero-stat">
+                        <h3>AI</h3>
+                        <p>Powered Insights</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RIGHT SIDE - EMPLOYABILITY VISUAL
+            ================================================= -->
+            <div class="col-lg-6"
+                 data-aos="zoom-in"
+                 data-aos-delay="150">
+
+                <div class="hero-visual">
+
+                    <!-- Decorative glow -->
+                    <div class="visual-glow glow-one"></div>
+                    <div class="visual-glow glow-two"></div>
+
+                    <!-- MAIN SCORE CARD -->
+                    <div class="employability-card">
+
+                        <div class="score-card-header">
+
+                            <div>
+                                <span class="score-small-title">
+                                    AI Career Analysis
+                                </span>
+
+                                <h4>
+                                    Employability
+                                </h4>
+                            </div>
+
+                            <div class="ai-status">
+                                <span></span>
+                                AI Active
+                            </div>
+
+                        </div>
+
+
+                        <!-- SCORE CIRCLE -->
+                        <div class="score-visual">
+
+                            <div class="score-ring">
+
+                                <div class="score-ring-inner">
+
+                                    <div class="score-number"
+                                         id="employabilityScore">
+                                        0%
+                                    </div>
+
+                                    <div class="score-label">
+                                        Employability Score
+                                    </div>
+
+                                    <div class="score-status">
+                                        <i class="fa-solid fa-arrow-trend-up"></i>
+                                        Excellent Readiness
+                                    </div>
+
+                                </div>
+
+                                <!-- MOVING DOT -->
+                                <div class="score-marker"></div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- SCORE INFORMATION -->
+                        <div class="score-info">
+
+                            <div class="score-info-item">
+
+                                <div class="score-info-icon">
+                                    <i class="fa-solid fa-code"></i>
+                                </div>
+
+                                <div>
+                                    <strong>Skills</strong>
+                                    <span>Strong</span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="score-info-item">
+
+                                <div class="score-info-icon">
+                                    <i class="fa-solid fa-file-lines"></i>
+                                </div>
+
+                                <div>
+                                    <strong>Resume</strong>
+                                    <span>ATS Ready</span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="score-info-item">
+
+                                <div class="score-info-icon">
+                                    <i class="fa-solid fa-comments"></i>
+                                </div>
+
+                                <div>
+                                    <strong>Interview</strong>
+                                    <span>Ready</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- BOTTOM PROGRESS -->
+                        <div class="readiness-progress">
+
+                            <div class="progress-heading">
+
+                                <span>
+                                    Placement Readiness
+                                </span>
+
+                                <strong>82%</strong>
+
+                            </div>
+
+                            <div class="custom-progress">
+
+                                <div class="custom-progress-bar"
+                                     id="readinessBar">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FLOATING CARD 1 -->
+                    <div class="floating-card floating-card-one">
+
+                        <div class="floating-icon">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+
+                        <div>
+                            <strong>Career Match</strong>
+                            <span>94% Match</span>
+                        </div>
+
+                    </div>
+
+
+                    <!-- FLOATING CARD 2 -->
+                    <div class="floating-card floating-card-two">
+
+                        <div class="floating-icon green">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+
+                        <div>
+                            <strong>Skill Gap</strong>
+                            <span>12 Skills Ready</span>
+                        </div>
+
+                    </div>
+
+
+                    <!-- FLOATING CARD 3 -->
+                    <div class="floating-card floating-card-three">
+
+                        <div class="floating-icon orange">
+                            <i class="fa-solid fa-rocket"></i>
+                        </div>
+
+                        <div>
+                            <strong>Placement</strong>
+                            <span>Ready to Apply</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SECTORS
+========================================================= -->
+
+<section class="section-py bg-soft">
+
+    <div class="container">
+
+        <div class="text-center mb-5"
+             data-aos="fade-up">
+
+            <span class="badge-pill">
+                Every Path, Covered
+            </span>
+
+            <h2 class="section-title">
+                From IT to Government to Healthcare
+            </h2>
+
+            <p class="section-subtitle">
+                100+ career roles across major sectors —
+                not just technology.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            {% set sector_images = [
+
+                ("software", "IT & Software"),
+                ("ai-robot", "AI & Machine Learning"),
+                ("engineering", "Core Engineering"),
+                ("government-jobs", "Government Jobs"),
+                ("healthcare", "Healthcare"),
+                ("analytics", "Data & Analytics")
+
+            ] %}
+
+
+            {% for img, label in sector_images %}
+
+            <div class="col-6 col-md-4 col-lg-2"
+                 data-aos="zoom-in"
+                 data-aos-delay="{{ loop.index0 * 50 }}">
+
+                <div class="sector-tile text-center">
+
+                    <img
+                        src="{{ url_for('static',
+                        filename='images/' + img + '.svg') }}"
+                        alt="{{ label }}"
+                        class="sector-tile-img mb-2">
+
+                    <p class="small fw-semibold mb-0">
+                        {{ label }}
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FEATURES
+========================================================= -->
+
+<section class="section-py">
+
+    <div class="container">
+
+        <div class="text-center mb-5"
+             data-aos="fade-up">
+
+            <span class="badge-pill">
+                Why SkillMatrix AI
+            </span>
+
+            <h2 class="section-title">
+                Everything You Need to Get Placed
+            </h2>
+
+            <p class="section-subtitle">
+                One platform with all the tools needed
+                for career preparation.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            {% set features = [
+
+                (
+                    "fa-compass",
+                    "Career Explorer",
+                    "Explore 100+ career roles with salary,
+                    roadmap and required skills."
+                ),
+
+                (
+                    "fa-chart-simple",
+                    "Skill Gap Analysis",
+                    "Find exactly which skills you are missing
+                    for your target career."
+                ),
+
+                (
+                    "fa-gauge-high",
+                    "Employability Score",
+                    "Get an intelligent score based on CGPA,
+                    skills, projects and more."
+                ),
+
+                (
+                    "fa-file-lines",
+                    "Resume Analyzer",
+                    "Analyze your resume and improve your ATS score."
+                ),
+
+                (
+                    "fa-comments",
+                    "AI Mock Interviews",
+                    "Practice HR, technical and coding interviews."
+                ),
+
+                (
+                    "fa-briefcase",
+                    "Placement Tracker",
+                    "Track your placement preparation
+                    from start to finish."
+                )
+
+            ] %}
+
+
+            {% for icon, title, desc in features %}
+
+            <div class="col-md-6 col-lg-4"
+                 data-aos="fade-up"
+                 data-aos-delay="{{ loop.index0 * 80 }}">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        <i class="fa-solid {{ icon }}"></i>
+                    </div>
+
+                    <h5>
+                        {{ title }}
+                    </h5>
+
+                    <p>
+                        {{ desc }}
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     TRENDING CAREERS
+========================================================= -->
+
+{% if trending_careers %}
+
+<section class="section-py bg-soft">
+
+    <div class="container">
+
+        <div class="d-flex justify-content-between
+                    align-items-end mb-4">
+
+            <div>
+
+                <span class="badge-pill">
+                    Trending Now
+                </span>
+
+                <h2 class="section-title mb-0">
+                    Popular Career Paths
+                </h2>
+
+            </div>
+
+
+            <a href="{{ url_for('career_explorer.index') }}"
+               class="btn btn-link">
+
+                View All
+                <i class="fa-solid fa-arrow-right ms-1"></i>
+
+            </a>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            {% for career in trending_careers %}
+
+            <div class="col-md-6 col-lg-4">
+
+                <a href="{{ url_for(
+                    'career_explorer.detail',
+                    slug=career.slug
+                ) }}"
+                   class="career-card-link">
+
+                    <div class="career-card">
+
+                        <span class="career-category">
+                            {{ career.category }}
+                        </span>
+
+                        <h5>
+                            {{ career.title }}
+                        </h5>
+
+                        {% if career.salary_min
+                              and career.salary_max %}
+
+                        <p class="career-salary">
+
+                            <i class="fa-solid
+                                      fa-sack-dollar me-1"></i>
+
+                            {{ "{:,}".format(
+                                career.salary_min
+                            ) }}
+
+                            –
+
+                            {{ "{:,}".format(
+                                career.salary_max
+                            ) }}
+
+                        </p>
+
+                        {% endif %}
+
+                    </div>
+
+                </a>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endif %}
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="cta-section">
+
+    <div class="container text-center">
+
+        <h2>
+            Ready to Plan Your Career?
+        </h2>
+
+        <p>
+            Join SkillMatrix AI and get your
+            personalized career roadmap.
+        </p>
+
+        <a href="{{ url_for('auth.register') }}"
+           class="btn btn-light btn-lg">
+
+            Create Free Account
+
+        </a>
+
+    </div>
+
+</section>
+
+
+{% endblock %}
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+{% block extra_js %}
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* =========================================
+       EMPLOYABILITY SCORE ANIMATION
+    ========================================= */
+
+    const scoreElement =
+        document.getElementById("employabilityScore");
+
+    const progressBar =
+        document.getElementById("readinessBar");
+
+    const scoreRing =
+        document.querySelector(".score-ring");
+
+
+    const finalScore = 82;
+
+    let currentScore = 0;
+
+
+    function animateScore() {
+
+        if (currentScore <= finalScore) {
+
+            scoreElement.textContent =
+                currentScore + "%";
+
+            progressBar.style.width =
+                currentScore + "%";
+
+            scoreRing.style.setProperty(
+                "--score",
+                (currentScore * 3.6) + "deg"
+            );
+
+            currentScore++;
+
+            setTimeout(animateScore, 25);
+
+        }
+
+    }
+
+
+    setTimeout(animateScore, 500);
+
+
+    /* =========================================
+       HERO STATS COUNT UP
+    ========================================= */
+
+    document.querySelectorAll(
+        "[data-countup]"
+    ).forEach(function (element) {
+
+        const target =
+            parseInt(element.dataset.countup);
+
+        let value = 0;
+
+        const duration = 1200;
+
+        const stepTime =
+            Math.max(
+                20,
+                duration / target
+            );
+
+
+        const counter =
+            setInterval(function () {
+
+                value++;
+
+                element.textContent =
+                    value;
+
+                if (value >= target) {
+
+                    clearInterval(counter);
+
+                }
+
+            }, stepTime);
+
+    });
+
+
+    /* =========================================
+       PARTICLES
+    ========================================= */
+
+    if (window.particlesJS) {
+
+        particlesJS(
+            "hero-particles",
+            {
+
+                particles: {
+
+                    number: {
+                        value: 28
+                    },
+
+                    color: {
+                        value: "#7C3AED"
+                    },
+
+                    opacity: {
+                        value: 0.15
+                    },
+
+                    size: {
+                        value: 3
+                    },
+
+                    line_linked: {
+
+                        enable: true,
+
+                        color: "#7C3AED",
+
+                        opacity: 0.10
+
+                    },
+
+                    move: {
+
+                        enable: true,
+
+                        speed: 0.5
+
+                    }
+
+                },
+
+                interactivity: {
+
+                    events: {
+
+                        onhover: {
+                            enable: false
+                        },
+
+                        onclick: {
+                            enable: false
+                        }
+
+                    }
+
+                },
+
+                retina_detect: true
+
+            }
+        );
+
+    }
+
+});
+
+</script>
+
+{% endblock %}

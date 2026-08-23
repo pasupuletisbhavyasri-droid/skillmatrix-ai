@@ -1,0 +1,192 @@
+```html
+{% extends "dashboard/_app_base.html" %}
+
+{% block title %}Reports{% endblock %}
+{% block page_title %}Reports{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-panel mb-4">
+
+    <h6 class="panel-title">Generate a New Report</h6>
+
+    <div class="row g-3">
+
+        {% for report_type, label in [
+            ("Employability", "Employability Report"),
+            ("Skill", "Skill Gap Report"),
+            ("Resume", "Resume Report"),
+            ("Interview", "Interview Report"),
+            ("Placement", "Placement Report"),
+            ("LearningProgress", "Learning Progress Report"),
+            ("Communication", "Communication Report"),
+            ("CGPA", "CGPA Report")
+        ] %}
+
+        <div class="col-md-4">
+
+            <form
+                method="POST"
+                action="{{ url_for('reports.generate', report_type=report_type) }}"
+            >
+
+                <input
+                    type="hidden"
+                    name="csrf_token"
+                    value="{{ csrf_token() }}"
+                >
+
+                <button
+                    type="submit"
+                    class="btn btn-outline-glass w-100 text-start p-3"
+                >
+                    <i class="fa-solid fa-file-pdf me-2 text-danger"></i>
+                    {{ label }}
+                </button>
+
+            </form>
+
+        </div>
+
+        {% endfor %}
+
+
+        <!-- CAREER REPORT -->
+
+        <div class="col-md-4">
+
+            <form
+                method="POST"
+                id="careerReportForm"
+            >
+
+                <input
+                    type="hidden"
+                    name="csrf_token"
+                    value="{{ csrf_token() }}"
+                >
+
+                <div class="d-flex gap-2">
+
+                    <select
+                        id="careerReportSelect"
+                        class="form-select"
+                    >
+
+                        {% for career in careers %}
+
+                        <option value="{{ career.id }}">
+                            {{ career.title }}
+                        </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                    <button
+                        type="submit"
+                        class="btn btn-gradient"
+                    >
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- REPORT HISTORY -->
+
+<div class="dashboard-panel">
+
+    <h6 class="panel-title">Report History</h6>
+
+    {% for report in reports %}
+
+    <div
+        class="d-flex justify-content-between align-items-center py-3
+        {% if not loop.last %}border-bottom{% endif %}"
+    >
+
+        <div>
+
+            <p class="mb-0 fw-semibold small">
+                {{ report.report_type }} Report
+            </p>
+
+            <span
+                class="text-muted"
+                style="font-size:0.75rem;"
+            >
+
+                {% if report.generated_at %}
+                    {{ report.generated_at.strftime('%b %d, %Y %I:%M %p') }}
+                {% else %}
+                    Date unavailable
+                {% endif %}
+
+            </span>
+
+        </div>
+
+        <a
+            href="{{ url_for('reports.download', report_id=report.id) }}"
+            class="btn btn-gradient btn-sm"
+        >
+            <i class="fa-solid fa-download me-1"></i>
+            Download
+        </a>
+
+    </div>
+
+    {% else %}
+
+    <p class="text-muted small mb-0">
+        No reports generated yet.
+    </p>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
+
+
+{% block extra_js %}
+
+<script>
+
+document
+    .getElementById("careerReportForm")
+    .addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        const roleId =
+            document.getElementById(
+                "careerReportSelect"
+            ).value;
+
+        if (!roleId) {
+            alert("Please select a career role.");
+            return;
+        }
+
+        this.action =
+            "{{ url_for('reports.generate_career', career_role_id=0) }}"
+            .replace("/0", "/" + roleId);
+
+        this.submit();
+
+    });
+
+</script>
+
+{% endblock %}
+```

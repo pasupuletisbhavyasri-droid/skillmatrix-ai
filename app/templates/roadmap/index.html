@@ -1,0 +1,475 @@
+{% extends "base.html" %}
+
+{% block title %}Learning Roadmap{% endblock %}
+
+{% block content %}
+
+<div class="container py-5" style="margin-top: 5rem; max-width: 1100px;">
+
+    <!-- HEADER -->
+
+    <div class="text-center mb-5">
+
+        <span class="badge-pill">
+            Personalized Career Learning
+        </span>
+
+        <h2 class="section-title mt-3">
+            📚 Learning Roadmap
+        </h2>
+
+        <p class="text-muted">
+            Build the skills you need for your target career.
+        </p>
+
+    </div>
+
+
+    {% if career %}
+
+    <!-- CAREER SUMMARY -->
+
+    <div class="dashboard-panel glass-card mb-4">
+
+        <div class="row align-items-center">
+
+            <div class="col-md-8">
+
+                <small class="text-muted">
+                    TARGET CAREER
+                </small>
+
+                <h3 class="fw-bold mt-1">
+                    🎯 {{ career.title }}
+                </h3>
+
+                {% if career.description %}
+
+                <p class="text-muted mb-0">
+                    {{ career.description }}
+                </p>
+
+                {% endif %}
+
+            </div>
+
+
+            <div class="col-md-4 text-md-end mt-3 mt-md-0">
+
+                <div class="text-muted small">
+                    Skill Progress
+                </div>
+
+                <div class="fs-2 fw-bold text-primary">
+                    {{ progress }}%
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROGRESS BAR -->
+
+        <div class="progress mt-4" style="height: 12px;">
+
+            <div
+                class="progress-bar bg-primary"
+                role="progressbar"
+                style="width: {{ progress }}%;"
+                aria-valuenow="{{ progress }}"
+                aria-valuemin="0"
+                aria-valuemax="100"
+            ></div>
+
+        </div>
+
+
+        <div class="d-flex justify-content-between mt-2">
+
+            <small class="text-muted">
+                {{ total_required - total_missing }}
+                completed
+            </small>
+
+            <small class="text-muted">
+                {{ total_missing }}
+                remaining
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <!-- CURRENT SKILLS -->
+
+    <div class="dashboard-panel glass-card mb-4">
+
+        <h5 class="fw-bold mb-3">
+            🧠 Your Current Skills
+        </h5>
+
+        {% if student.skills %}
+
+        <div class="d-flex flex-wrap gap-2">
+
+            {% for student_skill in student.skills %}
+
+                {% if student_skill.skill %}
+
+                <span class="badge bg-success-subtle text-success px-3 py-2">
+
+                    ✓ {{ student_skill.skill.name }}
+
+                </span>
+
+                {% endif %}
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <p class="text-muted mb-0">
+            No skills have been added to your profile yet.
+        </p>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- SKILL GAP -->
+
+    <div class="dashboard-panel glass-card mb-4">
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+
+            <div>
+
+                <h5 class="fw-bold mb-1">
+                    📊 Your Skill Gap
+                </h5>
+
+                <small class="text-muted">
+                    Skills required for {{ career.title }}
+                </small>
+
+            </div>
+
+            <span class="badge bg-warning-subtle text-warning px-3 py-2">
+
+                {{ total_missing }} Missing
+
+            </span>
+
+        </div>
+
+
+        {% if missing_skills %}
+
+        <div class="row g-3">
+
+            {% for career_skill in missing_skills %}
+
+            <div class="col-md-6">
+
+                <div
+                    class="border rounded-3 p-3 h-100"
+                    style="background: rgba(99,102,241,0.04);"
+                >
+
+                    <div class="d-flex justify-content-between">
+
+                        <div>
+
+                            <h6 class="fw-bold mb-1">
+                                {{ career_skill.skill.name }}
+                            </h6>
+
+                            <small class="text-muted">
+                                Required:
+                                {{ career_skill.required_level }}
+                            </small>
+
+                        </div>
+
+
+                        <span class="badge bg-danger-subtle text-danger">
+
+                            {{ career_skill.priority }}
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="alert alert-success mb-0">
+
+            🎉 Excellent! You currently have all the
+            required skills for this career.
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- LEARNING ROADMAP -->
+
+    <h4 class="fw-bold mb-4">
+        🚀 Your Learning Plan
+    </h4>
+
+
+    <!-- PHASE 1 -->
+
+    <div class="dashboard-panel glass-card mb-3">
+
+        <h5 class="fw-bold">
+            Phase 1 — Foundation
+        </h5>
+
+        <ul class="mt-3 mb-0">
+
+            <li>
+                Strengthen programming fundamentals
+            </li>
+
+            <li>
+                Improve problem-solving skills
+            </li>
+
+            <li>
+                Learn Git and GitHub basics
+            </li>
+
+            <li>
+                Practice basic SQL concepts
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- PHASE 2 -->
+
+    <div class="dashboard-panel glass-card mb-3">
+
+        <h5 class="fw-bold">
+            Phase 2 — Career Skills
+        </h5>
+
+        {% if missing_skills %}
+
+        <div class="row g-3 mt-2">
+
+            {% for career_skill in missing_skills %}
+
+            <div class="col-md-6">
+
+                <div class="border rounded-3 p-3">
+
+                    <div class="d-flex align-items-center">
+
+                        <span class="fs-4 me-3">
+                            🧠
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                {{ career_skill.skill.name }}
+                            </strong>
+
+                            <div class="small text-muted">
+
+                                {{ career_skill.required_level }}
+
+                                ·
+
+                                {{ career_skill.priority }}
+                                priority
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <p class="text-success mt-3 mb-0">
+            ✓ All career skills are currently covered.
+        </p>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- PHASE 3 -->
+
+    <div class="dashboard-panel glass-card mb-3">
+
+        <h5 class="fw-bold">
+            Phase 3 — Practical Projects
+        </h5>
+
+        <ul class="mt-3 mb-0">
+
+            <li>
+                Build 2–3 real-world projects
+            </li>
+
+            <li>
+                Use your newly learned skills
+            </li>
+
+            <li>
+                Upload projects to GitHub
+            </li>
+
+            <li>
+                Create professional README files
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- PHASE 4 -->
+
+    <div class="dashboard-panel glass-card mb-3">
+
+        <h5 class="fw-bold">
+            Phase 4 — Resume & Interview
+        </h5>
+
+        <ul class="mt-3 mb-0">
+
+            <li>
+                Add new skills to your resume
+            </li>
+
+            <li>
+                Add projects to your portfolio
+            </li>
+
+            <li>
+                Practice technical interview questions
+            </li>
+
+            <li>
+                Practice HR interview questions
+            </li>
+
+            <li>
+                Improve communication skills
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- PHASE 5 -->
+
+    <div class="dashboard-panel glass-card mb-4">
+
+        <h5 class="fw-bold">
+            Phase 5 — Placement Preparation
+        </h5>
+
+        <ul class="mt-3 mb-0">
+
+            <li>
+                Practice aptitude questions
+            </li>
+
+            <li>
+                Apply for internships and jobs
+            </li>
+
+            <li>
+                Practice role-specific interviews
+            </li>
+
+            <li>
+                Track your employability score
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- NEXT ACTION -->
+
+    <div class="alert alert-primary">
+
+        <strong>💡 Recommended Next Step</strong>
+
+        <p class="mb-0 mt-2">
+
+            Start with your highest-priority missing skill.
+            For your current profile, begin with
+
+            {% if missing_skills %}
+
+            <strong>
+                {{ missing_skills[0].skill.name }}
+            </strong>
+
+            {% else %}
+
+            <strong>
+                practical project development
+            </strong>
+
+            {% endif %}
+
+            and build a small project around it.
+
+        </p>
+
+    </div>
+
+
+    {% else %}
+
+    <div class="alert alert-warning">
+
+        ⚠️ No active career role was found for your profile.
+
+        Please select a career from Career Explorer.
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

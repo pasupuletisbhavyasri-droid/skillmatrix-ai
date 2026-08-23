@@ -1,0 +1,33 @@
+{% extends "admin/_admin_base.html" %}
+{% block title %}{{ mode }} Career Role{% endblock %}
+{% block page_title %}{{ mode }} Career Role{% endblock %}
+
+{% block content %}
+<div class="dashboard-panel">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="row g-3">
+            <div class="col-md-6">{{ form.title.label(class="form-label small") }}{{ form.title(class="form-control") }}</div>
+            <div class="col-md-6">{{ form.slug.label(class="form-label small") }}{{ form.slug(class="form-control") }}</div>
+            <div class="col-md-4">{{ form.category.label(class="form-label small") }}{{ form.category(class="form-control") }}</div>
+            <div class="col-md-4">{{ form.sector.label(class="form-label small") }}{{ form.sector(class="form-select") }}</div>
+            <div class="col-md-4">{{ form.industry_demand_score.label(class="form-label small") }}{{ form.industry_demand_score(class="form-control") }}</div>
+            <div class="col-12">{{ form.description.label(class="form-label small") }}{{ form.description(class="form-control", rows=3) }}</div>
+            <div class="col-12">{{ form.responsibilities.label(class="form-label small") }}{{ form.responsibilities(class="form-control", rows=3) }}</div>
+            <div class="col-md-6">{{ form.salary_min.label(class="form-label small") }}{{ form.salary_min(class="form-control") }}</div>
+            <div class="col-md-6">{{ form.salary_max.label(class="form-label small") }}{{ form.salary_max(class="form-control") }}</div>
+            <div class="col-md-6">{{ form.growth_outlook.label(class="form-label small") }}{{ form.growth_outlook(class="form-control") }}</div>
+            <div class="col-12">{{ form.future_scope.label(class="form-label small") }}{{ form.future_scope(class="form-control", rows=2) }}</div>
+            <div class="col-12">{{ form.career_growth.label(class="form-label small") }}{{ form.career_growth(class="form-control", rows=2) }}</div>
+            <div class="col-12">{{ form.resume_tips.label(class="form-label small") }}{{ form.resume_tips(class="form-control", rows=2) }}</div>
+            <div class="col-12">{{ form.placement_tips.label(class="form-label small") }}{{ form.placement_tips(class="form-control", rows=2) }}</div>
+            <div class="col-md-4">{{ form.required_certifications_raw.label(class="form-label small") }}{{ form.required_certifications_raw(class="form-control", rows=3) }}</div>
+            <div class="col-md-4">{{ form.required_exams_raw.label(class="form-label small") }}{{ form.required_exams_raw(class="form-control", rows=3) }}</div>
+            <div class="col-md-4">{{ form.companies_hiring_raw.label(class="form-label small") }}{{ form.companies_hiring_raw(class="form-control", rows=3) }}</div>
+            <div class="col-12 form-check">{{ form.is_active(class="form-check-input") }} {{ form.is_active.label(class="form-check-label") }}</div>
+        </div>
+        <button type="submit" class="btn btn-gradient mt-3">{{ form.submit.label.text }}</button>
+        <a href="{{ url_for('admin.careers') }}" class="btn btn-outline-glass mt-3">Cancel</a>
+    </form>
+</div>
+{% endblock %}

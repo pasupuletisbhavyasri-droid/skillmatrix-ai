@@ -1,0 +1,128 @@
+{% extends "dashboard/_app_base.html" %}
+{% block title %}Learning Hub{% endblock %}
+{% block page_title %}Learning Hub{% endblock %}
+
+{% block content %}
+<div class="text-center mb-4" data-aos="fade-down">
+    <img src="{{ url_for('static', filename='images/learning.svg') }}" alt="Learning Hub" style="max-width:150px;">
+</div>
+<div class="dashboard-panel mb-4">
+    <form method="GET" class="row g-2 align-items-end">
+        <div class="col-md-8">
+            <label class="form-label small">Plan my learning for:</label>
+            <select name="role_slug" class="form-select" onchange="this.form.submit()">
+                <option value="">Auto (my best-matching career)</option>
+                {% for career in all_careers %}
+                <option value="{{ career.slug }}" {% if plan.target_role and plan.target_role.slug == career.slug %}selected{% endif %}>{{ career.title }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </form>
+</div>
+
+{% if not plan.target_role %}
+<div class="dashboard-panel text-center py-5">
+    <p class="text-muted">Add some skills to your profile to get a personalized learning plan.</p>
+    <a href="{{ url_for('profile.index') }}" class="btn btn-gradient btn-sm">Add Skills</a>
+</div>
+{% else %}
+
+<div class="dashboard-panel mb-4">
+    <h6 class="panel-title">Today's Focus</h6>
+    <p class="text-muted small mb-3">Toward becoming a <strong>{{ plan.target_role.title }}</strong></p>
+    {% if plan.daily_plan_today %}
+    <ul class="mb-0">
+        {% for task in plan.daily_plan_today %}
+        <li class="small mb-2">{{ task }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p class="text-success small mb-0"><i class="fa-solid fa-circle-check me-1"></i>You've matched every required skill for this career!</p>
+    {% endif %}
+</div>
+
+{% if plan.weekly_goals %}
+<div class="dashboard-panel mb-4">
+    <h6 class="panel-title">Weekly Roadmap</h6>
+    <div class="accordion" id="weeklyAccordion">
+        {% for week in plan.weekly_goals %}
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button {% if not loop.first %}collapsed{% endif %}" data-bs-toggle="collapse" data-bs-target="#week{{ week.week_number }}">
+                    Week {{ week.week_number }}: {{ week.focus_skill }}
+                    <span class="badge-pill ms-2">{{ week.priority }} priority</span>
+                </button>
+            </h2>
+            <div id="week{{ week.week_number }}" class="accordion-collapse collapse {% if loop.first %}show{% endif %}" data-bs-parent="#weeklyAccordion">
+                <div class="accordion-body">
+                    <ul class="mb-0 small">
+                        {% for task in week.tasks %}<li>{{ task }}</li>{% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<div class="row g-4">
+    {% if courses %}
+    <div class="col-md-6">
+        <div class="dashboard-panel h-100">
+            <h6 class="panel-title">Recommended Courses</h6>
+            {% for course in courses %}
+            <div class="d-flex justify-content-between py-2 {% if not loop.last %}border-bottom{% endif %}">
+                <div>
+                    <a href="{{ course.url }}" target="_blank" class="small fw-semibold">{{ course.title }}</a>
+                    <p class="text-muted mb-0" style="font-size:0.75rem;">{{ course.provider }}</p>
+                </div>
+                <span class="badge-pill">{{ course.level }}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    {% if project_ideas %}
+    <div class="col-md-6">
+        <div class="dashboard-panel h-100">
+            <h6 class="panel-title">Project Ideas for This Career</h6>
+            {% for idea in project_ideas %}
+            <div class="d-flex justify-content-between py-2 {% if not loop.last %}border-bottom{% endif %}">
+                <span class="small">{{ idea.title }}</span>
+                <span class="badge-pill">{{ idea.difficulty }}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+{% if resources_grouped %}
+<div class="dashboard-panel mt-4">
+    <h6 class="panel-title">Courses, Books, YouTube & Documentation</h6>
+    <div class="row g-3">
+        {% for rtype, items in resources_grouped.items() %}
+        <div class="col-md-4">
+            <p class="text-muted small mb-2 text-uppercase" style="font-size:0.75rem; letter-spacing:.04em;">
+                {% if rtype == 'Documentation' %}<i class="fa-solid fa-book me-1"></i>
+                {% elif rtype == 'YouTube' %}<i class="fa-brands fa-youtube me-1"></i>
+                {% elif rtype == 'Course' %}<i class="fa-solid fa-graduation-cap me-1"></i>
+                {% elif rtype == 'Certification' %}<i class="fa-solid fa-certificate me-1"></i>
+                {% else %}<i class="fa-solid fa-book-open me-1"></i>{% endif %}
+                {{ rtype }}
+            </p>
+            <ul class="list-unstyled small mb-0">
+                {% for item in items %}
+                <li class="mb-2">{{ item.title }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+{% endif %}
+{% endblock %}

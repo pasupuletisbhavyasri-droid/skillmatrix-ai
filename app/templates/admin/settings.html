@@ -1,0 +1,20 @@
+{% extends "admin/_admin_base.html" %}
+{% block title %}Settings{% endblock %}
+{% block page_title %}Settings{% endblock %}
+
+{% block content %}
+<div class="dashboard-panel" style="max-width:640px;">
+    <h6 class="panel-title">Platform Settings</h6>
+    <p class="text-muted small">Employability score weights and other platform-wide settings are currently configured in <code>app/config.py</code> (<code>EMPLOYABILITY_WEIGHTS</code>). A settings UI can be added here in a future iteration.</p>
+    <table class="table table-sm">
+        <tbody>
+            <tr><td>CGPA weight</td><td>20%</td></tr>
+            <tr><td>Technical Skills weight</td><td>30%</td></tr>
+            <tr><td>Projects weight</td><td>20%</td></tr>
+            <tr><td>Certifications weight</td><td>10%</td></tr>
+            <tr><td>Resume weight</td><td>10%</td></tr>
+            <tr><td>Communication weight</td><td>10%</td></tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

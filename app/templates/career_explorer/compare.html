@@ -1,0 +1,73 @@
+{% extends "dashboard/_app_base.html" if current_user.is_authenticated else "base.html" %}
+{% block title %}Compare Careers{% endblock %}
+{% block page_title %}Compare Careers{% endblock %}
+
+{% block content %}
+<div class="dashboard-panel mb-4">
+    <form method="GET" class="row g-3">
+        <div class="col-md-5">
+            <label class="form-label small">Career A</label>
+            <select name="a" class="form-select" onchange="this.form.submit()">
+                <option value="">Select a career...</option>
+                {% for role in all_roles %}
+                <option value="{{ role.slug }}" {% if role_a and role_a.slug == role.slug %}selected{% endif %}>{{ role.title }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-5">
+            <label class="form-label small">Career B</label>
+            <select name="b" class="form-select" onchange="this.form.submit()">
+                <option value="">Select a career...</option>
+                {% for role in all_roles %}
+                <option value="{{ role.slug }}" {% if role_b and role_b.slug == role.slug %}selected{% endif %}>{{ role.title }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </form>
+</div>
+
+{% if role_a and role_b %}
+<div class="row g-4 mb-4">
+    <div class="col-lg-6">
+        <div class="dashboard-panel h-100 text-center">
+            <canvas id="compareRadar" height="240"></canvas>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="dashboard-panel h-100">
+            <table class="table align-middle">
+                <thead><tr><th></th><th>{{ role_a.title }}</th><th>{{ role_b.title }}</th></tr></thead>
+                <tbody>
+                    <tr><td>Category</td><td>{{ role_a.category }}</td><td>{{ role_b.category }}</td></tr>
+                    <tr><td>Salary Min</td><td>{{ role_a.salary_min or '-' }}</td><td>{{ role_b.salary_min or '-' }}</td></tr>
+                    <tr><td>Salary Max</td><td>{{ role_a.salary_max or '-' }}</td><td>{{ role_b.salary_max or '-' }}</td></tr>
+                    <tr><td>Demand Score</td><td>{{ role_a.industry_demand_score }}</td><td>{{ role_b.industry_demand_score }}</td></tr>
+                    <tr><td>Growth</td><td>{{ role_a.growth_outlook or '-' }}</td><td>{{ role_b.growth_outlook or '-' }}</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="dashboard-panel text-center py-5">
+    <p class="text-muted">Select two careers above to compare them side by side.</p>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+{% if role_a and role_b %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        renderCareerCompareRadar(
+            'compareRadar',
+            ['Salary', 'Demand', 'Growth Potential'],
+            [{{ (role_a.salary_max or 0) / 10000 }}, {{ role_a.industry_demand_score }}, {{ role_a.industry_demand_score }}],
+            [{{ (role_b.salary_max or 0) / 10000 }}, {{ role_b.industry_demand_score }}, {{ role_b.industry_demand_score }}],
+            "{{ role_a.title }}", "{{ role_b.title }}"
+        );
+    });
+</script>
+{% endif %}
+{% endblock %}

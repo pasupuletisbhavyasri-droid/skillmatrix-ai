@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="container py-5" style="margin-top:6rem; max-width:440px;">
+    <div class="dashboard-panel glass-card">
+        <h3 class="mb-1">Welcome back</h3>
+        <p class="text-muted small mb-4">Sign in to continue to your dashboard.</p>
+        <form method="POST" novalidate>
+            {{ form.hidden_tag() }}
+            <div class="mb-3">
+                {{ form.email.label(class="form-label small") }}
+                {{ form.email(class="form-control") }}
+            </div>
+            <div class="mb-3">
+                {{ form.password.label(class="form-label small") }}
+                {{ form.password(class="form-control") }}
+            </div>
+            <div class="mb-4 form-check">
+                <input type="checkbox" class="form-check-input" name="remember_me" value="1" id="rememberMe">
+                <label class="form-check-label small" for="rememberMe">Remember me</label>
+            </div>
+            {{ form.submit(class="btn btn-gradient w-100") }}
+        </form>
+        <p class="text-center text-muted small mt-3 mb-0">
+            Don't have an account? <a href="{{ url_for('auth.register') }}">Create one</a>
+        </p>
+        <p class="text-center text-muted small mt-2 mb-0">
+            <a href="{{ url_for('auth.admin_login') }}">Admin login</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

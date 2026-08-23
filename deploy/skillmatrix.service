@@ -1,0 +1,15 @@
+[Unit]
+Description=SkillMatrix AI Flask App
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/skillmatrix_ai
+Environment="PATH=/var/www/skillmatrix_ai/venv/bin"
+EnvironmentFile=/var/www/skillmatrix_ai/.env
+ExecStart=/var/www/skillmatrix_ai/venv/bin/gunicorn -c gunicorn.conf.py wsgi:app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,49 @@
+{% extends "dashboard/_app_base.html" %}
+{% block title %}Resume Builder{% endblock %}
+{% block page_title %}Resume Builder{% endblock %}
+
+{% block content %}
+<div class="text-center mb-4" data-aos="fade-down">
+    <img src="{{ url_for('static', filename='images/resume.svg') }}" alt="Resume Builder" style="max-width:160px;">
+</div>
+{% if not has_skills %}
+<div class="dashboard-panel mb-4" style="background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.25);">
+    <p class="mb-0 small"><i class="fa-solid fa-triangle-exclamation text-warning me-2"></i>Your profile has no skills added yet — add some in <a href="{{ url_for('profile.index') }}">Profile & Portfolio</a> first for a stronger generated resume.</p>
+</div>
+{% endif %}
+
+<div class="dashboard-panel mb-4">
+    <h6 class="panel-title">Build a Resume from Your Profile</h6>
+    <p class="text-muted small mb-4">Choose a template — we'll generate a formatted PDF resume directly from your profile, skills, projects, and certifications.</p>
+
+    <div class="row g-4">
+        {% for tpl in templates %}
+        <div class="col-md-4">
+            <div class="glass-card h-100 text-center d-flex flex-column">
+                <div class="stat-icon mx-auto mb-3" style="background: var(--gradient-brand);"><i class="fa-solid fa-file-lines"></i></div>
+                <h6>{{ tpl.name }}</h6>
+                <p class="text-muted small flex-grow-1">A clean, ATS-friendly layout generated from your saved profile data.</p>
+                <form method="POST"
+      action="{{ url_for('resume_center.builder_generate', template_key=tpl.key) }}">
+
+    <input type="hidden"
+           name="csrf_token"
+           value="{{ csrf_token() }}">
+
+    <button type="submit"
+            class="btn btn-gradient btn-sm w-100">
+        <i class="fa-solid fa-file-pdf me-2"></i>
+        Generate with This Template
+    </button>
+
+</form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="dashboard-panel">
+    <p class="small text-muted mb-0"><i class="fa-solid fa-circle-info me-2"></i>Prefer to check an existing resume instead? Use the <a href="{{ url_for('resume_center.index') }}">ATS Analyzer</a> to upload and score a resume you already have.</p>
+</div>
+{% endblock %}

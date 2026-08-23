@@ -1,0 +1,31 @@
+# Environment / secrets
+.env
+instance/
+*.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+
+# Flask-Migrate
+migrations/versions/*.pyc
+
+# Uploaded files
+app/static/uploads/*
+!app/static/uploads/.gitkeep
+!app/static/uploads/photos/.gitkeep
+!app/static/uploads/resumes/.gitkeep
+!app/static/uploads/certificates/.gitkeep
+!app/static/uploads/reports/.gitkeep
+
+# IDE
+.vscode/
+*.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db

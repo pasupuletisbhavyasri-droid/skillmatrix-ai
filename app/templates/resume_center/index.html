@@ -1,0 +1,251 @@
+{% extends "dashboard/_app_base.html" %}
+
+{% block title %}Resume Center{% endblock %}
+{% block page_title %}Resume Center{% endblock %}
+
+{% block content %}
+
+<!-- ===================================================== -->
+
+<!-- RESUME UPLOAD & ANALYSIS -->
+
+<!-- ===================================================== -->
+
+<div class="dashboard-panel mb-4">
+
+```
+<h6 class="panel-title">
+    <i class="fa-solid fa-file-arrow-up me-2"></i>
+    Upload & Analyze Resume
+</h6>
+
+<p class="text-muted small mb-4">
+    Upload your resume to analyze ATS score, skills,
+    keywords, strengths and areas for improvement.
+</p>
+
+<form
+    method="POST"
+    enctype="multipart/form-data"
+>
+
+    <!-- CSRF TOKEN -->
+    <input
+        type="hidden"
+        name="csrf_token"
+        value="{{ csrf_token() }}"
+    >
+
+    <!-- RESUME FILE -->
+    <div class="mb-3">
+
+        {{ form.resume_file.label(
+            class="form-label fw-semibold"
+        ) }}
+
+        {{ form.resume_file(
+            class="form-control"
+        ) }}
+
+        {% if form.resume_file.errors %}
+
+            {% for error in form.resume_file.errors %}
+
+                <div class="text-danger small mt-1">
+                    {{ error }}
+                </div>
+
+            {% endfor %}
+
+        {% endif %}
+
+        <div class="form-text">
+            Supported formats: PDF, DOC, DOCX
+        </div>
+
+    </div>
+
+    <!-- TARGET CAREER -->
+    <div class="mb-3">
+
+        {{ form.target_role_id.label(
+            class="form-label fw-semibold"
+        ) }}
+
+        {{ form.target_role_id(
+            class="form-select"
+        ) }}
+
+        {% if form.target_role_id.errors %}
+
+            {% for error in form.target_role_id.errors %}
+
+                <div class="text-danger small mt-1">
+                    {{ error }}
+                </div>
+
+            {% endfor %}
+
+        {% endif %}
+
+    </div>
+
+    <!-- SUBMIT BUTTON -->
+    <button
+        type="submit"
+        class="btn btn-gradient"
+    >
+        <i class="fa-solid fa-magnifying-glass me-2"></i>
+        Analyze Resume
+    </button>
+
+</form>
+```
+
+</div>
+
+<!-- ===================================================== -->
+
+<!-- RESUME HISTORY -->
+
+<!-- ===================================================== -->
+
+<div class="dashboard-panel">
+
+```
+<h6 class="panel-title">
+    <i class="fa-solid fa-clock-rotate-left me-2"></i>
+    Resume History
+</h6>
+
+{% for resume in resumes %}
+
+<div
+    class="d-flex justify-content-between
+    align-items-center py-3
+    {% if not loop.last %}border-bottom{% endif %}"
+>
+
+    <div>
+
+        <p class="mb-1 fw-semibold">
+            <i class="fa-solid fa-file-pdf text-danger me-2"></i>
+            {{ resume.filename }}
+        </p>
+
+        {% if resume.uploaded_at %}
+
+        <span
+            class="text-muted"
+            style="font-size:0.75rem;"
+        >
+            Uploaded:
+            {{ resume.uploaded_at.strftime(
+                '%b %d, %Y %I:%M %p'
+            ) }}
+        </span>
+
+        {% endif %}
+
+        <div class="mt-2">
+
+            <span class="badge bg-primary">
+                ATS Score:
+                {{ resume.ats_score or 0 }}%
+            </span>
+
+            {% if resume.is_active %}
+
+            <span class="badge bg-success ms-1">
+                Active
+            </span>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    <div>
+
+        <a
+            href="{{ url_for(
+                'resume_center.result',
+                resume_id=resume.id
+            ) }}"
+            class="btn btn-gradient btn-sm"
+        >
+            <i class="fa-solid fa-chart-line me-1"></i>
+            View Analysis
+        </a>
+
+    </div>
+
+</div>
+
+{% else %}
+
+<div class="text-center py-5">
+
+    <i
+        class="fa-solid fa-file-circle-xmark
+        fa-2x text-muted mb-3"
+    ></i>
+
+    <p class="text-muted mb-0">
+        No resumes uploaded yet.
+    </p>
+
+    <p class="text-muted small">
+        Upload your resume above to start the analysis.
+    </p>
+
+</div>
+
+{% endfor %}
+```
+
+</div>
+
+<!-- ===================================================== -->
+
+<!-- RESUME BUILDER -->
+
+<!-- ===================================================== -->
+
+<div class="dashboard-panel mt-4">
+
+```
+<div
+    class="d-flex justify-content-between
+    align-items-center"
+>
+
+    <div>
+
+        <h6 class="panel-title mb-1">
+            <i class="fa-solid fa-file-circle-plus me-2"></i>
+            Resume Builder
+        </h6>
+
+        <p class="text-muted small mb-0">
+            Create a professional ATS-friendly resume
+            using your SkillMatrix profile.
+        </p>
+
+    </div>
+
+    <a
+        href="{{ url_for('resume_center.builder') }}"
+        class="btn btn-gradient"
+    >
+        <i class="fa-solid fa-file-pen me-2"></i>
+        Build Resume
+    </a>
+
+</div>
+```
+
+</div>
+
+{% endblock %}

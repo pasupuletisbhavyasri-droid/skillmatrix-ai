@@ -1,0 +1,59 @@
+{% extends "dashboard/_app_base.html" %}
+{% block title %}Campus Drives{% endblock %}
+{% block page_title %}Campus Drives{% endblock %}
+
+{% block content %}
+<div class="text-center mb-4" data-aos="fade-down">
+    <img src="{{ url_for('static', filename='images/companies.svg') }}" alt="Campus Drives" style="max-width:150px;">
+</div>
+<div class="dashboard-panel mb-4 d-flex justify-content-between align-items-center">
+    <p class="mb-0 text-muted small">Active campus recruitment drives you're eligible to apply for.</p>
+    <a href="{{ url_for('placement_hub.applications') }}" class="btn btn-outline-glass btn-sm">My Applications</a>
+</div>
+
+<div class="row g-4">
+    {% for drive in drives %}
+    <div class="col-md-6">
+        <div class="dashboard-panel h-100">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+                <div>
+                    <h5 class="mb-0">{{ drive.company_name }}</h5>
+                    <p class="text-muted small mb-0">{{ drive.role_title }}</p>
+                </div>
+                {% if drive.drive_date %}<span class="badge-pill">{{ drive.drive_date.strftime('%b %d, %Y') }}</span>{% endif %}
+            </div>
+            <div class="row g-2 my-3">
+                <div class="col-6"><p class="text-muted small mb-0">Package</p><p class="fw-semibold small mb-0">{% if drive.package_min and drive.package_max %}Rs. {{ "{:,}".format(drive.package_min) }} – {{ "{:,}".format(drive.package_max) }}{% else %}Not disclosed{% endif %}</p></div>
+                <div class="col-6"><p class="text-muted small mb-0">Location</p><p class="fw-semibold small mb-0">{{ drive.location or "Not specified" }}</p></div>
+                <div class="col-6"><p class="text-muted small mb-0">Min CGPA</p><p class="fw-semibold small mb-0">{{ drive.min_cgpa or "-" }}</p></div>
+                <div class="col-6"><p class="text-muted small mb-0">Deadline</p><p class="fw-semibold small mb-0">{% if drive.registration_deadline %}{{ drive.registration_deadline.strftime('%b %d, %Y') }}{% else %}Open{% endif %}</p></div>
+            </div>
+            {% if drive.eligibility_criteria %}<p class="small text-muted mb-3"><strong>Eligibility:</strong> {{ drive.eligibility_criteria }}</p>{% endif %}
+
+            {% set my_app = my_applications.get(drive.id) %}
+            {% if my_app %}
+            <span class="badge-pill">Status: {{ my_app.status }}</span>
+            {% else %}
+            <form method="POST"
+      action="{{ url_for('placement_hub.apply_drive', drive_id=drive.id) }}">
+
+    <input type="hidden"
+           name="csrf_token"
+           value="{{ csrf_token() }}">
+
+    <button type="submit"
+            class="btn btn-gradient btn-sm w-100">
+        Apply Now
+    </button>
+
+</form>
+            {% endif %}
+        </div>
+    </div>
+    {% else %}
+    <div class="col-12 text-center py-5">
+        <p class="text-muted">No active campus drives right now — check back soon.</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

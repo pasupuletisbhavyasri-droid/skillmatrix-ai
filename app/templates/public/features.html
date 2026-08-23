@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Features{% endblock %}
+{% block content %}
+<div class="container py-5" style="margin-top:5rem;">
+    <div class="text-center mb-5">
+        <span class="badge-pill">Features</span>
+        <h2 class="section-title">Everything in One Platform</h2>
+    </div>
+    <div class="row g-4">
+        {% set features = [
+            ("fa-compass", "Career Explorer", "Search 100+ career roles by title, skill, or technology."),
+            ("fa-chart-simple", "Skill Gap Analysis", "See exactly which skills you're missing, prioritized by importance."),
+            ("fa-gauge-high", "Employability Score", "A weighted score from CGPA, skills, projects, certifications, resume, and communication."),
+            ("fa-wand-magic-sparkles", "Career Recommendations", "Rule-based, explainable career matches."),
+            ("fa-file-lines", "Resume Analyzer", "ATS scoring and missing-keyword detection."),
+            ("fa-comments", "Mock Interviews", "HR, technical, and coding practice with structured feedback."),
+            ("fa-graduation-cap", "Learning Hub", "A personalized weekly roadmap based on your skill gaps."),
+            ("fa-briefcase", "Placement Hub", "One readiness score combining every signal on the platform."),
+            ("fa-chart-pie", "PDF Reports", "Downloadable reports for every module."),
+        ] %}
+        {% for icon, title, desc in features %}
+        <div class="col-md-6 col-lg-4">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid {{ icon }}"></i></div>
+                <h5>{{ title }}</h5>
+                <p>{{ desc }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

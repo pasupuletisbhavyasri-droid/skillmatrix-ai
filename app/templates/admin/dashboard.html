@@ -1,0 +1,47 @@
+{% extends "admin/_admin_base.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block page_title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<div class="row g-4 mb-4">
+    {% for icon, value, label, color in [
+        ("fa-user-graduate", stats.total_students, "Total Students", "var(--gradient-brand)"),
+        ("fa-briefcase", stats.total_careers, "Career Roles", "var(--success)"),
+        ("fa-layer-group", stats.total_skills, "Skills Tracked", "var(--accent)"),
+        ("fa-gauge-high", avg_employability ~ '%', "Avg. Employability", "var(--warning)"),
+    ] %}
+    <div class="col-sm-6 col-lg-3">
+        <div class="stat-card">
+            <div class="stat-icon" style="background: {{ color }};"><i class="fa-solid {{ icon }}"></i></div>
+            <h3 class="stat-value">{{ value }}</h3>
+            <p class="stat-label">{{ label }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="row g-4">
+    <div class="col-lg-6">
+        <div class="dashboard-panel">
+            <h6 class="panel-title">Recent Signups</h6>
+            {% for s in recent_signups %}
+            <div class="d-flex justify-content-between py-2 {% if not loop.last %}border-bottom{% endif %}">
+                <a href="{{ url_for('admin.student_detail', student_id=s.id) }}">{{ s.name }}</a>
+                <span class="text-muted small">{{ s.created_at.strftime('%b %d') }}</span>
+            </div>
+            {% else %}<p class="text-muted small mb-0">No signups yet.</p>{% endfor %}
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="dashboard-panel">
+            <h6 class="panel-title">Top Career Categories</h6>
+            {% for category, count in top_categories %}
+            <div class="d-flex justify-content-between py-2 {% if not loop.last %}border-bottom{% endif %}">
+                <span>{{ category }}</span>
+                <span class="badge-pill">{{ count }} roles</span>
+            </div>
+            {% else %}<p class="text-muted small mb-0">No career roles seeded yet.</p>{% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

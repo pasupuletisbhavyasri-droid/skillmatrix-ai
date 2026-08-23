@@ -1,0 +1,42 @@
+{% extends "admin/_admin_base.html" %}
+{% block title %}Students{% endblock %}
+{% block page_title %}Students{% endblock %}
+
+{% block content %}
+<div class="dashboard-panel mb-4">
+    <form method="GET" class="d-flex gap-2">
+        <input type="text" name="q" value="{{ search }}" class="form-control" placeholder="Search by name or email...">
+        <button class="btn btn-gradient">Search</button>
+    </form>
+</div>
+
+<div class="dashboard-panel">
+    <table class="table align-middle">
+        <thead><tr><th>Name</th><th>Email</th><th>College</th><th>Employability</th><th>Status</th><th></th></tr></thead>
+        <tbody>
+        {% for student in pagination.items %}
+            <tr>
+                <td>{{ student.name }}</td>
+                <td>{{ student.email }}</td>
+                <td>{{ student.college }}</td>
+                <td>{{ "%.0f"|format(student.employability_score) }}%</td>
+                <td>{% if student.is_active_account %}<span class="badge-pill">Active</span>{% else %}<span class="badge-pill" style="background: rgba(220,38,38,0.1); color: var(--danger);">Inactive</span>{% endif %}</td>
+                <td><a href="{{ url_for('admin.student_detail', student_id=student.id) }}" class="btn btn-icon"><i class="fa-solid fa-eye"></i></a></td>
+            </tr>
+        {% else %}
+            <tr><td colspan="6" class="text-center text-muted small py-4">No students found.</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <nav>
+        <ul class="pagination">
+            {% for p in pagination.iter_pages() %}
+            <li class="page-item {% if p == pagination.page %}active{% endif %}">
+                {% if p %}<a class="page-link" href="{{ url_for('admin.students', page=p, q=search) }}">{{ p }}</a>{% else %}<span class="page-link">…</span>{% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#4F46E5"/>
+    <stop offset="60%" stop-color="#7C3AED"/>
+    <stop offset="100%" stop-color="#A855F7"/>
+  </linearGradient>
+  <linearGradient id="softGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#EEF2FF"/>
+    <stop offset="100%" stop-color="#F3E8FF"/>
+  </linearGradient>
+</defs>
+
+<rect width="400" height="300" fill="url(#softGrad)" rx="16"/>
+<rect x="90" y="110" width="220" height="140" rx="14" fill="#fff" stroke="url(#brandGrad)" stroke-width="4"/>
+<rect x="110" y="135" width="180" height="10" rx="5" fill="#C4B5FD"/>
+<rect x="110" y="160" width="140" height="10" rx="5" fill="#DDD6FE"/>
+<rect x="110" y="185" width="160" height="10" rx="5" fill="#DDD6FE"/>
+<circle cx="290" cy="90" r="26" fill="url(#brandGrad)"/>
+<path d="M278 90 l8 8 l16 -16" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="60" y="70" width="40" height="50" rx="6" fill="#4F46E5"/>
+<rect x="60" y="70" width="40" height="8" fill="#312E81"/>
+
+</svg>

@@ -1,0 +1,66 @@
+{% extends "dashboard/_app_base.html" %}
+{% block title %}Communication Analysis{% endblock %}
+{% block page_title %}Communication Analysis{% endblock %}
+
+{% block content %}
+<div class="row g-4">
+    <div class="col-lg-6">
+        <div class="dashboard-panel">
+            <h6 class="panel-title">Self-Assessment</h6>
+            <p class="text-muted small mb-3">Rate yourself honestly (0-10) on each dimension. This feeds your Employability Score and Interview Readiness.</p>
+            <form method="POST" novalidate>
+                {{ form.hidden_tag() }}
+                {% for field in [form.speaking_skills, form.english_communication, form.grammar, form.vocabulary, form.pronunciation, form.fluency, form.confidence, form.presentation_skills, form.teamwork, form.leadership, form.problem_solving] %}
+                <div class="mb-3">
+                    {{ field.label(class="form-label small") }}
+                    {{ field(class="form-control", type="number", step="0.5", min="0", max="10") }}
+                    {% for err in field.errors %}<div class="text-danger small">{{ err }}</div>{% endfor %}
+                </div>
+                {% endfor %}
+                {{ form.submit(class="btn btn-gradient w-100") }}
+            </form>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        {% if latest %}
+        <div class="dashboard-panel mb-4 text-center">
+            <h6 class="panel-title text-start">Latest Communication Score</h6>
+            <div class="progress-ring-wrap">
+                <canvas id="commScoreRing" width="160" height="160"></canvas>
+                <div class="mock-score-label" style="position:absolute;">
+                    <span class="score-value">{{ "%.0f"|format(latest.communication_score) }}%</span>
+                </div>
+            </div>
+            <a href="{{ url_for('communication.result', assessment_id=latest.id) }}" class="btn btn-outline-glass btn-sm mt-3">View Full Analysis</a>
+        </div>
+        {% endif %}
+
+        <div class="dashboard-panel">
+            <h6 class="panel-title">Assessment History</h6>
+            {% for a in history %}
+            <div class="d-flex justify-content-between align-items-center py-2 {% if not loop.last %}border-bottom{% endif %}">
+                <span class="small text-muted">{{ a.created_at.strftime('%b %d, %Y') }}</span>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge-pill">{{ "%.0f"|format(a.communication_score) }}%</span>
+                    <a href="{{ url_for('communication.result', assessment_id=a.id) }}" class="btn btn-icon"><i class="fa-solid fa-eye"></i></a>
+                </div>
+            </div>
+            {% else %}
+            <p class="text-muted small mb-0">No assessments yet — complete the form to get your first Communication Score.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+{% if latest %}
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        renderScoreRing('commScoreRing', {{ latest.communication_score }}, { color: SMX_CHART_COLORS.accent });
+    });
+</script>
+{% endif %}
+{% endblock %}

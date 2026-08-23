@@ -1,0 +1,26 @@
+{% extends "admin/_admin_base.html" %}
+{% block title %}{{ mode }} Campus Drive{% endblock %}
+{% block page_title %}{{ mode }} Campus Drive{% endblock %}
+
+{% block content %}
+<div class="dashboard-panel">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="row g-3">
+            <div class="col-md-6">{{ form.company_name.label(class="form-label small") }}{{ form.company_name(class="form-control") }}</div>
+            <div class="col-md-6">{{ form.role_title.label(class="form-label small") }}{{ form.role_title(class="form-control") }}</div>
+            <div class="col-12">{{ form.eligibility_criteria.label(class="form-label small") }}{{ form.eligibility_criteria(class="form-control", rows=2) }}</div>
+            <div class="col-md-4">{{ form.min_cgpa.label(class="form-label small") }}{{ form.min_cgpa(class="form-control") }}</div>
+            <div class="col-md-4">{{ form.package_min.label(class="form-label small") }}{{ form.package_min(class="form-control") }}</div>
+            <div class="col-md-4">{{ form.package_max.label(class="form-label small") }}{{ form.package_max(class="form-control") }}</div>
+            <div class="col-md-6">{{ form.location.label(class="form-label small") }}{{ form.location(class="form-control") }}</div>
+            <div class="col-md-3">{{ form.drive_date.label(class="form-label small") }}{{ form.drive_date(class="form-control") }}</div>
+            <div class="col-md-3">{{ form.registration_deadline.label(class="form-label small") }}{{ form.registration_deadline(class="form-control") }}</div>
+            <div class="col-12">{{ form.description.label(class="form-label small") }}{{ form.description(class="form-control", rows=3) }}</div>
+            <div class="col-12 form-check">{{ form.is_active(class="form-check-input") }} {{ form.is_active.label(class="form-check-label") }}</div>
+        </div>
+        <button type="submit" class="btn btn-gradient mt-3">{{ form.submit.label.text }}</button>
+        <a href="{{ url_for('admin.drives') }}" class="btn btn-outline-glass mt-3">Cancel</a>
+    </form>
+</div>
+{% endblock %}

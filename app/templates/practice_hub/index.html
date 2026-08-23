@@ -1,0 +1,90 @@
+{% extends "dashboard/_app_base.html" %}
+{% block title %}Practice Hub{% endblock %}
+{% block page_title %}Practice Hub{% endblock %}
+
+{% block content %}
+<div class="row g-4 mb-4">
+    {% if daily_challenge %}
+    <div class="col-md-6">
+        <div class="dashboard-panel" style="background: var(--gradient-brand); color: #fff;">
+            <span class="badge-pill" style="background: rgba(255,255,255,0.2); color: #fff;"><i class="fa-solid fa-bolt me-1"></i>Daily Challenge</span>
+            <h5 class="mt-2 mb-1" style="color:#fff;">{{ daily_challenge.title }}</h5>
+            <p class="small mb-3" style="opacity:0.85;">{{ daily_challenge.category }} · {{ daily_challenge.difficulty }}</p>
+            <a href="{{ url_for('practice_hub.take_quiz', quiz_id=daily_challenge.id) }}" class="btn btn-light btn-sm">Take Today's Challenge</a>
+        </div>
+    </div>
+    {% endif %}
+    {% if weekly_challenge %}
+    <div class="col-md-6">
+        <div class="dashboard-panel glass-card">
+            <span class="badge-pill"><i class="fa-solid fa-calendar-week me-1"></i>Weekly Challenge</span>
+            <h5 class="mt-2 mb-1">{{ weekly_challenge.title }}</h5>
+            <p class="small text-muted mb-3">{{ weekly_challenge.category }} · {{ weekly_challenge.difficulty }}</p>
+            <a href="{{ url_for('practice_hub.take_quiz', quiz_id=weekly_challenge.id) }}" class="btn btn-gradient btn-sm">Take This Week's Challenge</a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<div class="dashboard-panel mb-4">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+        <h6 class="panel-title mb-0">Available Quizzes</h6>
+        <a href="{{ url_for('practice_hub.leaderboard') }}" class="btn btn-outline-glass btn-sm"><i class="fa-solid fa-trophy me-1"></i>Leaderboard</a>
+    </div>
+    <div class="d-flex flex-wrap gap-2 mb-3">
+        <a href="{{ url_for('practice_hub.index') }}" class="badge-pill {% if not category %}border border-primary{% endif %}">All</a>
+        {% for cat in categories %}
+        <a href="{{ url_for('practice_hub.index', category=cat) }}" class="badge-pill {% if category == cat %}border border-primary{% endif %}">{{ cat }}</a>
+        {% endfor %}
+    </div>
+
+    {% for quiz in quizzes %}
+    <div class="d-flex justify-content-between align-items-center py-3 {% if not loop.last %}border-bottom{% endif %}">
+        <div>
+            <p class="mb-0 fw-semibold small">{{ quiz.title }} {% if quiz.is_daily_challenge %}<span class="badge-pill">Daily</span>{% endif %}{% if quiz.is_weekly_challenge %}<span class="badge-pill">Weekly</span>{% endif %}</p>
+            <span class="text-muted small">{{ quiz.category }} · {{ quiz.difficulty }}</span>
+        </div>
+        <a href="{{ url_for('practice_hub.take_quiz', quiz_id=quiz.id) }}" class="btn btn-gradient btn-sm">Take Quiz</a>
+    </div>
+    {% else %}
+    <p class="text-muted small mb-0">No quizzes available in this category yet.</p>
+    {% endfor %}
+</div>
+
+<div class="row g-4">
+    <div class="col-lg-7">
+        <div class="dashboard-panel">
+            <h6 class="panel-title">Progress Tracking</h6>
+            {% if progress_scores %}
+            <canvas id="progressChart" height="180"></canvas>
+            {% else %}
+            <p class="text-muted small mb-0">Take a few quizzes to see your progress trend here.</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="col-lg-5">
+        <div class="dashboard-panel">
+            <h6 class="panel-title">Score History</h6>
+            {% for r in history %}
+            <div class="d-flex justify-content-between py-2 {% if not loop.last %}border-bottom{% endif %}">
+                <span class="small">{{ r.quiz.title }}</span>
+                <span class="badge-pill">{{ r.score }}/{{ r.total_questions }}</span>
+            </div>
+            {% else %}
+            <p class="text-muted small mb-0">No quiz attempts yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+{% if progress_scores %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        renderProgressLineChart('progressChart', {{ progress_labels|tojson }}, {{ progress_scores|tojson }}, 'Score %');
+    });
+</script>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends "dashboard/_app_base.html" %}
+{% block title %}Career Library{% endblock %}
+{% block page_title %}Career Library{% endblock %}
+
+{% block content %}
+<ul class="nav nav-tabs mb-4">
+    <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#bookmarks-tab">Bookmarks</button></li>
+    <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#favorites-tab">Favorites</button></li>
+    <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#guides-tab">Guides & Articles</button></li>
+    <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#trending-tab">Trending</button></li>
+    <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#paying-tab">Highest Paying</button></li>
+    <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#growing-tab">Fastest Growing</button></li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade show active" id="bookmarks-tab">
+        <div class="row g-4">
+            {% for b in bookmarks %}
+            <div class="col-md-6 col-lg-4">
+                <a href="{{ url_for('career_explorer.detail', slug=b.career_role.slug) }}" class="career-card-link">
+                    <div class="career-card"><span class="career-category">{{ b.career_role.category }}</span><h5>{{ b.career_role.title }}</h5></div>
+                </a>
+            </div>
+            {% else %}<p class="text-muted small">No bookmarks yet.</p>{% endfor %}
+        </div>
+    </div>
+    <div class="tab-pane fade" id="favorites-tab">
+        <div class="row g-4">
+            {% for f in favorites %}
+            <div class="col-md-6 col-lg-4">
+                <a href="{{ url_for('career_explorer.detail', slug=f.career_role.slug) }}" class="career-card-link">
+                    <div class="career-card"><span class="career-category">{{ f.career_role.category }}</span><h5>{{ f.career_role.title }}</h5></div>
+                </a>
+            </div>
+            {% else %}<p class="text-muted small">No favorites yet.</p>{% endfor %}
+        </div>
+    </div>
+    <div class="tab-pane fade" id="guides-tab">
+        <div class="row g-4">
+            {% for guide in guides %}
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card h-100">
+                    <span class="badge-pill mb-2">{{ guide.guide_type }}</span>
+                    <h6>{{ guide.title }}</h6>
+                    <p class="text-muted small">{{ guide.summary }}</p>
+                    <a href="{{ url_for('career_library.guide_detail', guide_id=guide.id) }}" class="small">Read More <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            {% else %}<p class="text-muted small">No guides published yet.</p>{% endfor %}
+        </div>
+    </div>
+    <div class="tab-pane fade" id="trending-tab">
+        <div class="row g-4">
+            {% for role in trending %}
+            <div class="col-md-6 col-lg-4">
+                <a href="{{ url_for('career_explorer.detail', slug=role.slug) }}" class="career-card-link">
+                    <div class="career-card"><span class="career-category">{{ role.category }}</span><h5>{{ role.title }}</h5></div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="tab-pane fade" id="paying-tab">
+        <div class="row g-4">
+            {% for role in highest_paying %}
+            <div class="col-md-6 col-lg-4">
+                <a href="{{ url_for('career_explorer.detail', slug=role.slug) }}" class="career-card-link">
+                    <div class="career-card"><span class="career-category">{{ role.category }}</span><h5>{{ role.title }}</h5>
+                    {% if role.salary_max %}<p class="career-salary">Up to Rs. {{ "{:,}".format(role.salary_max) }}</p>{% endif %}</div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="tab-pane fade" id="growing-tab">
+        <div class="row g-4">
+            {% for role in fastest_growing %}
+            <div class="col-md-6 col-lg-4">
+                <a href="{{ url_for('career_explorer.detail', slug=role.slug) }}" class="career-card-link">
+                    <div class="career-card"><span class="career-category">{{ role.category }}</span><h5>{{ role.title }}</h5>
+                    <p class="career-salary">{{ role.industry_demand_score }}/100 demand</p></div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

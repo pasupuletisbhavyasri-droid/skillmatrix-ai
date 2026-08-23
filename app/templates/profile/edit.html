@@ -1,0 +1,29 @@
+{% extends "dashboard/_app_base.html" %}
+{% block title %}Edit Profile{% endblock %}
+{% block page_title %}Edit Profile{% endblock %}
+
+{% block content %}
+<div class="dashboard-panel" style="max-width:720px;">
+    <form method="POST" enctype="multipart/form-data" novalidate>
+        {{ form.hidden_tag() }}
+        <div class="row g-3">
+            <div class="col-md-6">{{ form.name.label(class="form-label small") }}{{ form.name(class="form-control") }}</div>
+            <div class="col-md-6">{{ form.phone.label(class="form-label small") }}{{ form.phone(class="form-control") }}</div>
+            <div class="col-md-6">{{ form.gender.label(class="form-label small") }}{{ form.gender(class="form-select") }}</div>
+            <div class="col-md-6">{{ form.dob.label(class="form-label small") }}{{ form.dob(class="form-control") }}</div>
+            <div class="col-md-6">{{ form.college.label(class="form-label small") }}{{ form.college(class="form-control") }}</div>
+            <div class="col-md-6">{{ form.branch.label(class="form-label small") }}{{ form.branch(class="form-control") }}</div>
+            <div class="col-md-6">{{ form.year.label(class="form-label small") }}{{ form.year(class="form-select") }}</div>
+            <div class="col-md-6">{{ form.cgpa.label(class="form-label small") }}{{ form.cgpa(class="form-control") }}</div>
+            <div class="col-12">{{ form.address.label(class="form-label small") }}{{ form.address(class="form-control") }}</div>
+            <div class="col-md-6">{{ form.github_url.label(class="form-label small") }}{{ form.github_url(class="form-control") }}</div>
+            <div class="col-md-6">{{ form.linkedin_url.label(class="form-label small") }}{{ form.linkedin_url(class="form-control") }}</div>
+            <div class="col-md-6">{{ form.career_interest.label(class="form-label small") }}{{ form.career_interest(class="form-control") }}</div>
+            <div class="col-md-6">{{ form.communication_skill_rating.label(class="form-label small") }}{{ form.communication_skill_rating(class="form-control") }}</div>
+            <div class="col-12">{{ form.photo.label(class="form-label small") }}{{ form.photo(class="form-control") }}</div>
+        </div>
+        <button type="submit" class="btn btn-gradient mt-4">{{ form.submit.label.text }}</button>
+        <a href="{{ url_for('profile.index') }}" class="btn btn-outline-glass mt-4">Cancel</a>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,589 @@
+{% extends "dashboard/_app_base.html" %}
+
+{% block title %}Skill Gap — {{ role.title }}{% endblock %}
+
+{% block page_title %}Skill Gap: {{ role.title }}{% endblock %}
+
+
+{% block content %}
+
+<div class="row g-4">
+
+    <!-- =========================
+         OVERALL MATCH
+    ========================== -->
+    <div class="col-lg-5">
+
+        <div class="dashboard-panel mb-4">
+
+            <h5 class="panel-title">
+                Overall Match
+            </h5>
+
+            <div class="text-center py-5">
+
+                <div
+                    style="
+                        font-size: 3rem;
+                        font-weight: 800;
+                        color: #7c3aed;
+                    "
+                >
+                    {{ analysis.match_percentage }}%
+                </div>
+
+                <p class="text-muted mb-0">
+                    Your current skill match for
+                    <strong>{{ role.title }}</strong>
+                </p>
+
+                {% if analysis.missing %}
+                    <p class="text-muted mt-3 mb-0">
+                        Estimated ~{{ analysis.estimated_weeks }}
+                        weeks to close all gaps
+                    </p>
+                {% else %}
+                    <p class="text-success mt-3 mb-0">
+                        <strong>
+                            Excellent! You have all required skills.
+                        </strong>
+                    </p>
+                {% endif %}
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             SKILL SUMMARY
+        ========================== -->
+
+        <div class="dashboard-panel mb-4">
+
+            <h6 class="panel-title">
+                Skill Summary
+            </h6>
+
+            <div class="row text-center g-3">
+
+                <div class="col-6">
+
+                    <div
+                        class="p-3 rounded-3"
+                        style="background:#ecfdf5;"
+                    >
+
+                        <div
+                            class="fw-bold fs-3"
+                            style="color:#059669;"
+                        >
+                            {{ analysis.matched|length }}
+                        </div>
+
+                        <div class="small text-muted">
+                            Matched Skills
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-6">
+
+                    <div
+                        class="p-3 rounded-3"
+                        style="background:#fef2f2;"
+                    >
+
+                        <div
+                            class="fw-bold fs-3"
+                            style="color:#dc2626;"
+                        >
+                            {{ analysis.missing|length }}
+                        </div>
+
+                        <div class="small text-muted">
+                            Missing Skills
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             ROLE INFORMATION
+        ========================== -->
+
+        <div class="dashboard-panel">
+
+            <h6 class="panel-title">
+                Career Role
+            </h6>
+
+            <h4 class="fw-bold mb-2">
+                {{ role.title }}
+            </h4>
+
+            {% if role.category %}
+                <span class="badge-pill">
+                    {{ role.category }}
+                </span>
+            {% endif %}
+
+            {% if role.sector %}
+                <span class="badge-pill ms-1">
+                    {{ role.sector }}
+                </span>
+            {% endif %}
+
+            {% if role.description %}
+
+                <p class="text-muted small mt-3 mb-0">
+                    {{ role.description }}
+                </p>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         SKILL COMPARISON
+    ========================== -->
+
+    <div class="col-lg-7">
+
+        <div class="dashboard-panel mb-4">
+
+            <h5 class="panel-title">
+                Skill Comparison
+            </h5>
+
+            <div
+                style="
+                    position: relative;
+                    height: 300px;
+                    width: 100%;
+                "
+            >
+
+                <canvas id="skillGapChart"></canvas>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             MATCHED SKILLS
+        ========================== -->
+
+        <div class="dashboard-panel mb-4">
+
+            <h5
+                class="panel-title"
+                style="color:#059669;"
+            >
+                <i class="fa-solid fa-circle-check me-2"></i>
+                Matched Skills ({{ analysis.matched|length }})
+            </h5>
+
+
+            {% if analysis.matched %}
+
+                <div class="list-group list-group-flush">
+
+                    {% for skill in analysis.matched %}
+
+                        <div
+                            class="
+                                d-flex
+                                justify-content-between
+                                align-items-center
+                                py-3
+                                border-bottom
+                            "
+                        >
+
+                            <div>
+
+                                {% if skill.name %}
+                                    <span class="fw-semibold">
+                                        {{ skill.name }}
+                                    </span>
+                                {% else %}
+                                    <span class="fw-semibold">
+                                        {{ skill }}
+                                    </span>
+                                {% endif %}
+
+                            </div>
+
+
+                            <span
+                                class="badge rounded-pill"
+                                style="
+                                    background:#dcfce7;
+                                    color:#15803d;
+                                "
+                            >
+                                Matched
+                            </span>
+
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            {% else %}
+
+                <p class="text-muted mb-0">
+                    No required skills matched yet.
+                </p>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- =========================
+             MISSING SKILLS
+        ========================== -->
+
+        <div class="dashboard-panel mb-4">
+
+            <h5
+                class="panel-title"
+                style="color:#dc2626;"
+            >
+                <i class="fa-solid fa-circle-xmark me-2"></i>
+                Missing Skills ({{ analysis.missing|length }})
+            </h5>
+
+
+            {% if analysis.missing %}
+
+                <div class="list-group list-group-flush">
+
+                    {% for skill in analysis.missing %}
+
+                        <div
+                            class="
+                                d-flex
+                                justify-content-between
+                                align-items-center
+                                py-3
+                                border-bottom
+                            "
+                        >
+
+                            <div>
+
+                                {% if skill.name %}
+
+                                    <span class="fw-semibold">
+                                        {{ skill.name }}
+                                    </span>
+
+                                {% else %}
+
+                                    <span class="fw-semibold">
+                                        {{ skill }}
+                                    </span>
+
+                                {% endif %}
+
+                            </div>
+
+
+                            <span
+                                class="badge rounded-pill"
+                                style="
+                                    background:#fee2e2;
+                                    color:#dc2626;
+                                "
+                            >
+                                High priority
+                            </span>
+
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            {% else %}
+
+                <div class="text-center py-4">
+
+                    <i
+                        class="fa-solid fa-circle-check"
+                        style="
+                            font-size:2.5rem;
+                            color:#16a34a;
+                        "
+                    ></i>
+
+                    <h6 class="mt-3">
+                        No skill gaps found
+                    </h6>
+
+                    <p class="text-muted small mb-0">
+                        You currently match all required skills
+                        for this career role.
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- =========================
+             RECOMMENDATION
+        ========================== -->
+
+        {% if analysis.missing %}
+
+            <div
+                class="dashboard-panel mb-4"
+                style="
+                    border-left:4px solid #7c3aed;
+                "
+            >
+
+                <h5 class="panel-title">
+                    <i
+                        class="fa-solid fa-lightbulb me-2"
+                        style="color:#7c3aed;"
+                    ></i>
+
+                    What You Should Learn
+                </h5>
+
+
+                <p class="text-muted small">
+                    Focus on the missing skills below to improve
+                    your readiness for
+                    <strong>{{ role.title }}</strong>.
+                </p>
+
+
+                <ol class="mb-0">
+
+                    {% for skill in analysis.missing %}
+
+                        <li class="mb-2">
+
+                            {% if skill.name %}
+                                <strong>{{ skill.name }}</strong>
+                            {% else %}
+                                <strong>{{ skill }}</strong>
+                            {% endif %}
+
+                            <span class="text-muted small">
+                                — Add this skill to your learning roadmap.
+                            </span>
+
+                        </li>
+
+                    {% endfor %}
+
+                </ol>
+
+            </div>
+
+        {% endif %}
+
+
+        <!-- =========================
+             BACK TO CAREER
+        ========================== -->
+
+        <div class="d-flex gap-2 mb-4">
+
+            <a
+                href="{{ url_for('career_explorer.detail', slug=role.slug) }}"
+                class="btn btn-outline-glass"
+            >
+                <i class="fa-solid fa-arrow-left me-2"></i>
+                Back to Career
+            </a>
+
+
+            <a
+                href="{{ url_for('career_explorer.index') }}"
+                class="btn btn-gradient"
+            >
+                <i class="fa-solid fa-compass me-2"></i>
+                Explore Careers
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+<!-- =====================================================
+     CHART JAVASCRIPT
+===================================================== -->
+
+{% block extra_js %}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const canvas = document.getElementById("skillGapChart");
+
+    if (!canvas) {
+        console.error("skillGapChart canvas not found.");
+        return;
+    }
+
+
+    const matchedCount = {{ analysis.matched|length }};
+
+    const missingCount = {{ analysis.missing|length }};
+
+
+    const ctx = canvas.getContext("2d");
+
+
+    new Chart(ctx, {
+
+        type: "bar",
+
+        data: {
+
+            labels: [
+                "Matched Skills",
+                "Missing Skills"
+            ],
+
+            datasets: [
+
+                {
+
+                    label: "Number of Skills",
+
+                    data: [
+                        matchedCount,
+                        missingCount
+                    ],
+
+                    backgroundColor: [
+                        "#16a34a",
+                        "#ef4444"
+                    ],
+
+                    borderColor: [
+                        "#15803d",
+                        "#dc2626"
+                    ],
+
+                    borderWidth: 1,
+
+                    borderRadius: 8,
+
+                    barThickness: 55
+
+                }
+
+            ]
+
+        },
+
+
+        options: {
+
+            responsive: true,
+
+            maintainAspectRatio: false,
+
+
+            plugins: {
+
+                legend: {
+
+                    display: false
+
+                },
+
+
+                tooltip: {
+
+                    enabled: true
+
+                }
+
+            },
+
+
+            scales: {
+
+                y: {
+
+                    beginAtZero: true,
+
+                    ticks: {
+
+                        precision: 0
+
+                    },
+
+                    title: {
+
+                        display: true,
+
+                        text: "Number of Skills"
+
+                    },
+
+                    grid: {
+
+                        color: "#eeeeee"
+
+                    }
+
+                },
+
+
+                x: {
+
+                    grid: {
+
+                        display: false
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    });
+
+});
+
+</script>
+
+{% endblock %}

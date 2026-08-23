@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Admin Login{% endblock %}
+{% block content %}
+<div class="container py-5" style="margin-top:6rem; max-width:440px;">
+    <div class="dashboard-panel glass-card">
+        <h3 class="mb-1"><i class="fa-solid fa-shield-halved me-2"></i>Admin Login</h3>
+        <p class="text-muted small mb-4">Restricted access for platform administrators.</p>
+        <form method="POST" novalidate>
+            {{ form.hidden_tag() }}
+            <div class="mb-3">
+                {{ form.email.label(class="form-label small") }}
+                {{ form.email(class="form-control") }}
+            </div>
+            <div class="mb-4">
+                {{ form.password.label(class="form-label small") }}
+                {{ form.password(class="form-control") }}
+            </div>
+            {{ form.submit(class="btn btn-gradient w-100") }}
+        </form>
+    </div>
+</div>
+{% endblock %}

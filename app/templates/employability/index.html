@@ -1,0 +1,64 @@
+{% extends "dashboard/_app_base.html" %}
+{% block title %}Employability Score{% endblock %}
+{% block page_title %}Employability Score{% endblock %}
+
+{% block content %}
+<div class="row g-4">
+    <div class="col-lg-4">
+        <div class="dashboard-panel text-center">
+            <div class="progress-ring-wrap">
+                <canvas id="employabilityMainRing" width="200" height="200"></canvas>
+                <div class="mock-score-label" style="position:absolute;">
+                    <span class="score-value">{{ breakdown.overall_score }}%</span>
+                    <span class="score-caption">Overall Score</span>
+                </div>
+            </div>
+            {% set badge = "Excellent" if breakdown.overall_score >= 80 else ("Good" if breakdown.overall_score >= 60 else ("Fair" if breakdown.overall_score >= 40 else "Needs Work")) %}
+            <p class="badge-pill mt-3">{{ badge }}</p>
+        </div>
+    </div>
+
+    <div class="col-lg-8">
+        <div class="dashboard-panel">
+            <h6 class="panel-title">Score Breakdown</h6>
+            {% for key, data in breakdown.components.items() %}
+            <div class="mb-3">
+                <div class="d-flex justify-content-between small mb-1">
+                    <span class="text-capitalize">{{ key.replace('_', ' ') }} <span class="text-muted">({{ data.weight }}% weight)</span></span>
+                    <span class="fw-semibold">{{ data.score }}%</span>
+                </div>
+                <div class="progress-bar-custom"><span style="width: {{ data.score }}%;"></span></div>
+                {% if key == 'cgpa' %}
+                <p class="text-muted mt-1 mb-0" style="font-size:0.75rem;"><strong>{{ cgpa_info.label }}</strong> — {{ cgpa_info.explanation }}</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% if breakdown.suggestions %}
+<div class="dashboard-panel mt-4">
+    <h6 class="panel-title">How to Improve</h6>
+    <div class="row g-3">
+        {% for s in breakdown.suggestions %}
+        <div class="col-md-4">
+            <div class="glass-card h-100">
+                <p class="fw-semibold small mb-1">{{ s.component }} <span class="text-muted">({{ s.score }}%)</span></p>
+                <p class="text-muted small mb-0">{{ s.suggestion }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        renderScoreRing('employabilityMainRing', {{ breakdown.overall_score }}, { color: SMX_CHART_COLORS.secondary });
+    });
+</script>
+{% endblock %}

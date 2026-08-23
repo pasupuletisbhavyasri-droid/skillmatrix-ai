@@ -1,0 +1,68 @@
+{% extends "dashboard/_app_base.html" %}
+{% block title %}Placement Hub{% endblock %}
+{% block page_title %}Placement Readiness Tracker{% endblock %}
+
+{% block content %}
+<div class="dashboard-panel mb-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
+    <p class="mb-0 text-muted small">Your overall placement readiness, combining every signal on the platform.</p>
+    <a href="{{ url_for('placement_hub.drives') }}" class="btn btn-gradient btn-sm"><i class="fa-solid fa-building me-1"></i>Browse Campus Drives</a>
+</div>
+
+<div class="row g-4 mb-4">
+    <div class="col-lg-4">
+        <div class="dashboard-panel text-center">
+            <div class="progress-ring-wrap">
+                <canvas id="readinessMainRing" width="200" height="200"></canvas>
+                <div class="mock-score-label" style="position:absolute;">
+                    <span class="score-value">{{ readiness.overall_readiness }}%</span>
+                    <span class="score-caption">Placement Ready</span>
+                </div>
+            </div>
+            {% set tier = "Ready to Apply" if readiness.overall_readiness >= 75 else ("Almost There" if readiness.overall_readiness >= 50 else "Keep Building") %}
+            <p class="badge-pill mt-3">{{ tier }}</p>
+        </div>
+    </div>
+
+    <div class="col-lg-8">
+        <div class="dashboard-panel">
+            <h6 class="panel-title">Readiness Breakdown</h6>
+            {% for key, score in readiness.components.items() %}
+            <div class="mb-3">
+                <div class="d-flex justify-content-between small mb-1">
+                    <span class="text-capitalize">{{ key }}</span>
+                    <span class="fw-semibold">{{ score }}%</span>
+                </div>
+                <div class="progress-bar-custom"><span style="width: {{ score }}%;"></span></div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="dashboard-panel">
+    <h6 class="panel-title">Placement Checklist</h6>
+    {% for item in readiness.checklist %}
+    <div class="d-flex align-items-center justify-content-between py-3 {% if not loop.last %}border-bottom{% endif %}">
+        <div class="d-flex align-items-center gap-3">
+            <i class="fa-solid {{ 'fa-circle-check text-success' if item.completed else 'fa-circle text-muted' }}"></i>
+            <div>
+                <p class="mb-0 small fw-semibold">{{ item.label }}</p>
+                <p class="mb-0 text-muted" style="font-size:0.8rem;">{{ item.detail }}</p>
+            </div>
+        </div>
+        {% if not item.completed %}
+        <span class="badge-pill" style="background: rgba(245,158,11,0.12); color: var(--warning);">Needs Attention</span>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        renderScoreRing('readinessMainRing', {{ readiness.overall_readiness }}, { color: SMX_CHART_COLORS.secondary });
+    });
+</script>
+{% endblock %}

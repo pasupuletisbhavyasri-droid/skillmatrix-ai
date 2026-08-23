@@ -1,0 +1,85 @@
+{% extends "dashboard/_app_base.html" %}
+{% block title %}Resume Analysis{% endblock %}
+{% block page_title %}Resume Analysis Results{% endblock %}
+
+{% block content %}
+<div class="row g-4">
+    <div class="col-lg-4">
+        <div class="dashboard-panel text-center">
+            <div class="progress-ring-wrap">
+                <canvas id="atsRing" width="180" height="180"></canvas>
+                <div class="mock-score-label" style="position:absolute;">
+                    <span class="score-value">{{ "%.0f"|format(resume.ats_score) }}%</span>
+                    <span class="score-caption">ATS Score</span>
+                </div>
+            </div>
+            <p class="text-muted small mt-3 mb-0">{{ resume.filename }}</p>
+        </div>
+    </div>
+
+    <div class="col-lg-8">
+        <div class="dashboard-panel">
+            <h6 class="panel-title">Why This Score?</h6>
+            <p class="text-secondary small mb-0">{{ explanation }}</p>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 mt-1">
+    <div class="col-md-6">
+        <div class="dashboard-panel h-100">
+            <h6 class="panel-title text-success"><i class="fa-solid fa-check-circle me-2"></i>Strong Sections</h6>
+            {% for s in strong_sections %}<span class="badge-pill me-1 mb-1 d-inline-block">{{ s }}</span>{% else %}<p class="text-muted small mb-0">No standard sections detected yet.</p>{% endfor %}
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="dashboard-panel h-100">
+            <h6 class="panel-title text-danger"><i class="fa-solid fa-circle-exclamation me-2"></i>Weak / Missing Sections</h6>
+            {% for s in weak_sections %}<span class="badge-pill me-1 mb-1 d-inline-block" style="background: rgba(220,38,38,0.1); color: var(--danger);">{{ s }}</span>{% else %}<p class="text-success small mb-0">All standard sections present!</p>{% endfor %}
+        </div>
+    </div>
+</div>
+
+{% if matched_keywords %}
+<div class="dashboard-panel mt-4">
+    <h6 class="panel-title text-success"><i class="fa-solid fa-check me-2"></i>Matched Keywords</h6>
+    <div class="d-flex flex-wrap gap-2">
+        {% for kw in matched_keywords %}<span class="badge-pill">{{ kw }}</span>{% endfor %}
+    </div>
+</div>
+{% endif %}
+
+{% if missing_keywords %}
+<div class="dashboard-panel mt-4">
+    <h6 class="panel-title text-danger"><i class="fa-solid fa-circle-xmark me-2"></i>Missing Keywords</h6>
+    <div class="d-flex flex-wrap gap-2">
+        {% for kw in missing_keywords %}
+        <span class="badge-pill" style="background: rgba(220,38,38,0.1); color: var(--danger);">{{ kw }}</span>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+{% if suggestions %}
+<div class="dashboard-panel mt-4">
+    <h6 class="panel-title">Resume Improvement Suggestions</h6>
+    <ul class="small mb-0">
+        {% for s in suggestions %}<li>{{ s }}</li>{% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+<div class="dashboard-panel mt-4">
+    <a href="{{ url_for('resume_center.index') }}" class="btn btn-outline-glass btn-sm">Upload Another Resume</a>
+    <a href="{{ url_for('reports.index') }}" class="btn btn-gradient btn-sm">Generate Full Resume Report</a>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        renderScoreRing('atsRing', {{ resume.ats_score }}, { color: SMX_CHART_COLORS.accent });
+    });
+</script>
+{% endblock %}

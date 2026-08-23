@@ -1,0 +1,26 @@
+{% extends "admin/_admin_base.html" %}
+{% block title %}Industry Skills{% endblock %}
+{% block page_title %}Industry Skills{% endblock %}
+
+{% block content %}
+<div class="dashboard-panel mb-4">
+    <h6 class="panel-title">Add a Skill</h6>
+    <form method="POST" action="{{ url_for('admin.skill_add') }}" class="row g-2">
+        {{ form.hidden_tag() }}
+        <div class="col-md-5">{{ form.name(class="form-control", placeholder="Skill name") }}</div>
+        <div class="col-md-5">{{ form.category(class="form-control", placeholder="Category (optional)") }}</div>
+        <div class="col-md-2">{{ form.submit(class="btn btn-gradient w-100") }}</div>
+    </form>
+</div>
+
+<div class="dashboard-panel">
+    <h6 class="panel-title">All Skills ({{ skills|length }})</h6>
+    <div class="d-flex flex-wrap gap-2">
+        {% for skill in skills %}
+        <span class="badge-pill">{{ skill.name }}{% if skill.category %} <small class="text-muted">({{ skill.category }})</small>{% endif %}</span>
+        {% else %}
+        <p class="text-muted small mb-0">No skills yet.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

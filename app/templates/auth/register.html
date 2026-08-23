@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+{% block content %}
+<div class="container py-5" style="margin-top:5rem; max-width:560px;">
+    <div class="text-center mb-3" data-aos="fade-down">
+        <img src="{{ url_for('static', filename='images/students.svg') }}" alt="Join SkillMatrix AI" style="max-width:140px;">
+    </div>
+    <div class="dashboard-panel glass-card">
+        <h3 class="mb-1">Create your account</h3>
+        <p class="text-muted small mb-4">Join SkillMatrix AI and start your career journey.</p>
+        <form method="POST" novalidate>
+            {{ form.hidden_tag() }}
+            <div class="mb-3">
+                {{ form.name.label(class="form-label small") }}
+                {{ form.name(class="form-control") }}
+                {% for err in form.name.errors %}<div class="text-danger small">{{ err }}</div>{% endfor %}
+            </div>
+            <div class="mb-3">
+                {{ form.email.label(class="form-label small") }}
+                {{ form.email(class="form-control") }}
+                {% for err in form.email.errors %}<div class="text-danger small">{{ err }}</div>{% endfor %}
+            </div>
+            <div class="mb-3">
+                {{ form.phone.label(class="form-label small") }}
+                {{ form.phone(class="form-control") }}
+            </div>
+            <div class="row g-2 mb-3">
+                <div class="col-md-6">
+                    {{ form.college.label(class="form-label small") }}
+                    {{ form.college(class="form-control") }}
+                </div>
+                <div class="col-md-6">
+                    {{ form.branch.label(class="form-label small") }}
+                    {{ form.branch(class="form-control") }}
+                </div>
+            </div>
+            <div class="mb-3">
+                {{ form.year.label(class="form-label small") }}
+                {{ form.year(class="form-select") }}
+            </div>
+            <div class="mb-3">
+                {{ form.password.label(class="form-label small") }}
+                {{ form.password(class="form-control") }}
+                {% for err in form.password.errors %}<div class="text-danger small">{{ err }}</div>{% endfor %}
+            </div>
+            <div class="mb-4">
+                {{ form.confirm_password.label(class="form-label small") }}
+                {{ form.confirm_password(class="form-control") }}
+                {% for err in form.confirm_password.errors %}<div class="text-danger small">{{ err }}</div>{% endfor %}
+            </div>
+            {{ form.submit(class="btn btn-gradient w-100") }}
+        </form>
+        <p class="text-center text-muted small mt-3 mb-0">
+            Already have an account? <a href="{{ url_for('auth.login') }}">Sign in</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

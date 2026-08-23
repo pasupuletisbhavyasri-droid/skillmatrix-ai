@@ -1,0 +1,102 @@
+{% extends "dashboard/_app_base.html" %}
+{% block title %}Communication Analysis Results{% endblock %}
+{% block page_title %}Communication Analysis Results{% endblock %}
+
+{% block content %}
+<div class="row g-4 mb-4">
+    <div class="col-lg-4">
+        <div class="dashboard-panel text-center">
+            <div class="progress-ring-wrap">
+                <canvas id="resultRing" width="180" height="180"></canvas>
+                <div class="mock-score-label" style="position:absolute;">
+                    <span class="score-value">{{ "%.0f"|format(assessment.communication_score) }}%</span>
+                    <span class="score-caption">Communication Score</span>
+                </div>
+            </div>
+            <p class="text-muted small mt-3 mb-0">Assessed {{ assessment.created_at.strftime('%b %d, %Y') }}</p>
+        </div>
+    </div>
+    <div class="col-lg-8">
+        <div class="dashboard-panel">
+            <h6 class="panel-title">Dimension Breakdown</h6>
+            {% for field, label in [
+                (assessment.speaking_skills, "Speaking Skills"),
+                (assessment.english_communication, "English Communication"),
+                (assessment.grammar, "Grammar"),
+                (assessment.vocabulary, "Vocabulary"),
+                (assessment.pronunciation, "Pronunciation"),
+                (assessment.fluency, "Fluency"),
+                (assessment.confidence, "Confidence"),
+                (assessment.presentation_skills, "Presentation Skills"),
+                (assessment.teamwork, "Teamwork"),
+                (assessment.leadership, "Leadership"),
+                (assessment.problem_solving, "Problem Solving"),
+            ] %}
+            <div class="mb-2">
+                <div class="d-flex justify-content-between small mb-1"><span>{{ label }}</span><span class="fw-semibold">{{ field }}/10</span></div>
+                <div class="progress-bar-custom"><span style="width: {{ (field / 10 * 100) }}%;"></span></div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-6">
+        <div class="dashboard-panel h-100">
+            <h6 class="panel-title text-success"><i class="fa-solid fa-thumbs-up me-2"></i>Strengths</h6>
+            {% for s in strengths %}<p class="small mb-2"><i class="fa-solid fa-check text-success me-2"></i>{{ s }}</p>{% else %}<p class="text-muted small mb-0">Keep practicing — no standout strengths yet at the 7+/10 level.</p>{% endfor %}
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="dashboard-panel h-100">
+            <h6 class="panel-title text-danger"><i class="fa-solid fa-triangle-exclamation me-2"></i>Areas to Improve</h6>
+            {% for w in weaknesses %}<p class="small mb-2"><i class="fa-solid fa-xmark text-danger me-2"></i>{{ w }}</p>{% else %}<p class="text-success small mb-0">No major weak areas — well rounded!</p>{% endfor %}
+        </div>
+    </div>
+</div>
+
+{% if suggestions %}
+<div class="dashboard-panel mt-4">
+    <h6 class="panel-title">Suggestions</h6>
+    {% for s in suggestions %}
+    <p class="small mb-2"><strong>{{ s.area }}:</strong> {{ s.tip }}</p>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% if roadmap %}
+<div class="dashboard-panel mt-4">
+    <h6 class="panel-title">Communication Improvement Roadmap</h6>
+    <div class="accordion" id="commRoadmapAccordion">
+        {% for week in roadmap %}
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button {% if not loop.first %}collapsed{% endif %}" data-bs-toggle="collapse" data-bs-target="#cweek{{ week.week }}">
+                    Week {{ week.week }}: {{ week.focus }}
+                </button>
+            </h2>
+            <div id="cweek{{ week.week }}" class="accordion-collapse collapse {% if loop.first %}show{% endif %}" data-bs-parent="#commRoadmapAccordion">
+                <div class="accordion-body">
+                    <ul class="mb-0 small">{% for task in week.tasks %}<li>{{ task }}</li>{% endfor %}</ul>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<div class="mt-4">
+    <a href="{{ url_for('communication.index') }}" class="btn btn-outline-glass btn-sm">Take Another Assessment</a>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        renderScoreRing('resultRing', {{ assessment.communication_score }}, { color: SMX_CHART_COLORS.accent });
+    });
+</script>
+{% endblock %}

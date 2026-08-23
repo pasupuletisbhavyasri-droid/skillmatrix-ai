@@ -1,0 +1,38 @@
+{% extends "admin/_admin_base.html" %}
+{% block title %}{{ student.name }}{% endblock %}
+{% block page_title %}{{ student.name }}{% endblock %}
+
+{% block content %}
+<div class="row g-4">
+    <div class="col-lg-4">
+        <div class="dashboard-panel text-center">
+            <img src="{{ student.photo_url and url_for('static', filename=student.photo_url) or url_for('static', filename='images/default-avatar.png') }}"
+                 class="rounded-circle mb-3" width="90" height="90" style="object-fit:cover;" alt="{{ student.name }}">
+            <h5 class="mb-0">{{ student.name }}</h5>
+            <p class="text-muted small">{{ student.email }}</p>
+            <p class="text-muted small mb-3">{{ student.college }} · {{ student.branch }} · {{ student.year }}</p>
+            <form method="POST" action="{{ url_for('admin.toggle_student_active', student_id=student.id) }}">
+                <button class="btn {% if student.is_active_account %}btn-outline-glass{% else %}btn-gradient{% endif %} btn-sm w-100">
+                    {{ 'Deactivate Account' if student.is_active_account else 'Reactivate Account' }}
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="col-lg-8">
+        <div class="row g-3 mb-4">
+            <div class="col-4"><div class="stat-card text-center"><h3 class="stat-value">{{ "%.0f"|format(student.employability_score) }}%</h3><p class="stat-label">Employability</p></div></div>
+            <div class="col-4"><div class="stat-card text-center"><h3 class="stat-value">{{ student.cgpa or '-' }}</h3><p class="stat-label">CGPA</p></div></div>
+            <div class="col-4"><div class="stat-card text-center"><h3 class="stat-value">{{ "%.0f"|format(student.placement_readiness_score) }}%</h3><p class="stat-label">Placement Ready</p></div></div>
+        </div>
+        <div class="dashboard-panel">
+            <h6 class="panel-title">Recent Activity</h6>
+            {% for log in activity %}
+            <div class="d-flex justify-content-between py-2 {% if not loop.last %}border-bottom{% endif %}">
+                <span class="small">{{ log.action }}</span>
+                <span class="text-muted small">{{ log.timestamp.strftime('%b %d, %I:%M %p') }}</span>
+            </div>
+            {% else %}<p class="text-muted small mb-0">No activity recorded.</p>{% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

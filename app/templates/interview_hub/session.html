@@ -1,0 +1,114 @@
+{% extends "dashboard/_app_base.html" %}
+{% block title %}Mock Interview — {{ role.title }}{% endblock %}
+{% block page_title %}Mock Interview: {{ role.title }}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-panel mb-3 d-flex justify-content-between align-items-center flex-wrap gap-3">
+    <div class="d-flex align-items-center gap-2">
+        <span class="small text-muted">Question <span id="qCounter">1</span> of {{ questions|length }}</span>
+    </div>
+    <div class="interview-timer"><i class="fa-solid fa-stopwatch me-2"></i><span id="interviewTimer">00:00</span></div>
+</div>
+
+<div class="interview-progress-track mb-4">
+    <div class="interview-progress-fill" id="progressFill" style="width: {{ (100 / questions|length)|round(1) }}%;"></div>
+</div>
+
+<form method="POST" action="{{ url_for('interview_hub.submit') }}" id="interviewForm">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    {% for question in questions %}
+    <div class="dashboard-panel mb-3 interview-question-card animate__animated {% if not loop.first %}d-none{% endif %}" data-index="{{ loop.index0 }}">
+        <div class="d-flex gap-3 align-items-start">
+            <div class="ai-avatar"><i class="fa-solid fa-robot"></i></div>
+            <div class="flex-grow-1">
+                <span class="badge-pill mb-2">{{ question.question_type }} · {{ question.difficulty }}</span>
+                <h6 class="question-text" data-full-text="{{ question.question_text }}"></h6>
+                <span class="text-muted small"><i class="fa-solid fa-clock me-1"></i>Suggested: ~{{ question.expected_duration_seconds }}s</span>
+            </div>
+        </div>
+        <textarea name="answer_{{ question.id }}" class="form-control mt-3" rows="4" placeholder="Type your answer..."></textarea>
+        <div class="d-flex justify-content-between mt-3">
+            <button type="button" class="btn btn-outline-glass btn-sm prev-btn" {% if loop.first %}disabled{% endif %}><i class="fa-solid fa-arrow-left me-1"></i>Previous</button>
+            {% if not loop.last %}
+            <button type="button" class="btn btn-gradient btn-sm next-btn">Next Question<i class="fa-solid fa-arrow-right ms-1"></i></button>
+            {% else %}
+            <button type="submit" class="btn btn-gradient btn-sm" id="finalSubmitBtn"><i class="fa-solid fa-paper-plane me-1"></i>Submit Interview</button>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+    <input type="hidden" name="total_duration_seconds" id="totalDurationInput" value="0">
+</form>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const cards = Array.from(document.querySelectorAll('.interview-question-card'));
+    const total = cards.length;
+    const progressFill = document.getElementById('progressFill');
+    const qCounter = document.getElementById('qCounter');
+    let current = 0;
+    let seconds = 0;
+
+    // Timer
+    const timerEl = document.getElementById('interviewTimer');
+    setInterval(function () {
+        seconds++;
+        const m = String(Math.floor(seconds / 60)).padStart(2, '0');
+        const s = String(seconds % 60).padStart(2, '0');
+        timerEl.textContent = `${m}:${s}`;
+        document.getElementById('totalDurationInput').value = seconds;
+    }, 1000);
+
+    // Typing animation for the question text of the currently visible card
+    function typeQuestion(card) {
+        const el = card.querySelector('.question-text');
+        const fullText = el.getAttribute('data-full-text');
+        el.textContent = '';
+        let i = 0;
+        const speed = 12; // ms per character — fast enough not to annoy on longer questions
+        function step() {
+            if (i < fullText.length) {
+                el.textContent += fullText.charAt(i);
+                i++;
+                setTimeout(step, speed);
+            }
+        }
+        step();
+    }
+
+    function showCard(index) {
+        cards.forEach((c, i) => {
+            c.classList.toggle('d-none', i !== index);
+        });
+        const card = cards[index];
+        card.classList.remove('animate__fadeIn');
+        void card.offsetWidth; // restart animation
+        card.classList.add('animate__animated', 'animate__fadeIn');
+        typeQuestion(card);
+        qCounter.textContent = index + 1;
+        progressFill.style.width = `${((index + 1) / total * 100).toFixed(1)}%`;
+    }
+
+    cards.forEach((card, index) => {
+        const nextBtn = card.querySelector('.next-btn');
+        const prevBtn = card.querySelector('.prev-btn');
+        if (nextBtn) nextBtn.addEventListener('click', () => { current = Math.min(current + 1, total - 1); showCard(current); });
+        if (prevBtn) prevBtn.addEventListener('click', () => { current = Math.max(current - 1, 0); showCard(current); });
+    });
+
+    // Kick off typing animation for the first card on load
+    if (cards.length) typeQuestion(cards[0]);
+
+    document.getElementById('interviewForm').addEventListener('submit', function () {
+        const btn = document.getElementById('finalSubmitBtn');
+        if (btn) setButtonLoading(btn, true, 'Evaluating your answers...');
+    });
+});
+</script>
+{% endblock %}

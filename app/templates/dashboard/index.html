@@ -1,0 +1,763 @@
+{% extends "dashboard/_app_base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block page_title %}
+Welcome back, {{ student.name.split(' ')[0] }}
+{% endblock %}
+
+
+{% block content %}
+
+<!-- =========================================================
+     PROFILE COMPLETION
+     ========================================================= -->
+
+{% if profile_completeness < 100 %}
+
+<div class="dashboard-panel profile-completion-card mb-4">
+
+    <div class="profile-completion-content">
+
+        <div class="profile-ring-small">
+            <canvas
+                id="profileCompletionRing"
+                width="56"
+                height="56">
+            </canvas>
+
+            <span class="profile-ring-value">
+                {{ profile_completeness }}%
+            </span>
+        </div>
+
+        <div>
+            <h6 class="mb-1">
+                Your profile is {{ profile_completeness }}% complete
+            </h6>
+
+            <p class="text-muted small mb-0">
+                Finish setting up your profile to get better career recommendations.
+            </p>
+        </div>
+
+    </div>
+
+    <a
+        href="{{ url_for('profile.index') }}"
+        class="btn btn-gradient btn-sm">
+        Complete Profile
+    </a>
+
+</div>
+
+{% endif %}
+
+
+<!-- =========================================================
+     MAIN STATISTICS
+     ========================================================= -->
+
+<div class="row g-4 mb-4">
+
+    <!-- Employability -->
+    <div class="col-sm-6 col-lg-3">
+
+        <div class="stat-card">
+
+            <div
+                class="stat-icon"
+                style="background: var(--gradient-brand);">
+
+                <i class="fa-solid fa-gauge-high"></i>
+
+            </div>
+
+            <h3 class="stat-value">
+                {{ "%.0f"|format(student.employability_score) }}%
+            </h3>
+
+            <p class="stat-label">
+                Employability Score
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Skills -->
+    <div class="col-sm-6 col-lg-3">
+
+        <div class="stat-card">
+
+            <div
+                class="stat-icon"
+                style="background: var(--success);">
+
+                <i class="fa-solid fa-code"></i>
+
+            </div>
+
+            <h3 class="stat-value">
+                {{ stats.skills_count }}
+            </h3>
+
+            <p class="stat-label">
+                Skills Added
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Projects -->
+    <div class="col-sm-6 col-lg-3">
+
+        <div class="stat-card">
+
+            <div
+                class="stat-icon"
+                style="background: var(--accent);">
+
+                <i class="fa-solid fa-diagram-project"></i>
+
+            </div>
+
+            <h3 class="stat-value">
+                {{ stats.projects_count }}
+            </h3>
+
+            <p class="stat-label">
+                Projects
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Placement -->
+    <div class="col-sm-6 col-lg-3">
+
+        <div class="stat-card">
+
+            <div
+                class="stat-icon"
+                style="background: var(--warning);">
+
+                <i class="fa-solid fa-briefcase"></i>
+
+            </div>
+
+            <h3 class="stat-value">
+                {{ "%.0f"|format(student.placement_readiness_score) }}%
+            </h3>
+
+            <p class="stat-label">
+                Placement Readiness
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     SECONDARY STATISTICS
+     ========================================================= -->
+
+<div class="row g-4 mb-4">
+
+
+    <!-- CGPA -->
+    <div class="col-sm-6 col-lg-3">
+
+        <div class="stat-card">
+
+            <div
+                class="stat-icon"
+                style="background: var(--primary);">
+
+                <i class="fa-solid fa-graduation-cap"></i>
+
+            </div>
+
+            <h3 class="stat-value">
+                {{ student.cgpa if student.cgpa is not none else '-' }}
+            </h3>
+
+            <p class="stat-label">
+
+                CGPA
+
+                <span
+                    class="badge-pill"
+                    style="font-size:0.65rem;">
+
+                    {{ cgpa_info.label }}
+
+                </span>
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ATS -->
+    <div class="col-sm-6 col-lg-3">
+
+        <div class="stat-card">
+
+            <div
+                class="stat-icon"
+                style="background: var(--danger);">
+
+                <i class="fa-solid fa-file-lines"></i>
+
+            </div>
+
+            <h3 class="stat-value">
+                {{ "%.0f"|format(stats.ats_score) }}%
+            </h3>
+
+            <p class="stat-label">
+                Resume ATS Score
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Interview -->
+    <div class="col-sm-6 col-lg-3">
+
+        <div class="stat-card">
+
+            <div
+                class="stat-icon"
+                style="background: var(--secondary);">
+
+                <i class="fa-solid fa-comments"></i>
+
+            </div>
+
+            <h3 class="stat-value">
+                {{ "%.0f"|format(stats.interview_score) }}%
+            </h3>
+
+            <p class="stat-label">
+                Interview Score
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Communication -->
+    <div class="col-sm-6 col-lg-3">
+
+        <div class="stat-card">
+
+            <div
+                class="stat-icon"
+                style="background: var(--accent);">
+
+                <i class="fa-solid fa-message"></i>
+
+            </div>
+
+            <h3 class="stat-value">
+                {{ "%.0f"|format(stats.communication_score) }}%
+            </h3>
+
+            <p class="stat-label">
+                Communication Score
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     EMPLOYABILITY + RECOMMENDATIONS
+     ========================================================= -->
+
+<div class="row g-4">
+
+
+    <!-- =====================================================
+         EMPLOYABILITY SCORE
+         ===================================================== -->
+
+    <div class="col-lg-4">
+
+        <div class="dashboard-panel employability-card h-100">
+
+            <div class="employability-header">
+
+                <div>
+
+                    <h6 class="panel-title mb-1">
+                        Employability Score
+                    </h6>
+
+                    <p class="text-muted small mb-0">
+                        Your overall placement readiness
+                    </p>
+
+                </div>
+
+                <span class="score-status">
+                    <i class="fa-solid fa-circle"></i>
+                    Live
+                </span>
+
+            </div>
+
+
+            <!-- SCORE RING -->
+
+            <div class="employability-score-display">
+
+                <div class="employability-ring">
+
+                    <canvas
+                        id="employabilityRing"
+                        width="200"
+                        height="200">
+                    </canvas>
+
+
+                    <div class="employability-score-text">
+
+                        <span
+                            class="score-number"
+                            id="employabilityScoreNumber">
+
+                            0%
+
+                        </span>
+
+                        <span class="score-label">
+                            Employability
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SCORE MESSAGE -->
+
+            <div class="score-message">
+
+                {% set score = student.employability_score|float %}
+
+                {% if score >= 80 %}
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    <span>
+                        Excellent! You are highly placement ready.
+                    </span>
+
+                {% elif score >= 60 %}
+
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+
+                    <span>
+                        Good progress. Keep improving your skills.
+                    </span>
+
+                {% elif score >= 40 %}
+
+                    <i class="fa-solid fa-bullseye"></i>
+
+                    <span>
+                        You're on the right track. Focus on your skill gaps.
+                    </span>
+
+                {% else %}
+
+                    <i class="fa-solid fa-lightbulb"></i>
+
+                    <span>
+                        Start building your skills to improve your score.
+                    </span>
+
+                {% endif %}
+
+            </div>
+
+
+            <a
+                href="{{ url_for('employability.index') }}"
+                class="btn btn-outline-glass btn-sm employability-button">
+
+                View Detailed Breakdown
+
+                <i class="fa-solid fa-arrow-right ms-1"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         RECOMMENDED CAREERS
+         ===================================================== -->
+
+    <div class="col-lg-8">
+
+        <div class="dashboard-panel h-100">
+
+            <div
+                class="d-flex justify-content-between align-items-center mb-3">
+
+                <h6 class="panel-title mb-0">
+
+                    Recommended Careers For You
+
+                    <span class="badge-pill">
+                        {{ stats.recommendation_count }} total
+                    </span>
+
+                </h6>
+
+                <a
+                    href="{{ url_for('recommendation.index') }}"
+                    class="small">
+
+                    View All
+
+                </a>
+
+            </div>
+
+
+            {% if recommendations %}
+
+                {% for rec in recommendations %}
+
+                <div
+                    class="d-flex align-items-center justify-content-between py-2
+                    {% if not loop.last %}border-bottom{% endif %}">
+
+                    <div>
+
+                        <a
+                            href="{{ url_for('career_explorer.detail', slug=rec.career_role.slug) }}"
+                            class="fw-semibold text-dark">
+
+                            {{ rec.career_role.title }}
+
+                        </a>
+
+                        <p class="text-muted small mb-0">
+                            {{ rec.career_role.category }}
+                        </p>
+
+                    </div>
+
+                    <span class="badge-pill">
+
+                        {{ "%.0f"|format(rec.match_score) }}% match
+
+                    </span>
+
+                </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <div class="text-center py-4">
+
+                    <p class="text-muted small mb-3">
+
+                        No recommendations yet — complete your profile
+                        to get personalized career matches.
+
+                    </p>
+
+                    <a
+                        href="{{ url_for('recommendation.index') }}"
+                        class="btn btn-gradient btn-sm">
+
+                        Generate Recommendations
+
+                    </a>
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     QUICK ACTIONS + ACTIVITY
+     ========================================================= -->
+
+<div class="row g-4 mt-1">
+
+
+    <!-- QUICK ACTIONS -->
+
+    <div class="col-lg-8">
+
+        <div class="dashboard-panel">
+
+            <h6 class="panel-title">
+                Quick Actions
+            </h6>
+
+            <div class="row g-3">
+
+                {% set quick_links = [
+
+                    ('career_explorer.index',
+                     'fa-compass',
+                     'Explore Careers'),
+
+                    ('resume_center.index',
+                     'fa-file-lines',
+                     'Analyze Resume'),
+
+                    ('interview_hub.index',
+                     'fa-comments',
+                     'Mock Interview'),
+
+                    ('learning_hub.index',
+                     'fa-graduation-cap',
+                     'Learning Hub')
+
+                ] %}
+
+
+                {% for endpoint, icon, label in quick_links %}
+
+                <div class="col-6 col-md-3">
+
+                    <a
+                        href="{{ url_for(endpoint) }}"
+                        class="quick-action">
+
+                        <div
+                            class="quick-action-icon">
+
+                            <i class="fa-solid {{ icon }}"></i>
+
+                        </div>
+
+                        <span>
+                            {{ label }}
+                        </span>
+
+                    </a>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- RECENT ACTIVITY -->
+
+    <div class="col-lg-4">
+
+        <div class="dashboard-panel">
+
+            <h6 class="panel-title">
+                Recent Activity
+            </h6>
+
+
+            {% if activity %}
+
+                <ul class="list-unstyled mb-0">
+
+                    {% for log in activity %}
+
+                    <li
+                        class="d-flex align-items-start gap-2 mb-3">
+
+                        <i
+                            class="fa-solid fa-circle-dot text-primary mt-1"
+                            style="font-size: 0.5rem;">
+                        </i>
+
+                        <div>
+
+                            <p class="mb-0 small">
+                                {{ log.action }}
+                            </p>
+
+                            <span
+                                class="text-muted"
+                                style="font-size: 0.75rem;">
+
+                                {{ log.timestamp.strftime('%b %d, %I:%M %p') }}
+
+                            </span>
+
+                        </div>
+
+                    </li>
+
+                    {% endfor %}
+
+                </ul>
+
+            {% else %}
+
+                <p class="text-muted small mb-0">
+                    No recent activity yet.
+                </p>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+
+{% block extra_js %}
+
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    /* =====================================================
+       EMPLOYABILITY SCORE RING
+       ===================================================== */
+
+    const employabilityScore =
+        {{ student.employability_score|float }};
+
+    renderScoreRing(
+        'employabilityRing',
+        employabilityScore,
+        {
+            color: SMX_CHART_COLORS.secondary,
+            trackColor: '#EDE9FE',
+            animationDuration: 1600
+        }
+    );
+
+
+    /* =====================================================
+       ANIMATED SCORE NUMBER
+       ===================================================== */
+
+    const scoreElement =
+        document.getElementById(
+            'employabilityScoreNumber'
+        );
+
+    if (scoreElement) {
+
+        const duration = 1600;
+
+        const startTime = performance.now();
+
+        function animateScore(currentTime) {
+
+            const elapsed =
+                currentTime - startTime;
+
+            const progress =
+                Math.min(elapsed / duration, 1);
+
+            /*
+             * Smooth ease-out animation
+             */
+            const eased =
+                1 - Math.pow(1 - progress, 3);
+
+            const currentScore =
+                Math.round(
+                    employabilityScore * eased
+                );
+
+            scoreElement.textContent =
+                currentScore + '%';
+
+            if (progress < 1) {
+
+                requestAnimationFrame(
+                    animateScore
+                );
+
+            } else {
+
+                scoreElement.textContent =
+                    Math.round(employabilityScore) + '%';
+            }
+        }
+
+        requestAnimationFrame(
+            animateScore
+        );
+    }
+
+
+    /* =====================================================
+       PROFILE COMPLETION RING
+       ===================================================== */
+
+    {% if profile_completeness < 100 %}
+
+    renderScoreRing(
+        'profileCompletionRing',
+        {{ profile_completeness|float }},
+        {
+            color: SMX_CHART_COLORS.accent,
+            trackColor: '#E0F2FE',
+            animationDuration: 1200
+        }
+    );
+
+    {% endif %}
+
+});
+
+</script>
+
+{% endblock %}

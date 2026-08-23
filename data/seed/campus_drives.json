@@ -1,0 +1,30 @@
+[
+  {
+    "company_name": "TCS", "role_title": "Assistant System Engineer", "career_role_slug": "software-engineer-generalist",
+    "eligibility_criteria": "CGPA >= 6.0, no active backlogs, all branches eligible",
+    "min_cgpa": 6.0, "package_min": 350000, "package_max": 400000, "location": "Multiple Locations (Pan-India)",
+    "drive_date": "2026-09-15", "registration_deadline": "2026-09-05",
+    "description": "Mass recruitment drive for diploma and degree engineering graduates across all branches."
+  },
+  {
+    "company_name": "Infosys", "role_title": "Systems Engineer Trainee", "career_role_slug": "software-engineer-generalist",
+    "eligibility_criteria": "CGPA >= 6.5, no active backlogs",
+    "min_cgpa": 6.5, "package_min": 380000, "package_max": 450000, "location": "Bangalore / Pune / Hyderabad",
+    "drive_date": "2026-09-22", "registration_deadline": "2026-09-12",
+    "description": "Entry-level systems engineer hiring with 3-month foundational training program included."
+  },
+  {
+    "company_name": "Tata Motors", "role_title": "Graduate Engineer Trainee (Mechanical)", "career_role_slug": "mechanical-design-engineer",
+    "eligibility_criteria": "Diploma/B.Tech Mechanical, CGPA >= 6.0",
+    "min_cgpa": 6.0, "package_min": 300000, "package_max": 380000, "location": "Pune / Jamshedpur",
+    "drive_date": "2026-10-05", "registration_deadline": "2026-09-25",
+    "description": "Graduate trainee program for mechanical diploma/degree holders in vehicle manufacturing."
+  },
+  {
+    "company_name": "HDFC Bank", "role_title": "Relationship Manager Trainee", "career_role_slug": null,
+    "eligibility_criteria": "Any diploma/degree, CGPA >= 6.0, good communication skills",
+    "min_cgpa": 6.0, "package_min": 280000, "package_max": 350000, "location": "Multiple Locations",
+    "drive_date": "2026-09-18", "registration_deadline": "2026-09-08",
+    "description": "Entry-level banking and customer relationship role with structured training."
+  }
+]

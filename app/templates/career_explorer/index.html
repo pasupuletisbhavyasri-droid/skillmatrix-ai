@@ -1,0 +1,57 @@
+{% extends "dashboard/_app_base.html" if current_user.is_authenticated else "base.html" %}
+{% block title %}Career Explorer{% endblock %}
+{% block page_title %}Career Explorer{% endblock %}
+
+{% block content %}
+<div class="dashboard-panel mb-4">
+    <form method="GET" class="position-relative">
+        <div class="input-group input-group-lg">
+            <span class="input-group-text bg-transparent border-end-0"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <input type="text" name="q" value="{{ query }}" class="form-control border-start-0"
+                   placeholder="Search by job title, skill, or technology..." data-search-suggest>
+            <button class="btn btn-gradient" type="submit">Search</button>
+        </div>
+        <div id="search-suggestions" class="search-suggestions"></div>
+    </form>
+
+    <div class="d-flex flex-wrap gap-2 mt-3">
+        <a href="{{ url_for('career_explorer.index') }}" class="badge-pill {% if not category %}border border-primary{% endif %}">All Categories</a>
+        {% for cat in categories %}
+        <a href="{{ url_for('career_explorer.index', category=cat, sector=sector) }}" class="badge-pill {% if category == cat %}border border-primary{% endif %}">{{ cat }}</a>
+        {% endfor %}
+    </div>
+    <div class="d-flex flex-wrap gap-2 mt-2">
+        <a href="{{ url_for('career_explorer.index', category=category) }}" class="badge-pill {% if not sector %}border border-primary{% endif %}">All Sectors</a>
+        {% for sec in sectors %}
+        <a href="{{ url_for('career_explorer.index', category=category, sector=sec) }}" class="badge-pill {% if sector == sec %}border border-primary{% endif %}">{{ sec }}</a>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="row g-4">
+    {% for role in results %}
+    <div class="col-md-6 col-lg-4">
+        <a href="{{ url_for('career_explorer.detail', slug=role.slug) }}" class="career-card-link">
+            <div class="career-card h-100">
+                <span class="career-category">{{ role.category }}</span>
+                <h5>{{ role.title }}</h5>
+                <p class="text-muted small">{{ role.description[:90] }}{% if role.description|length > 90 %}...{% endif %}</p>
+                {% if role.salary_min and role.salary_max %}
+                <p class="career-salary"><i class="fa-solid fa-sack-dollar me-1"></i>
+                    Rs. {{ "{:,}".format(role.salary_min) }} – Rs. {{ "{:,}".format(role.salary_max) }}
+                </p>
+                {% endif %}
+            </div>
+        </a>
+    </div>
+    {% else %}
+    <div class="col-12 text-center py-5">
+        <p class="text-muted">No careers found matching your search.</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/search.js') }}"></script>
+{% endblock %}

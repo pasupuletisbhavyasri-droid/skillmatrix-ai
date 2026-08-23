@@ -1,0 +1,123 @@
+{% extends "dashboard/_app_base.html" %}
+{% block title %}Profile & Portfolio{% endblock %}
+{% block page_title %}Profile & Portfolio{% endblock %}
+
+{% block content %}
+<div class="row g-4">
+    <div class="col-lg-4">
+        <div class="dashboard-panel text-center">
+            <img src="{{ student.photo_url and url_for('static', filename=student.photo_url) or url_for('static', filename='images/default-avatar.png') }}"
+                 class="rounded-circle mb-3" width="100" height="100" style="object-fit:cover;" alt="{{ student.name }}">
+            <h5 class="mb-0">{{ student.name }}</h5>
+            <p class="text-muted small">{{ student.branch }} · {{ student.year }}</p>
+            <p class="text-muted small mb-2">{{ student.college }}</p>
+            <p class="mb-3">
+                <span class="badge-pill">CGPA: {{ student.cgpa if student.cgpa is not none else 'Not set' }} — {{ cgpa_info.label }}</span>
+            </p>
+            <p class="text-muted small mb-3" style="font-size:0.78rem;">{{ cgpa_info.explanation }}</p>
+
+            <div class="d-flex justify-content-center gap-2 mb-3">
+                {% if student.github_url %}<a href="{{ student.github_url }}" target="_blank" class="btn btn-icon"><i class="fa-brands fa-github"></i></a>{% endif %}
+                {% if student.linkedin_url %}<a href="{{ student.linkedin_url }}" target="_blank" class="btn btn-icon"><i class="fa-brands fa-linkedin"></i></a>{% endif %}
+            </div>
+
+            <a href="{{ url_for('profile.edit') }}" class="btn btn-gradient btn-sm w-100">Edit Profile</a>
+        </div>
+    </div>
+
+    <div class="col-lg-8">
+        <div class="dashboard-panel">
+            <ul class="nav nav-tabs mb-4" id="portfolioTabs" role="tablist">
+                <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#skills-tab">Skills</button></li>
+                <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#projects-tab">Projects</button></li>
+                <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#certs-tab">Certifications</button></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="skills-tab">
+                    <form method="POST" action="{{ url_for('profile.add_skill') }}" class="row g-2 mb-3">
+                        {{ skill_form.hidden_tag() }}
+                        <div class="col-6">{{ skill_form.skill_name(class="form-control", placeholder="e.g. Python") }}</div>
+                        <div class="col-4">{{ skill_form.proficiency_level(class="form-select") }}</div>
+                        <div class="col-2"><button class="btn btn-gradient w-100" type="submit"><i class="fa-solid fa-plus"></i></button></div>
+                    </form>
+                    <div class="d-flex flex-wrap gap-2">
+                        {% for link in skills %}
+                        <span class="badge-pill d-flex align-items-center gap-2">
+                            {{ link.skill.name }} <small class="text-muted">({{ link.proficiency_level }})</small>
+                            <form method="POST" action="{{ url_for('profile.delete_skill', skill_link_id=link.id) }}" class="d-inline">
+                                <button class="btn btn-sm p-0 border-0 bg-transparent text-danger" title="Remove"><i class="fa-solid fa-xmark"></i></button>
+                            </form>
+                        </span>
+                        {% else %}
+                        <p class="text-muted small mb-0">No skills added yet.</p>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="projects-tab">
+                    <button class="btn btn-gradient btn-sm mb-3" data-bs-toggle="collapse" data-bs-target="#addProjectForm">
+                        <i class="fa-solid fa-plus me-1"></i>Add Project
+                    </button>
+                    <div class="collapse mb-3" id="addProjectForm">
+                        <form method="POST" action="{{ url_for('profile.add_project') }}" class="glass-card">
+                            {{ project_form.hidden_tag() }}
+                            <div class="mb-2">{{ project_form.title(class="form-control", placeholder="Project Title") }}</div>
+                            <div class="mb-2">{{ project_form.description(class="form-control", rows=3, placeholder="Description") }}</div>
+                            <div class="mb-2">{{ project_form.tech_stack(class="form-control", placeholder="Tech stack, comma-separated") }}</div>
+                            <div class="row g-2 mb-2">
+                                <div class="col-6">{{ project_form.github_link(class="form-control", placeholder="GitHub link") }}</div>
+                                <div class="col-6">{{ project_form.live_link(class="form-control", placeholder="Live demo link") }}</div>
+                            </div>
+                            {{ project_form.submit(class="btn btn-gradient btn-sm") }}
+                        </form>
+                    </div>
+                    {% for project in projects %}
+                    <div class="d-flex justify-content-between align-items-start py-3 {% if not loop.last %}border-bottom{% endif %}">
+                        <div>
+                            <h6 class="mb-1">{{ project.title }}</h6>
+                            <p class="text-muted small mb-1">{{ project.description }}</p>
+                            {% if project.tech_stack %}<p class="small mb-0"><em>{{ project.tech_stack }}</em></p>{% endif %}
+                        </div>
+                        <form method="POST" action="{{ url_for('profile.delete_project', project_id=project.id) }}">
+                            <button class="btn btn-icon text-danger" title="Delete"><i class="fa-solid fa-trash"></i></button>
+                        </form>
+                    </div>
+                    {% else %}
+                    <p class="text-muted small mb-0">No projects added yet.</p>
+                    {% endfor %}
+                </div>
+
+                <div class="tab-pane fade" id="certs-tab">
+                    <button class="btn btn-gradient btn-sm mb-3" data-bs-toggle="collapse" data-bs-target="#addCertForm">
+                        <i class="fa-solid fa-plus me-1"></i>Add Certification
+                    </button>
+                    <div class="collapse mb-3" id="addCertForm">
+                        <form method="POST" action="{{ url_for('profile.add_certification') }}" enctype="multipart/form-data" class="glass-card">
+                            {{ certification_form.hidden_tag() }}
+                            <div class="mb-2">{{ certification_form.title(class="form-control", placeholder="Certification Title") }}</div>
+                            <div class="mb-2">{{ certification_form.issuer(class="form-control", placeholder="Issuer") }}</div>
+                            <div class="mb-2">{{ certification_form.issue_date(class="form-control") }}</div>
+                            <div class="mb-2">{{ certification_form.certificate_file(class="form-control") }}</div>
+                            {{ certification_form.submit(class="btn btn-gradient btn-sm") }}
+                        </form>
+                    </div>
+                    {% for cert in certifications %}
+                    <div class="d-flex justify-content-between align-items-center py-3 {% if not loop.last %}border-bottom{% endif %}">
+                        <div>
+                            <h6 class="mb-1">{{ cert.title }}</h6>
+                            <p class="text-muted small mb-0">{{ cert.issuer }}{% if cert.issue_date %} · {{ cert.issue_date.strftime('%b %Y') }}{% endif %}</p>
+                        </div>
+                        <form method="POST" action="{{ url_for('profile.delete_certification', cert_id=cert.id) }}">
+                            <button class="btn btn-icon text-danger" title="Delete"><i class="fa-solid fa-trash"></i></button>
+                        </form>
+                    </div>
+                    {% else %}
+                    <p class="text-muted small mb-0">No certifications added yet.</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

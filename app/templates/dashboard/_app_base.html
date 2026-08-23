@@ -1,0 +1,114 @@
+{% extends "layout.html" %}
+
+{% block body_class %}app-shell{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">{% endblock %}
+
+{% block body %}
+<div class="d-flex">
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <i class="fa-solid fa-layer-group"></i>
+            <span class="brand-text">{{ app_name }}</span>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a class="sidebar-link {% if request.endpoint == 'dashboard.index' %}active{% endif %}"
+               href="{{ url_for('dashboard.index') }}">
+                <i class="fa-solid fa-gauge-high"></i><span>Dashboard</span>
+            </a>
+            <a class="sidebar-link {% if request.blueprint == 'profile' %}active{% endif %}"
+               href="{{ url_for('profile.index') }}">
+                <i class="fa-solid fa-id-card"></i><span>Profile & Portfolio</span>
+            </a>
+            <a class="sidebar-link {% if request.blueprint == 'career_explorer' %}active{% endif %}"
+               href="{{ url_for('career_explorer.index') }}">
+                <i class="fa-solid fa-compass"></i><span>Career Explorer</span>
+            </a>
+            <a class="sidebar-link {% if request.blueprint == 'skill_gap' %}active{% endif %}"
+               href="{{ url_for('skill_gap.index') }}">
+                <i class="fa-solid fa-diagram-project"></i><span>Skill Gap</span>
+            </a>
+            <a class="sidebar-link {% if request.blueprint == 'employability' %}active{% endif %}"
+               href="{{ url_for('employability.index') }}">
+                <i class="fa-solid fa-gauge"></i><span>Employability</span>
+            </a>
+            <a class="sidebar-link {% if request.blueprint == 'recommendation' %}active{% endif %}"
+               href="{{ url_for('recommendation.index') }}">
+                <i class="fa-solid fa-wand-magic-sparkles"></i><span>Recommendations</span>
+            </a>
+            <a class="sidebar-link {% if request.blueprint == 'learning_hub' %}active{% endif %}"
+               href="{{ url_for('learning_hub.index') }}">
+                <i class="fa-solid fa-graduation-cap"></i><span>Learning Hub</span>
+            </a>
+            <a class="sidebar-link {% if request.blueprint == 'interview_hub' %}active{% endif %}"
+               href="{{ url_for('interview_hub.index') }}">
+                <i class="fa-solid fa-comments"></i><span>Interview Hub</span>
+            </a>
+            <a class="sidebar-link {% if request.blueprint == 'communication' %}active{% endif %}"
+               href="{{ url_for('communication.index') }}">
+                <i class="fa-solid fa-message"></i><span>Communication</span>
+            </a>
+            <a class="sidebar-link {% if request.blueprint == 'resume_center' %}active{% endif %}"
+               href="{{ url_for('resume_center.index') }}">
+                <i class="fa-solid fa-file-lines"></i><span>Resume Center</span>
+            </a>
+            <a class="sidebar-link {% if request.blueprint == 'placement_hub' %}active{% endif %}"
+               href="{{ url_for('placement_hub.index') }}">
+                <i class="fa-solid fa-briefcase"></i><span>Placement Hub</span>
+            </a>
+            <a class="sidebar-link {% if request.blueprint == 'career_library' %}active{% endif %}"
+               href="{{ url_for('career_library.index') }}">
+                <i class="fa-solid fa-book-bookmark"></i><span>Career Library</span>
+            </a>
+            <a class="sidebar-link {% if request.blueprint == 'practice_hub' %}active{% endif %}"
+               href="{{ url_for('practice_hub.index') }}">
+                <i class="fa-solid fa-pen-to-square"></i><span>Practice Hub</span>
+            </a>
+            <a class="sidebar-link {% if request.blueprint == 'reports' %}active{% endif %}"
+               href="{{ url_for('reports.index') }}">
+                <i class="fa-solid fa-chart-pie"></i><span>Reports</span>
+            </a>
+
+            <div class="sidebar-divider"></div>
+
+            <a class="sidebar-link" href="{{ url_for('auth.logout') }}"><i class="fa-solid fa-right-from-bracket"></i><span>Logout</span></a>
+        </nav>
+    </aside>
+
+    <div class="app-main">
+        <header class="topbar">
+            <button id="sidebar-toggle" class="btn btn-icon d-lg-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <h1 class="topbar-title">{% block page_title %}Dashboard{% endblock %}</h1>
+
+            <div class="topbar-actions">
+                <button class="btn btn-icon position-relative" title="Notifications">
+                    <i class="fa-solid fa-bell"></i>
+                    <span class="notif-dot"></span>
+                </button>
+                <button id="theme-toggle" class="btn btn-icon" title="Toggle dark mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <div class="dropdown">
+                    <button class="btn btn-icon dropdown-toggle-noarrow" data-bs-toggle="dropdown">
+                        <img src="{{ current_user.photo_url and url_for('static', filename=current_user.photo_url) or url_for('static', filename='images/default-avatar.png') }}"
+                             class="avatar-sm" alt="avatar">
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="{{ url_for('profile.index') }}">My Profile</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-danger" href="{{ url_for('auth.logout') }}">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <div class="app-content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</div>
+{% endblock %}

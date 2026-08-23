@@ -1,0 +1,33 @@
+{% extends "admin/_admin_base.html" %}
+{% block title %}Campus Drives{% endblock %}
+{% block page_title %}Campus Drives{% endblock %}
+
+{% block content %}
+<div class="dashboard-panel mb-4 d-flex justify-content-between align-items-center">
+    <h6 class="panel-title mb-0">All Campus Drives ({{ drives|length }})</h6>
+    <a href="{{ url_for('admin.drive_create') }}" class="btn btn-gradient btn-sm"><i class="fa-solid fa-plus me-2"></i>New Drive</a>
+</div>
+
+<div class="dashboard-panel">
+    <table class="table align-middle">
+        <thead><tr><th>Company</th><th>Role</th><th>Package</th><th>Date</th><th>Status</th><th></th></tr></thead>
+        <tbody>
+        {% for drive in drives %}
+            <tr>
+                <td>{{ drive.company_name }}</td>
+                <td>{{ drive.role_title }}</td>
+                <td>{% if drive.package_min and drive.package_max %}Rs. {{ "{:,}".format(drive.package_min) }}-{{ "{:,}".format(drive.package_max) }}{% else %}-{% endif %}</td>
+                <td>{{ drive.drive_date.strftime('%b %d, %Y') if drive.drive_date else '-' }}</td>
+                <td>{% if drive.is_active %}<span class="badge-pill">Active</span>{% else %}<span class="badge-pill" style="background: rgba(220,38,38,0.1); color: var(--danger);">Inactive</span>{% endif %}</td>
+                <td class="d-flex gap-2">
+                    <a href="{{ url_for('admin.drive_applications', drive_id=drive.id) }}" class="btn btn-icon" title="View Applications"><i class="fa-solid fa-users"></i></a>
+                    <a href="{{ url_for('admin.drive_edit', drive_id=drive.id) }}" class="btn btn-icon"><i class="fa-solid fa-pen"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr><td colspan="6" class="text-center text-muted small py-4">No campus drives yet.</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

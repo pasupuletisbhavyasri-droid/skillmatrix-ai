@@ -1,0 +1,34 @@
+{% extends "admin/_admin_base.html" %}
+{% block title %}Career Guides{% endblock %}
+{% block page_title %}Career Guides{% endblock %}
+
+{% block content %}
+<div class="dashboard-panel mb-4 d-flex justify-content-between align-items-center">
+    <h6 class="panel-title mb-0">All Guides ({{ guides|length }})</h6>
+    <a href="{{ url_for('admin.guide_create') }}" class="btn btn-gradient btn-sm"><i class="fa-solid fa-plus me-2"></i>New Guide</a>
+</div>
+
+<div class="dashboard-panel">
+    <table class="table align-middle">
+        <thead><tr><th>Title</th><th>Type</th><th>Category</th><th>Status</th><th></th></tr></thead>
+        <tbody>
+        {% for guide in guides %}
+            <tr>
+                <td>{{ guide.title }}</td>
+                <td><span class="badge-pill">{{ guide.guide_type }}</span></td>
+                <td>{{ guide.category or '-' }}</td>
+                <td>{% if guide.is_active %}<span class="badge-pill">Active</span>{% else %}<span class="badge-pill" style="background: rgba(220,38,38,0.1); color: var(--danger);">Inactive</span>{% endif %}</td>
+                <td>
+                    <a href="{{ url_for('admin.guide_edit', guide_id=guide.id) }}" class="btn btn-icon"><i class="fa-solid fa-pen"></i></a>
+                    <form method="POST" action="{{ url_for('admin.guide_delete', guide_id=guide.id) }}" class="d-inline">
+                        <button class="btn btn-icon text-danger"><i class="fa-solid fa-trash"></i></button>
+                    </form>
+                </td>
+            </tr>
+        {% else %}
+            <tr><td colspan="5" class="text-center text-muted small py-4">No guides yet — run <code>flask seed-guides</code> or add one manually.</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

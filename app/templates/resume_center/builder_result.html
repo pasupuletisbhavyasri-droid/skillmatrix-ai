@@ -1,0 +1,16 @@
+{% extends "dashboard/_app_base.html" %}
+{% block title %}Resume Ready{% endblock %}
+{% block page_title %}Your Resume Is Ready{% endblock %}
+
+{% block content %}
+<div class="dashboard-panel text-center py-5" data-aos="zoom-in">
+    <i class="fa-solid fa-circle-check fa-3x text-success mb-3"></i>
+    <h5>Your resume has been generated</h5>
+    <p class="text-muted small mb-4">Generated {{ report.generated_at.strftime('%b %d, %Y %I:%M %p') }}</p>
+    <a href="{{ url_for('reports.download', report_id=report.id) }}" class="btn btn-gradient btn-lg"><i class="fa-solid fa-download me-2"></i>Download PDF</a>
+    <div class="mt-4">
+        <a href="{{ url_for('resume_center.builder') }}" class="btn btn-outline-glass btn-sm">Try Another Template</a>
+        <a href="{{ url_for('resume_center.index') }}" class="btn btn-outline-glass btn-sm">Run It Through the ATS Analyzer</a>
+    </div>
+</div>
+{% endblock %}

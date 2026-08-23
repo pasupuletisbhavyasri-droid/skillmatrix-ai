@@ -1,0 +1,1675 @@
+/* =========================================================
+   LANDING PAGE
+========================================================= */
+
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(124, 58, 237, 0.13),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 10% 80%,
+            rgba(168, 85, 247, 0.10),
+            transparent 30%
+        ),
+        var(--bg-body);
+
+    min-height: 720px;
+}
+
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+#hero-particles {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================================
+   HERO HEIGHT
+========================================================= */
+
+.min-vh-hero {
+    min-height: 720px;
+}
+
+
+/* =========================================================
+   HERO TITLE
+========================================================= */
+
+.hero-title {
+    font-size: clamp(
+        2.6rem,
+        5vw,
+        4.5rem
+    );
+
+    line-height: 1.08;
+
+    font-weight: 800;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 1.5rem;
+
+    color: var(--text-primary);
+}
+
+
+.hero-subtitle {
+    max-width: 650px;
+
+    font-size: 1.1rem;
+
+    line-height: 1.8;
+
+    color: var(--text-secondary);
+}
+
+
+/* =========================================================
+   GRADIENT TEXT
+========================================================= */
+
+.text-gradient {
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #7c3aed,
+            #a855f7
+        );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+
+/* =========================================================
+   HERO STATS
+========================================================= */
+
+.hero-stats {
+    display: flex;
+    gap: 3.5rem;
+}
+
+.hero-stat h3 {
+    margin: 0;
+
+    font-size: 2rem;
+
+    font-weight: 800;
+
+    color: #5b3df5;
+}
+
+.hero-stat p {
+    margin: 0.15rem 0 0;
+
+    font-size: 0.85rem;
+
+    color: var(--text-secondary);
+}
+
+
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+
+.hero-visual {
+    position: relative;
+
+    min-height: 620px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* =========================================================
+   GLOW EFFECTS
+========================================================= */
+
+.visual-glow {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(70px);
+
+    pointer-events: none;
+}
+
+.glow-one {
+    width: 280px;
+    height: 280px;
+
+    background: rgba(124, 58, 237, 0.25);
+
+    top: 90px;
+    right: 70px;
+}
+
+.glow-two {
+    width: 220px;
+    height: 220px;
+
+    background: rgba(168, 85, 247, 0.18);
+
+    bottom: 80px;
+    left: 60px;
+}
+
+
+/* =========================================================
+   MAIN EMPLOYABILITY CARD
+========================================================= */
+
+.employability-card {
+
+    position: relative;
+
+    width: min(
+        460px,
+        90%
+    );
+
+    min-height: 535px;
+
+    padding: 2rem;
+
+    border-radius: 32px;
+
+    background:
+        rgba(255, 255, 255, 0.82);
+
+    border:
+        1px solid rgba(
+            255,
+            255,
+            255,
+            0.8
+        );
+
+    box-shadow:
+        0 35px 90px
+        rgba(
+            91,
+            61,
+            245,
+            0.16
+        );
+
+    backdrop-filter:
+        blur(25px);
+
+    -webkit-backdrop-filter:
+        blur(25px);
+
+    z-index: 3;
+
+    animation:
+        cardFloat 5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.score-card-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    margin-bottom: 1rem;
+}
+
+.score-small-title {
+
+    display: block;
+
+    font-size: 0.75rem;
+
+    color: #8b86a3;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 4px;
+}
+
+.score-card-header h4 {
+
+    margin: 0;
+
+    font-size: 1.35rem;
+
+    font-weight: 800;
+
+    color: #24213d;
+}
+
+
+/* =========================================================
+   AI STATUS
+========================================================= */
+
+.ai-status {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 7px 11px;
+
+    border-radius: 50px;
+
+    background: #f1edff;
+
+    color: #6d43e8;
+
+    font-size: 0.72rem;
+
+    font-weight: 700;
+}
+
+.ai-status span {
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(
+            34,
+            197,
+            94,
+            0.12
+        );
+
+    animation: pulseDot 1.8s infinite;
+}
+
+
+/* =========================================================
+   SCORE VISUAL
+========================================================= */
+
+.score-visual {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin: 1rem 0 1.5rem;
+}
+
+
+/* =========================================================
+   SCORE RING
+========================================================= */
+
+.score-ring {
+
+    --score: 0deg;
+
+    position: relative;
+
+    width: 270px;
+
+    height: 270px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        conic-gradient(
+            from -90deg,
+            #5b3df5 0deg,
+            #9333ea var(--score),
+            #eeeafb var(--score),
+            #eeeafb 360deg
+        );
+
+    box-shadow:
+        0 20px 50px
+        rgba(
+            91,
+            61,
+            245,
+            0.18
+        );
+
+    transition:
+        background 0.05s linear;
+}
+
+
+/* INNER CIRCLE */
+
+.score-ring-inner {
+
+    width: 215px;
+
+    height: 215px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    box-shadow:
+        inset 0 0 30px
+        rgba(
+            91,
+            61,
+            245,
+            0.05
+        );
+}
+
+
+/* =========================================================
+   SCORE NUMBER
+========================================================= */
+
+.score-number {
+
+    font-size: 3.5rem;
+
+    line-height: 1;
+
+    font-weight: 900;
+
+    letter-spacing: -2px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #9333ea
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+.score-label {
+
+    margin-top: 8px;
+
+    font-size: 0.82rem;
+
+    color: #8b86a3;
+
+    font-weight: 600;
+}
+
+
+.score-status {
+
+    margin-top: 10px;
+
+    padding: 5px 10px;
+
+    border-radius: 30px;
+
+    background: #ecfdf5;
+
+    color: #16a34a;
+
+    font-size: 0.68rem;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   MOVING SCORE MARKER
+========================================================= */
+
+.score-marker {
+
+    position: absolute;
+
+    width: 15px;
+
+    height: 15px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    border: 4px solid #7c3aed;
+
+    top: 3px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        rotate(0deg)
+        translateY(0);
+
+    transform-origin:
+        50% 132px;
+
+    animation:
+        markerRotate 5s
+        ease-in-out
+        infinite;
+
+    box-shadow:
+        0 0 0 5px
+        rgba(
+            124,
+            58,
+            237,
+            0.10
+        );
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   SCORE INFO
+========================================================= */
+
+.score-info {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 0.7rem;
+
+    margin-bottom: 1.5rem;
+}
+
+.score-info-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 10px;
+
+    border-radius: 14px;
+
+    background: #f8f7ff;
+}
+
+.score-info-icon {
+
+    width: 30px;
+
+    height: 30px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #ede9fe;
+
+    color: #6d43e8;
+
+    font-size: 0.75rem;
+}
+
+.score-info-item strong {
+
+    display: block;
+
+    font-size: 0.68rem;
+
+    color: #363149;
+}
+
+.score-info-item span {
+
+    display: block;
+
+    font-size: 0.62rem;
+
+    color: #8c879e;
+
+    margin-top: 2px;
+}
+
+
+/* =========================================================
+   READINESS PROGRESS
+========================================================= */
+
+.readiness-progress {
+
+    padding-top: 0.3rem;
+}
+
+.progress-heading {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 8px;
+
+    font-size: 0.76rem;
+
+    color: #77718c;
+}
+
+.progress-heading strong {
+
+    color: #653eea;
+
+    font-size: 0.8rem;
+}
+
+
+/* CUSTOM PROGRESS */
+
+.custom-progress {
+
+    width: 100%;
+
+    height: 8px;
+
+    background: #eeeafb;
+
+    border-radius: 50px;
+
+    overflow: hidden;
+}
+
+.custom-progress-bar {
+
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4f46e5,
+            #9333ea,
+            #c084fc
+        );
+
+    box-shadow:
+        0 4px 12px
+        rgba(
+            124,
+            58,
+            237,
+            0.35
+        );
+
+    transition:
+        width 0.05s linear;
+}
+
+
+/* =========================================================
+   FLOATING CARDS
+========================================================= */
+
+.floating-card {
+
+    position: absolute;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 12px 15px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.92
+        );
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.9
+        );
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 15px 35px
+        rgba(
+            53,
+            42,
+            100,
+            0.13
+        );
+
+    backdrop-filter: blur(15px);
+
+    z-index: 6;
+
+    animation:
+        floatingCard 4s
+        ease-in-out infinite;
+}
+
+.floating-card strong {
+
+    display: block;
+
+    font-size: 0.75rem;
+
+    color: #29243e;
+}
+
+.floating-card span {
+
+    display: block;
+
+    font-size: 0.65rem;
+
+    color: #858097;
+
+    margin-top: 2px;
+}
+
+
+/* CARD POSITIONS */
+
+.floating-card-one {
+
+    top: 115px;
+
+    left: 5px;
+
+    animation-delay: 0s;
+}
+
+.floating-card-two {
+
+    right: 0;
+
+    bottom: 150px;
+
+    animation-delay: 1.2s;
+}
+
+.floating-card-three {
+
+    left: 35px;
+
+    bottom: 70px;
+
+    animation-delay: 2.2s;
+}
+
+
+/* =========================================================
+   FLOATING ICONS
+========================================================= */
+
+.floating-icon {
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #ede9fe;
+
+    color: #6d43e8;
+
+    font-size: 0.9rem;
+}
+
+.floating-icon.green {
+
+    background: #dcfce7;
+
+    color: #16a34a;
+}
+
+.floating-icon.orange {
+
+    background: #ffedd5;
+
+    color: #ea580c;
+}
+
+
+/* =========================================================
+   SECTOR TILES
+========================================================= */
+
+.sector-tile {
+
+    padding: 1.2rem;
+
+    border-radius: 18px;
+
+    background:
+        var(--bg-surface);
+
+    box-shadow:
+        var(--shadow-sm);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.sector-tile:hover {
+
+    transform:
+        translateY(-7px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(
+            80,
+            50,
+            150,
+            0.12
+        );
+}
+
+.sector-tile-img {
+
+    width: 55px;
+
+    height: 55px;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   FEATURE CARDS
+========================================================= */
+
+.feature-card {
+
+    height: 100%;
+
+    padding: 2rem;
+
+    border-radius: 22px;
+
+    background:
+        var(--bg-surface);
+
+    box-shadow:
+        var(--shadow-sm);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.feature-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 20px 45px
+        rgba(
+            80,
+            50,
+            150,
+            0.13
+        );
+}
+
+.feature-icon {
+
+    width: 50px;
+
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ede9fe,
+            #f3e8ff
+        );
+
+    color: #6d43e8;
+
+    margin-bottom: 1rem;
+
+    font-size: 1.1rem;
+}
+
+.feature-card h5 {
+
+    font-weight: 800;
+
+    margin-bottom: 0.6rem;
+}
+
+.feature-card p {
+
+    color: var(--text-secondary);
+
+    font-size: 0.9rem;
+
+    line-height: 1.7;
+
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   CAREER CARDS
+========================================================= */
+
+.career-card-link {
+
+    text-decoration: none;
+
+    color: inherit;
+}
+
+.career-card {
+
+    height: 100%;
+
+    padding: 1.5rem;
+
+    border-radius: 20px;
+
+    background:
+        var(--bg-surface);
+
+    box-shadow:
+        var(--shadow-sm);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.career-card:hover {
+
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+        0 18px 40px
+        rgba(
+            80,
+            50,
+            150,
+            0.13
+        );
+}
+
+.career-category {
+
+    display: inline-block;
+
+    padding: 5px 10px;
+
+    border-radius: 50px;
+
+    background: #f0eaff;
+
+    color: #6d43e8;
+
+    font-size: 0.7rem;
+
+    font-weight: 700;
+
+    margin-bottom: 10px;
+}
+
+.career-card h5 {
+
+    font-weight: 800;
+}
+
+.career-salary {
+
+    color: var(--text-secondary);
+
+    font-size: 0.85rem;
+
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta-section {
+
+    padding: 6rem 1rem;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #7c3aed,
+            #9333ea
+        );
+
+    color: white;
+}
+
+.cta-section h2 {
+
+    font-size: 2.5rem;
+
+    font-weight: 800;
+}
+
+.cta-section p {
+
+    opacity: 0.9;
+
+    margin-bottom: 1.5rem;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes cardFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-10px);
+    }
+}
+
+
+@keyframes floatingCard {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-12px)
+            rotate(1deg);
+    }
+}
+
+
+@keyframes pulseDot {
+
+    0% {
+        box-shadow:
+            0 0 0 0
+            rgba(
+                34,
+                197,
+                94,
+                0.4
+            );
+    }
+
+    70% {
+        box-shadow:
+            0 0 0 7px
+            rgba(
+                34,
+                197,
+                94,
+                0
+            );
+    }
+
+    100% {
+        box-shadow:
+            0 0 0 0
+            rgba(
+                34,
+                197,
+                94,
+                0
+            );
+    }
+}
+
+
+@keyframes markerRotate {
+
+    0% {
+        transform:
+            translateX(-50%)
+            rotate(-5deg)
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateX(-50%)
+            rotate(295deg)
+            translateY(0);
+    }
+
+    100% {
+        transform:
+            translateX(-50%)
+            rotate(355deg)
+            translateY(0);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1199px) {
+
+    .hero-visual {
+        min-height: 570px;
+    }
+
+    .floating-card-one {
+        left: -5px;
+    }
+
+    .floating-card-two {
+        right: -5px;
+    }
+}
+
+
+@media (max-width: 991px) {
+
+    .hero-section {
+        padding-top: 4rem;
+    }
+
+    .min-vh-hero {
+        min-height: auto;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-stats {
+        justify-content: center;
+    }
+
+    .hero-visual {
+        margin-top: 3rem;
+        min-height: 600px;
+    }
+}
+
+
+@media (max-width: 575px) {
+
+    .hero-title {
+        font-size: 2.5rem;
+        letter-spacing: -1px;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-stats {
+        gap: 1.5rem;
+    }
+
+    .hero-stat h3 {
+        font-size: 1.5rem;
+    }
+
+    .hero-visual {
+        min-height: 560px;
+    }
+
+    .employability-card {
+        min-height: 500px;
+        padding: 1.3rem;
+    }
+
+    .score-ring {
+        width: 230px;
+        height: 230px;
+    }
+
+    .score-ring-inner {
+        width: 180px;
+        height: 180px;
+    }
+
+    .score-number {
+        font-size: 2.8rem;
+    }
+
+    .score-info {
+        gap: 0.35rem;
+    }
+
+    .score-info-item {
+        padding: 7px;
+        gap: 4px;
+    }
+
+    .score-info-item strong {
+        font-size: 0.58rem;
+    }
+
+    .score-info-item span {
+        font-size: 0.52rem;
+    }
+
+    .floating-card {
+        transform: scale(0.85);
+    }
+
+    .floating-card-one {
+        left: -15px;
+        top: 100px;
+    }
+
+    .floating-card-two {
+        right: -20px;
+        bottom: 140px;
+    }
+
+    .floating-card-three {
+        left: -10px;
+        bottom: 65px;
+    }
+
+    .cta-section h2 {
+        font-size: 2rem;
+    }
+}
+/* =========================================================
+   HERO SECTION - FINAL RESPONSIVE DESIGN
+   ========================================================= */
+
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    padding: 90px 0 70px;
+    min-height: 720px;
+}
+
+.min-vh-hero {
+    min-height: 680px;
+}
+
+/* Hero Heading */
+.hero-title {
+    font-size: clamp(36px, 3.5vw, 54px);
+    line-height: 1.08;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    max-width: 650px;
+    margin-bottom: 22px;
+}
+
+/* Gradient text */
+.hero-title .text-gradient {
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Hero paragraph */
+.hero-subtitle {
+    font-size: 16px;
+    line-height: 1.75;
+    max-width: 650px;
+    color: var(--text-secondary, #6b6b83);
+}
+
+/* Hero visual */
+.hero-visual {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    min-height: 500px;
+    margin-left: auto;
+    padding: 35px;
+    border-radius: 32px;
+    overflow: visible;
+}
+
+/* Floating cards are clickable */
+.hero-floating-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    position: absolute;
+    z-index: 20;
+}
+
+.hero-floating-link:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Floating card */
+.hero-floating-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(124, 58, 237, 0.08);
+    border-radius: 18px;
+    padding: 13px 17px;
+    min-width: 180px;
+    box-shadow: 0 18px 45px rgba(50, 30, 100, 0.12);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    cursor: pointer;
+}
+
+.hero-floating-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 25px 55px rgba(50, 30, 100, 0.20);
+}
+
+/* Floating card icon */
+.hero-floating-icon {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    background: #f1edff;
+    color: #7c3aed;
+}
+
+/* Card title */
+.hero-floating-card strong {
+    display: block;
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #29263d;
+}
+
+/* Card subtitle */
+.hero-floating-card small {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    line-height: 1.2;
+    color: #8a87a0;
+}
+
+/* Career Match */
+.hero-card-career {
+    top: 95px;
+    left: -45px;
+}
+
+/* Skill Gap */
+.hero-card-skill {
+    top: 315px;
+    right: -45px;
+}
+
+/* Resume */
+.hero-card-resume {
+    bottom: 105px;
+    left: -10px;
+}
+
+/* Placement */
+.hero-card-placement {
+    bottom: 25px;
+    left: 95px;
+}
+
+/* Skills */
+.hero-card-skills {
+    bottom: 105px;
+    right: 90px;
+}
+
+/* Main score area */
+.hero-score-card {
+    position: relative;
+    z-index: 5;
+    height: 100%;
+    min-height: 430px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.80);
+    border: 1px solid rgba(124, 58, 237, 0.08);
+    box-shadow: 0 25px 70px rgba(77, 50, 140, 0.10);
+    padding: 35px;
+}
+
+/* Score ring */
+.hero-score-ring {
+    width: 280px;
+    height: 280px;
+    margin: 35px auto 25px;
+    position: relative;
+}
+
+/* Stats */
+.hero-stats {
+    display: flex;
+    gap: 45px;
+}
+
+.hero-stats h3 {
+    font-size: 32px;
+    line-height: 1;
+    font-weight: 800;
+    margin-bottom: 7px;
+}
+
+.hero-stats p {
+    font-size: 14px;
+    margin: 0;
+    color: #77748d;
+}
+
+/* Particle layer */
+#hero-particles {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-section > .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Background glow */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 420px;
+    height: 420px;
+    background: var(--gradient-brand);
+    opacity: 0.10;
+    border-radius: 50%;
+    filter: blur(70px);
+    z-index: 0;
+}
+
+/* Animations */
+.feature-card,
+.career-card {
+    animation: fade-up .5s var(--ease, ease) both;
+}
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 991px) {
+
+    .hero-section {
+        padding: 70px 0 60px;
+    }
+
+    .hero-title {
+        font-size: clamp(40px, 7vw, 56px);
+        letter-spacing: -1.7px;
+    }
+
+    .hero-visual {
+        margin: 45px auto 0;
+        max-width: 600px;
+    }
+
+    .hero-card-career {
+        left: -15px;
+    }
+
+    .hero-card-skill {
+        right: -15px;
+    }
+
+    .hero-card-placement {
+        left: 40px;
+    }
+
+    .hero-card-skills {
+        right: 30px;
+    }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    .hero-section {
+        padding: 55px 0 45px;
+        min-height: auto;
+    }
+
+    .min-vh-hero {
+        min-height: auto;
+    }
+
+    .hero-title {
+        font-size: 39px;
+        line-height: 1.08;
+        letter-spacing: -1.4px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+        line-height: 1.65;
+    }
+
+    .hero-stats {
+        gap: 25px;
+        flex-wrap: wrap;
+    }
+
+    .hero-stats h3 {
+        font-size: 25px;
+    }
+
+    .hero-visual {
+        min-height: 440px;
+        padding: 18px;
+    }
+
+    .hero-score-card {
+        min-height: 390px;
+        padding: 22px;
+    }
+
+    .hero-score-ring {
+        width: 220px;
+        height: 220px;
+    }
+
+    .hero-floating-card {
+        min-width: 145px;
+        padding: 10px 12px;
+    }
+
+    .hero-floating-icon {
+        width: 36px;
+        height: 36px;
+        flex-basis: 36px;
+    }
+
+    .hero-floating-card strong {
+        font-size: 12px;
+    }
+
+    .hero-floating-card small {
+        font-size: 10px;
+    }
+
+    .hero-card-career {
+        top: 55px;
+        left: -5px;
+    }
+
+    .hero-card-skill {
+        top: 245px;
+        right: -5px;
+    }
+
+    .hero-card-resume {
+        bottom: 85px;
+        left: 0;
+    }
+
+    .hero-card-placement {
+        bottom: 20px;
+        left: 35px;
+    }
+
+    .hero-card-skills {
+        bottom: 85px;
+        right: 0;
+    }
+}

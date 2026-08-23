@@ -1,0 +1,50 @@
+{% extends "admin/_admin_base.html" %}
+{% block title %}Analytics{% endblock %}
+{% block page_title %}Analytics{% endblock %}
+
+{% block content %}
+<div class="row g-4">
+    <div class="col-lg-6">
+        <div class="dashboard-panel">
+            <h6 class="panel-title">Employability Distribution</h6>
+            <canvas id="employabilityDistChart" height="220"></canvas>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="dashboard-panel">
+            <h6 class="panel-title">Career Roles by Category</h6>
+            {% for category, count in category_counts %}
+            <div class="d-flex justify-content-between py-2 {% if not loop.last %}border-bottom{% endif %}">
+                <span>{{ category }}</span>
+                <span class="badge-pill">{{ count }}</span>
+            </div>
+            {% else %}<p class="text-muted small mb-0">No data yet.</p>{% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="dashboard-panel mt-4">
+    <h6 class="panel-title">Most Bookmarked Careers</h6>
+    {% for title, cnt in most_bookmarked %}
+    <div class="d-flex justify-content-between py-2 {% if not loop.last %}border-bottom{% endif %}">
+        <span>{{ title }}</span>
+        <span class="badge-pill">{{ cnt }} bookmarks</span>
+    </div>
+    {% else %}<p class="text-muted small mb-0">No bookmarks yet.</p>{% endfor %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const labels = {{ employability_distribution.keys()|list|tojson }};
+        const data = {{ employability_distribution.values()|list|tojson }};
+        new Chart(document.getElementById('employabilityDistChart'), {
+            type: 'bar',
+            data: { labels: labels, datasets: [{ label: 'Students', data: data, backgroundColor: SMX_CHART_COLORS.primary, borderRadius: 6 }] },
+            options: { plugins: { legend: { display: false } } }
+        });
+    });
+</script>
+{% endblock %}

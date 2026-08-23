@@ -1,0 +1,22 @@
+{% extends "admin/_admin_base.html" %}
+{% block title %}{{ mode }} Guide{% endblock %}
+{% block page_title %}{{ mode }} Career Guide{% endblock %}
+
+{% block content %}
+<div class="dashboard-panel">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="row g-3">
+            <div class="col-md-6">{{ form.title.label(class="form-label small") }}{{ form.title(class="form-control") }}</div>
+            <div class="col-md-3">{{ form.guide_type.label(class="form-label small") }}{{ form.guide_type(class="form-select") }}</div>
+            <div class="col-md-3">{{ form.category.label(class="form-label small") }}{{ form.category(class="form-control") }}</div>
+            <div class="col-12">{{ form.summary.label(class="form-label small") }}{{ form.summary(class="form-control", rows=2) }}</div>
+            <div class="col-12">{{ form.content.label(class="form-label small") }}{{ form.content(class="form-control", rows=6) }}</div>
+            <div class="col-12">{{ form.external_url.label(class="form-label small") }}{{ form.external_url(class="form-control") }}</div>
+            <div class="col-12 form-check">{{ form.is_active(class="form-check-input") }} {{ form.is_active.label(class="form-check-label") }}</div>
+        </div>
+        <button type="submit" class="btn btn-gradient mt-3">{{ form.submit.label.text }}</button>
+        <a href="{{ url_for('admin.guides') }}" class="btn btn-outline-glass mt-3">Cancel</a>
+    </form>
+</div>
+{% endblock %}

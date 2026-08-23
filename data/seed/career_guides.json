@@ -1,0 +1,42 @@
+[
+  {
+    "title": "How to Build a Placement-Ready Resume as a Diploma Student",
+    "guide_type": "Guide",
+    "category": "Resume",
+    "summary": "A practical, step-by-step guide to building a resume that actually clears ATS screening and impresses recruiters.",
+    "content": "<p>Start with a clean, single-column layout — many ATS parsers struggle with multi-column resumes. Lead with a short summary tied to your target role, followed by Skills, Projects, Education, and Certifications in that order for most diploma-level applications.</p><p>For each project, use the format: what you built, what tools you used, and one measurable outcome. Avoid vague statements like 'worked on a project' — be specific.</p><p>Finally, run your resume through the Resume Center's ATS Analyzer before submitting anywhere, and address every 'weak section' flag it raises.</p>",
+    "external_url": ""
+  },
+  {
+    "title": "Understanding Government Exam Cutoffs and How to Prepare",
+    "guide_type": "Article",
+    "category": "Government Jobs",
+    "summary": "What cutoffs actually mean, how they vary by category and exam, and a realistic preparation timeline.",
+    "content": "<p>Cutoffs represent the minimum qualifying score for a given category and change every year based on the number of vacancies and applicant performance — never assume last year's cutoff guarantees this year's result.</p><p>A realistic preparation timeline for most SSC/Banking exams is 6-9 months of consistent daily practice, split roughly 40% Quantitative Aptitude, 30% Reasoning, 20% English, 10% General Awareness for most exams — adjust based on your personal weak areas.</p>",
+    "external_url": ""
+  },
+  {
+    "title": "The Diploma-to-Core-Engineering Career Roadmap",
+    "guide_type": "Roadmap",
+    "category": "Core Engineering",
+    "summary": "A realistic path from diploma graduation to a core engineering role, including GATE/PSU options.",
+    "content": "<p>Diploma holders in Mechanical, Civil, or Electrical branches have three broad paths: (1) direct core-industry roles via campus placement, (2) PSU roles via GATE score, or (3) further studies via lateral entry into a B.Tech program.</p><p>If targeting PSUs, start GATE preparation at least 8-10 months in advance — it's a rigorous exam. If targeting direct industry roles, prioritize hands-on CAD/tool proficiency and at least one real or simulated design project.</p>",
+    "external_url": ""
+  },
+  {
+    "title": "Freelancing as a Diploma Graduate: Getting Your First 5 Clients",
+    "guide_type": "Guide",
+    "category": "Freelancing",
+    "summary": "A practical approach to landing your first freelance clients without prior experience.",
+    "content": "<p>Your first clients rarely come from cold outreach — they usually come from your existing network (friends, family, local businesses) or from doing 2-3 free/discounted 'portfolio projects' to build proof of work.</p><p>Once you have 2-3 real examples, create a simple portfolio page and start applying selectively on freelance platforms, always tailoring your pitch to the specific job rather than sending a generic message.</p>",
+    "external_url": ""
+  },
+  {
+    "title": "What Recruiters Actually Look for in a Technical Interview",
+    "guide_type": "Article",
+    "category": "Interview Preparation",
+    "summary": "Beyond correct answers — what separates a strong technical interview performance from a weak one.",
+    "content": "<p>Recruiters consistently report that HOW a candidate thinks through a problem matters more than whether they arrive at the exact right answer instantly. Talk through your reasoning out loud, state your assumptions, and don't go silent when stuck — ask clarifying questions instead.</p><p>Also common: candidates who can't explain their own listed skills/projects in depth. Only list what you can defend in detail under follow-up questions.</p>",
+    "external_url": ""
+  }
+]

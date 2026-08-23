@@ -1,0 +1,22 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#4F46E5"/>
+    <stop offset="60%" stop-color="#7C3AED"/>
+    <stop offset="100%" stop-color="#A855F7"/>
+  </linearGradient>
+  <linearGradient id="softGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#EEF2FF"/>
+    <stop offset="100%" stop-color="#F3E8FF"/>
+  </linearGradient>
+</defs>
+
+<rect width="400" height="300" fill="url(#softGrad)" rx="16"/>
+<circle cx="200" cy="150" r="60" fill="none" stroke="url(#brandGrad)" stroke-width="14"/>
+<circle cx="200" cy="150" r="22" fill="url(#brandGrad)"/>
+<rect x="192" y="60" width="16" height="30" fill="#7C3AED"/>
+<rect x="192" y="210" width="16" height="30" fill="#7C3AED"/>
+<rect x="60" y="142" width="30" height="16" fill="#7C3AED"/>
+<rect x="310" y="142" width="30" height="16" fill="#7C3AED"/>
+
+</svg>

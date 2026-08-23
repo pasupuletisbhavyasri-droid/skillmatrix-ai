@@ -1,0 +1,35 @@
+{% extends "admin/_admin_base.html" %}
+{% block title %}Career Roles{% endblock %}
+{% block page_title %}Career Roles{% endblock %}
+
+{% block content %}
+<div class="dashboard-panel mb-4 d-flex justify-content-between align-items-center">
+    <h6 class="panel-title mb-0">All Career Roles ({{ roles|length }})</h6>
+    <a href="{{ url_for('admin.career_create') }}" class="btn btn-gradient btn-sm"><i class="fa-solid fa-plus me-2"></i>New Career Role</a>
+</div>
+
+<div class="dashboard-panel">
+    <table class="table align-middle">
+        <thead><tr><th>Title</th><th>Category</th><th>Sector</th><th>Demand</th><th>Status</th><th></th></tr></thead>
+        <tbody>
+        {% for role in roles %}
+            <tr>
+                <td>{{ role.title }}</td>
+                <td>{{ role.category }}</td>
+                <td><span class="badge-pill">{{ role.sector }}</span></td>
+                <td>{{ role.industry_demand_score }}</td>
+                <td>{% if role.is_active %}<span class="badge-pill">Active</span>{% else %}<span class="badge-pill" style="background: rgba(220,38,38,0.1); color: var(--danger);">Inactive</span>{% endif %}</td>
+                <td class="d-flex gap-2">
+                    <a href="{{ url_for('admin.career_edit', role_id=role.id) }}" class="btn btn-icon"><i class="fa-solid fa-pen"></i></a>
+                    <form method="POST" action="{{ url_for('admin.career_delete', role_id=role.id) }}">
+                        <button class="btn btn-icon text-danger"><i class="fa-solid fa-trash"></i></button>
+                    </form>
+                </td>
+            </tr>
+        {% else %}
+            <tr><td colspan="6" class="text-center text-muted small py-4">No career roles yet — run <code>flask seed-db</code> or add one manually.</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

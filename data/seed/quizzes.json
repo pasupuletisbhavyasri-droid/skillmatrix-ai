@@ -1,0 +1,3787 @@
+[
+  {
+    "title": "Python Programming Basics",
+    "category": "Programming",
+    "difficulty": "Easy",
+    "is_daily_challenge": true,
+    "is_weekly_challenge": false,
+    "questions": [
+      {
+        "question": "What is the output of print(type(5/2)) in Python 3?",
+        "options": [
+          "<class 'int'>",
+          "<class 'float'>",
+          "<class 'str'>",
+          "Error"
+        ],
+        "answer": "<class 'float'>",
+        "topic": "Data Types"
+      },
+      {
+        "question": "Which keyword is used to define a function in Python?",
+        "options": [
+          "func",
+          "def",
+          "function",
+          "lambda"
+        ],
+        "answer": "def",
+        "topic": "Functions"
+      },
+      {
+        "question": "What does len([1,2,3]) return?",
+        "options": [
+          "2",
+          "3",
+          "4",
+          "Error"
+        ],
+        "answer": "3",
+        "topic": "Lists"
+      },
+      {
+        "question": "Which of these is a mutable data type in Python?",
+        "options": [
+          "tuple",
+          "string",
+          "list",
+          "int"
+        ],
+        "answer": "list",
+        "topic": "Data Types"
+      },
+      {
+        "question": "What is the correct file extension for Python files?",
+        "options": [
+          ".pt",
+          ".py",
+          ".pyt",
+          ".p"
+        ],
+        "answer": ".py",
+        "topic": "Basics"
+      }
+    ]
+  },
+  {
+    "title": "Technical MCQs \u2014 Databases",
+    "category": "Technical",
+    "difficulty": "Medium",
+    "is_daily_challenge": false,
+    "is_weekly_challenge": false,
+    "questions": [
+      {
+        "question": "Which SQL clause is used to filter groups after GROUP BY?",
+        "options": [
+          "WHERE",
+          "HAVING",
+          "FILTER",
+          "ORDER BY"
+        ],
+        "answer": "HAVING",
+        "topic": "SQL"
+      },
+      {
+        "question": "What does ACID stand for in databases?",
+        "options": [
+          "Atomicity, Consistency, Isolation, Durability",
+          "Access, Control, Index, Data",
+          "Atomic, Complex, Isolated, Distributed",
+          "None of these"
+        ],
+        "answer": "Atomicity, Consistency, Isolation, Durability",
+        "topic": "Database Fundamentals"
+      },
+      {
+        "question": "Which type of JOIN returns all rows from both tables, matched or not?",
+        "options": [
+          "INNER JOIN",
+          "LEFT JOIN",
+          "FULL OUTER JOIN",
+          "CROSS JOIN"
+        ],
+        "answer": "FULL OUTER JOIN",
+        "topic": "SQL"
+      },
+      {
+        "question": "What is a primary key?",
+        "options": [
+          "A key that can have duplicate values",
+          "A unique identifier for a table row",
+          "An index on any column",
+          "A foreign table reference"
+        ],
+        "answer": "A unique identifier for a table row",
+        "topic": "Database Fundamentals"
+      },
+      {
+        "question": "Which normal form removes transitive dependency?",
+        "options": [
+          "1NF",
+          "2NF",
+          "3NF",
+          "BCNF"
+        ],
+        "answer": "3NF",
+        "topic": "Normalization"
+      }
+    ]
+  },
+  {
+    "title": "Quantitative Aptitude Practice",
+    "category": "Aptitude",
+    "difficulty": "Medium",
+    "is_daily_challenge": false,
+    "is_weekly_challenge": true,
+    "questions": [
+      {
+        "question": "If a train travels 60 km in 45 minutes, what is its speed in km/h?",
+        "options": [
+          "70",
+          "80",
+          "75",
+          "90"
+        ],
+        "answer": "80",
+        "topic": "Speed & Distance"
+      },
+      {
+        "question": "What is 15% of 240?",
+        "options": [
+          "30",
+          "36",
+          "24",
+          "40"
+        ],
+        "answer": "36",
+        "topic": "Percentages"
+      },
+      {
+        "question": "A shopkeeper marks up an item by 25% then gives a 20% discount. What is the net effect?",
+        "options": [
+          "5% profit",
+          "No change",
+          "5% loss",
+          "10% profit"
+        ],
+        "answer": "No change",
+        "topic": "Profit & Loss"
+      },
+      {
+        "question": "The average of 5 numbers is 20. If one number is removed, the average becomes 18. What was the removed number?",
+        "options": [
+          "24",
+          "26",
+          "28",
+          "30"
+        ],
+        "answer": "28",
+        "topic": "Averages"
+      },
+      {
+        "question": "What is the compound interest on Rs. 1000 at 10% per annum for 2 years?",
+        "options": [
+          "Rs. 200",
+          "Rs. 210",
+          "Rs. 220",
+          "Rs. 100"
+        ],
+        "answer": "Rs. 210",
+        "topic": "Compound Interest"
+      }
+    ]
+  },
+  {
+    "title": "Logical Reasoning Practice",
+    "category": "Reasoning",
+    "difficulty": "Medium",
+    "is_daily_challenge": false,
+    "is_weekly_challenge": false,
+    "questions": [
+      {
+        "question": "Find the odd one out: Apple, Banana, Carrot, Mango",
+        "options": [
+          "Apple",
+          "Banana",
+          "Carrot",
+          "Mango"
+        ],
+        "answer": "Carrot",
+        "topic": "Classification"
+      },
+      {
+        "question": "If CAT is coded as 3120, how is DOG coded (using the same letter-position logic)?",
+        "options": [
+          "4157",
+          "4159",
+          "4715",
+          "4517"
+        ],
+        "answer": "4157",
+        "topic": "Coding-Decoding"
+      },
+      {
+        "question": "Complete the series: 2, 6, 12, 20, 30, ?",
+        "options": [
+          "40",
+          "42",
+          "36",
+          "44"
+        ],
+        "answer": "42",
+        "topic": "Number Series"
+      },
+      {
+        "question": "If all Roses are Flowers and some Flowers fade quickly, which conclusion is valid?",
+        "options": [
+          "All Roses fade quickly",
+          "Some Roses may fade quickly",
+          "No Roses fade quickly",
+          "All Flowers are Roses"
+        ],
+        "answer": "Some Roses may fade quickly",
+        "topic": "Syllogism"
+      },
+      {
+        "question": "A is taller than B, B is taller than C. Who is the shortest?",
+        "options": [
+          "A",
+          "B",
+          "C",
+          "Cannot be determined"
+        ],
+        "answer": "C",
+        "topic": "Ordering"
+      }
+    ]
+  },
+  {
+    "title": "Communication & English Quiz",
+    "category": "Communication",
+    "difficulty": "Easy",
+    "is_daily_challenge": false,
+    "is_weekly_challenge": false,
+    "questions": [
+      {
+        "question": "Choose the correctly spelled word.",
+        "options": [
+          "Recieve",
+          "Receive",
+          "Receeve",
+          "Receve"
+        ],
+        "answer": "Receive",
+        "topic": "Spelling"
+      },
+      {
+        "question": "Identify the synonym of 'Articulate'.",
+        "options": [
+          "Confusing",
+          "Eloquent",
+          "Silent",
+          "Vague"
+        ],
+        "answer": "Eloquent",
+        "topic": "Vocabulary"
+      },
+      {
+        "question": "Which sentence is grammatically correct?",
+        "options": [
+          "He don't like it.",
+          "He doesn't likes it.",
+          "He doesn't like it.",
+          "He not like it."
+        ],
+        "answer": "He doesn't like it.",
+        "topic": "Grammar"
+      },
+      {
+        "question": "What is the antonym of 'Confident'?",
+        "options": [
+          "Assured",
+          "Timid",
+          "Bold",
+          "Certain"
+        ],
+        "answer": "Timid",
+        "topic": "Vocabulary"
+      },
+      {
+        "question": "Which is the best opening line for a formal email?",
+        "options": [
+          "Hey what's up",
+          "To whomsoever it may concern,",
+          "Dear Sir/Madam,",
+          "Yo team,"
+        ],
+        "answer": "Dear Sir/Madam,",
+        "topic": "Business Communication"
+      }
+    ]
+  },
+  {
+    "title": "Coding Challenge \u2014 Arrays & Strings",
+    "category": "Coding",
+    "difficulty": "Hard",
+    "is_daily_challenge": false,
+    "is_weekly_challenge": false,
+    "questions": [
+      {
+        "question": "What is the time complexity of binary search on a sorted array?",
+        "options": [
+          "O(n)",
+          "O(log n)",
+          "O(n^2)",
+          "O(1)"
+        ],
+        "answer": "O(log n)",
+        "topic": "Algorithms"
+      },
+      {
+        "question": "Which data structure uses LIFO order?",
+        "options": [
+          "Queue",
+          "Stack",
+          "Array",
+          "Linked List"
+        ],
+        "answer": "Stack",
+        "topic": "Data Structures"
+      },
+      {
+        "question": "What is the output of reversing the string 'hello' character by character?",
+        "options": [
+          "olleh",
+          "hello",
+          "helol",
+          "Error"
+        ],
+        "answer": "olleh",
+        "topic": "Strings"
+      },
+      {
+        "question": "What is the worst-case time complexity of QuickSort?",
+        "options": [
+          "O(n log n)",
+          "O(n)",
+          "O(n^2)",
+          "O(log n)"
+        ],
+        "answer": "O(n^2)",
+        "topic": "Sorting"
+      },
+      {
+        "question": "Which approach is typically used to solve the 'Two Sum' problem in O(n) time?",
+        "options": [
+          "Nested loops",
+          "Hash map",
+          "Sorting only",
+          "Recursion only"
+        ],
+        "answer": "Hash map",
+        "topic": "Algorithms"
+      }
+    ]
+  },
+  {
+    "title": "Aptitude Practice \u2014 Percentages",
+    "category": "Aptitude",
+    "difficulty": "Medium",
+    "is_daily_challenge": false,
+    "is_weekly_challenge": false,
+    "questions": [
+      {
+        "question": "What is 5% of 120?",
+        "options": [
+          "6",
+          "11",
+          "1",
+          "-9"
+        ],
+        "answer": "6",
+        "topic": "Percentages"
+      },
+      {
+        "question": "What is 15% of 120?",
+        "options": [
+          "38",
+          "18",
+          "33",
+          "13"
+        ],
+        "answer": "18",
+        "topic": "Percentages"
+      },
+      {
+        "question": "What is 25% of 360?",
+        "options": [
+          "80",
+          "75",
+          "90",
+          "85"
+        ],
+        "answer": "90",
+        "topic": "Percentages"
+      },
+      {
+        "question": "What is 20% of 300?",
+        "options": [
+          "40",
+          "60",
+          "45",
+          "75"
+        ],
+        "answer": "60",
+        "topic": "Percentages"
+      },
+      {
+        "question": "What is 5% of 120?",
+        "options": [
+          "1",
+          "21",
+          "6",
+          "11"
+        ],
+        "answer": "6",
+        "topic": "Percentages"
+      },
+      {
+        "question": "What is 25% of 150?",
+        "options": [
+          "33",
+          "43",
+          "48",
+          "38"
+        ],
+        "answer": "38",
+        "topic": "Percentages"
+      },
+      {
+        "question": "What is 15% of 240?",
+        "options": [
+          "46",
+          "51",
+          "36",
+          "16"
+        ],
+        "answer": "36",
+        "topic": "Percentages"
+      },
+      {
+        "question": "What is 25% of 500?",
+        "options": [
+          "145",
+          "115",
+          "125",
+          "140"
+        ],
+        "answer": "125",
+        "topic": "Percentages"
+      },
+      {
+        "question": "What is 30% of 500?",
+        "options": [
+          "165",
+          "135",
+          "170",
+          "150"
+        ],
+        "answer": "150",
+        "topic": "Percentages"
+      },
+      {
+        "question": "What is 30% of 150?",
+        "options": [
+          "25",
+          "45",
+          "50",
+          "65"
+        ],
+        "answer": "45",
+        "topic": "Percentages"
+      },
+      {
+        "question": "What is 10% of 300?",
+        "options": [
+          "50",
+          "30",
+          "45",
+          "10"
+        ],
+        "answer": "30",
+        "topic": "Percentages"
+      },
+      {
+        "question": "What is 15% of 240?",
+        "options": [
+          "16",
+          "46",
+          "56",
+          "36"
+        ],
+        "answer": "36",
+        "topic": "Percentages"
+      },
+      {
+        "question": "What is 15% of 240?",
+        "options": [
+          "21",
+          "56",
+          "36",
+          "16"
+        ],
+        "answer": "36",
+        "topic": "Percentages"
+      },
+      {
+        "question": "What is 12% of 450?",
+        "options": [
+          "49",
+          "54",
+          "59",
+          "69"
+        ],
+        "answer": "54",
+        "topic": "Percentages"
+      },
+      {
+        "question": "What is 15% of 120?",
+        "options": [
+          "13",
+          "18",
+          "28",
+          "3"
+        ],
+        "answer": "18",
+        "topic": "Percentages"
+      },
+      {
+        "question": "What is 10% of 200?",
+        "options": [
+          "15",
+          "20",
+          "40",
+          "5"
+        ],
+        "answer": "20",
+        "topic": "Percentages"
+      },
+      {
+        "question": "What is 40% of 500?",
+        "options": [
+          "195",
+          "215",
+          "200",
+          "185"
+        ],
+        "answer": "200",
+        "topic": "Percentages"
+      },
+      {
+        "question": "What is 40% of 360?",
+        "options": [
+          "124",
+          "154",
+          "129",
+          "144"
+        ],
+        "answer": "144",
+        "topic": "Percentages"
+      },
+      {
+        "question": "What is 40% of 450?",
+        "options": [
+          "170",
+          "175",
+          "200",
+          "180"
+        ],
+        "answer": "180",
+        "topic": "Percentages"
+      },
+      {
+        "question": "What is 5% of 80?",
+        "options": [
+          "-11",
+          "4",
+          "24",
+          "19"
+        ],
+        "answer": "4",
+        "topic": "Percentages"
+      },
+      {
+        "question": "What is 30% of 150?",
+        "options": [
+          "45",
+          "50",
+          "65",
+          "25"
+        ],
+        "answer": "45",
+        "topic": "Percentages"
+      },
+      {
+        "question": "What is 15% of 240?",
+        "options": [
+          "46",
+          "36",
+          "16",
+          "56"
+        ],
+        "answer": "36",
+        "topic": "Percentages"
+      },
+      {
+        "question": "What is 10% of 150?",
+        "options": [
+          "-5",
+          "15",
+          "10",
+          "0"
+        ],
+        "answer": "15",
+        "topic": "Percentages"
+      },
+      {
+        "question": "What is 15% of 240?",
+        "options": [
+          "46",
+          "36",
+          "41",
+          "51"
+        ],
+        "answer": "36",
+        "topic": "Percentages"
+      },
+      {
+        "question": "What is 40% of 80?",
+        "options": [
+          "42",
+          "37",
+          "17",
+          "32"
+        ],
+        "answer": "32",
+        "topic": "Percentages"
+      }
+    ]
+  },
+  {
+    "title": "Aptitude Practice \u2014 Simple Interest",
+    "category": "Aptitude",
+    "difficulty": "Medium",
+    "is_daily_challenge": false,
+    "is_weekly_challenge": false,
+    "questions": [
+      {
+        "question": "Find the simple interest on Rs. 5000 at 5% per annum for 4 year(s).",
+        "options": [
+          "1200",
+          "1500",
+          "900",
+          "1000"
+        ],
+        "answer": "1000",
+        "topic": "Simple Interest"
+      },
+      {
+        "question": "Find the simple interest on Rs. 12000 at 4% per annum for 2 year(s).",
+        "options": [
+          "1460",
+          "960",
+          "1160",
+          "460"
+        ],
+        "answer": "960",
+        "topic": "Simple Interest"
+      },
+      {
+        "question": "Find the simple interest on Rs. 12000 at 6% per annum for 2 year(s).",
+        "options": [
+          "1640",
+          "1540",
+          "1940",
+          "1440"
+        ],
+        "answer": "1440",
+        "topic": "Simple Interest"
+      },
+      {
+        "question": "Find the simple interest on Rs. 15000 at 6% per annum for 1 year(s).",
+        "options": [
+          "800",
+          "900",
+          "400",
+          "1400"
+        ],
+        "answer": "900",
+        "topic": "Simple Interest"
+      },
+      {
+        "question": "Find the simple interest on Rs. 10000 at 4% per annum for 1 year(s).",
+        "options": [
+          "300",
+          "900",
+          "400",
+          "200"
+        ],
+        "answer": "400",
+        "topic": "Simple Interest"
+      },
+      {
+        "question": "Find the simple interest on Rs. 1000 at 6% per annum for 3 year(s).",
+        "options": [
+          "80",
+          "-20",
+          "680",
+          "180"
+        ],
+        "answer": "180",
+        "topic": "Simple Interest"
+      },
+      {
+        "question": "Find the simple interest on Rs. 10000 at 12% per annum for 2 year(s).",
+        "options": [
+          "2200",
+          "2400",
+          "2500",
+          "1900"
+        ],
+        "answer": "2400",
+        "topic": "Simple Interest"
+      },
+      {
+        "question": "Find the simple interest on Rs. 5000 at 5% per annum for 1 year(s).",
+        "options": [
+          "-250",
+          "350",
+          "250",
+          "50"
+        ],
+        "answer": "250",
+        "topic": "Simple Interest"
+      },
+      {
+        "question": "Find the simple interest on Rs. 2000 at 4% per annum for 2 year(s).",
+        "options": [
+          "160",
+          "-340",
+          "260",
+          "60"
+        ],
+        "answer": "160",
+        "topic": "Simple Interest"
+      },
+      {
+        "question": "Find the simple interest on Rs. 1000 at 4% per annum for 3 year(s).",
+        "options": [
+          "120",
+          "-80",
+          "-380",
+          "20"
+        ],
+        "answer": "120",
+        "topic": "Simple Interest"
+      },
+      {
+        "question": "Find the simple interest on Rs. 8000 at 10% per annum for 5 year(s).",
+        "options": [
+          "4100",
+          "4200",
+          "4000",
+          "3500"
+        ],
+        "answer": "4000",
+        "topic": "Simple Interest"
+      },
+      {
+        "question": "Find the simple interest on Rs. 5000 at 8% per annum for 1 year(s).",
+        "options": [
+          "900",
+          "300",
+          "600",
+          "400"
+        ],
+        "answer": "400",
+        "topic": "Simple Interest"
+      },
+      {
+        "question": "Find the simple interest on Rs. 12000 at 8% per annum for 3 year(s).",
+        "options": [
+          "2880",
+          "2980",
+          "3080",
+          "3380"
+        ],
+        "answer": "2880",
+        "topic": "Simple Interest"
+      },
+      {
+        "question": "Find the simple interest on Rs. 12000 at 12% per annum for 2 year(s).",
+        "options": [
+          "2380",
+          "2880",
+          "2980",
+          "3080"
+        ],
+        "answer": "2880",
+        "topic": "Simple Interest"
+      },
+      {
+        "question": "Find the simple interest on Rs. 8000 at 10% per annum for 5 year(s).",
+        "options": [
+          "4000",
+          "4100",
+          "3900",
+          "4500"
+        ],
+        "answer": "4000",
+        "topic": "Simple Interest"
+      },
+      {
+        "question": "Find the simple interest on Rs. 15000 at 12% per annum for 2 year(s).",
+        "options": [
+          "3500",
+          "3800",
+          "4100",
+          "3600"
+        ],
+        "answer": "3600",
+        "topic": "Simple Interest"
+      },
+      {
+        "question": "Find the simple interest on Rs. 12000 at 6% per annum for 2 year(s).",
+        "options": [
+          "1240",
+          "1540",
+          "940",
+          "1440"
+        ],
+        "answer": "1440",
+        "topic": "Simple Interest"
+      },
+      {
+        "question": "Find the simple interest on Rs. 12000 at 10% per annum for 2 year(s).",
+        "options": [
+          "2900",
+          "2400",
+          "2200",
+          "2500"
+        ],
+        "answer": "2400",
+        "topic": "Simple Interest"
+      },
+      {
+        "question": "Find the simple interest on Rs. 15000 at 4% per annum for 4 year(s).",
+        "options": [
+          "2600",
+          "1900",
+          "2400",
+          "2500"
+        ],
+        "answer": "2400",
+        "topic": "Simple Interest"
+      },
+      {
+        "question": "Find the simple interest on Rs. 2000 at 8% per annum for 5 year(s).",
+        "options": [
+          "800",
+          "900",
+          "1000",
+          "1300"
+        ],
+        "answer": "800",
+        "topic": "Simple Interest"
+      }
+    ]
+  },
+  {
+    "title": "Aptitude Practice \u2014 Speed, Time & Distance",
+    "category": "Aptitude",
+    "difficulty": "Medium",
+    "is_daily_challenge": false,
+    "is_weekly_challenge": false,
+    "questions": [
+      {
+        "question": "A vehicle travels at 50 km/h for 2.5 hours. What distance does it cover?",
+        "options": [
+          "105 km",
+          "125 km",
+          "145 km",
+          "115 km"
+        ],
+        "answer": "125 km",
+        "topic": "Speed, Time & Distance"
+      },
+      {
+        "question": "A vehicle travels at 60 km/h for 2.5 hours. What distance does it cover?",
+        "options": [
+          "140 km",
+          "130 km",
+          "150 km",
+          "180 km"
+        ],
+        "answer": "150 km",
+        "topic": "Speed, Time & Distance"
+      },
+      {
+        "question": "A vehicle travels at 50 km/h for 1.5 hours. What distance does it cover?",
+        "options": [
+          "55 km",
+          "85 km",
+          "75 km",
+          "105 km"
+        ],
+        "answer": "75 km",
+        "topic": "Speed, Time & Distance"
+      },
+      {
+        "question": "A vehicle travels at 60 km/h for 3 hours. What distance does it cover?",
+        "options": [
+          "150 km",
+          "180 km",
+          "190 km",
+          "160 km"
+        ],
+        "answer": "180 km",
+        "topic": "Speed, Time & Distance"
+      },
+      {
+        "question": "A vehicle travels at 72 km/h for 1 hours. What distance does it cover?",
+        "options": [
+          "82 km",
+          "102 km",
+          "92 km",
+          "72 km"
+        ],
+        "answer": "72 km",
+        "topic": "Speed, Time & Distance"
+      },
+      {
+        "question": "A vehicle travels at 60 km/h for 2.5 hours. What distance does it cover?",
+        "options": [
+          "140 km",
+          "160 km",
+          "180 km",
+          "150 km"
+        ],
+        "answer": "150 km",
+        "topic": "Speed, Time & Distance"
+      },
+      {
+        "question": "A vehicle travels at 100 km/h for 2.5 hours. What distance does it cover?",
+        "options": [
+          "270 km",
+          "230 km",
+          "250 km",
+          "260 km"
+        ],
+        "answer": "250 km",
+        "topic": "Speed, Time & Distance"
+      },
+      {
+        "question": "A vehicle travels at 50 km/h for 2.5 hours. What distance does it cover?",
+        "options": [
+          "135 km",
+          "115 km",
+          "105 km",
+          "125 km"
+        ],
+        "answer": "125 km",
+        "topic": "Speed, Time & Distance"
+      },
+      {
+        "question": "A vehicle travels at 100 km/h for 2.5 hours. What distance does it cover?",
+        "options": [
+          "220 km",
+          "260 km",
+          "250 km",
+          "240 km"
+        ],
+        "answer": "250 km",
+        "topic": "Speed, Time & Distance"
+      },
+      {
+        "question": "A vehicle travels at 90 km/h for 1 hours. What distance does it cover?",
+        "options": [
+          "70 km",
+          "60 km",
+          "120 km",
+          "90 km"
+        ],
+        "answer": "90 km",
+        "topic": "Speed, Time & Distance"
+      },
+      {
+        "question": "A vehicle travels at 72 km/h for 1 hours. What distance does it cover?",
+        "options": [
+          "52 km",
+          "102 km",
+          "82 km",
+          "72 km"
+        ],
+        "answer": "72 km",
+        "topic": "Speed, Time & Distance"
+      },
+      {
+        "question": "A vehicle travels at 100 km/h for 1.5 hours. What distance does it cover?",
+        "options": [
+          "140 km",
+          "120 km",
+          "170 km",
+          "150 km"
+        ],
+        "answer": "150 km",
+        "topic": "Speed, Time & Distance"
+      },
+      {
+        "question": "A vehicle travels at 40 km/h for 3 hours. What distance does it cover?",
+        "options": [
+          "110 km",
+          "120 km",
+          "150 km",
+          "100 km"
+        ],
+        "answer": "120 km",
+        "topic": "Speed, Time & Distance"
+      },
+      {
+        "question": "A vehicle travels at 60 km/h for 3 hours. What distance does it cover?",
+        "options": [
+          "180 km",
+          "170 km",
+          "200 km",
+          "210 km"
+        ],
+        "answer": "180 km",
+        "topic": "Speed, Time & Distance"
+      },
+      {
+        "question": "A vehicle travels at 100 km/h for 2.5 hours. What distance does it cover?",
+        "options": [
+          "280 km",
+          "260 km",
+          "250 km",
+          "240 km"
+        ],
+        "answer": "250 km",
+        "topic": "Speed, Time & Distance"
+      },
+      {
+        "question": "A vehicle travels at 90 km/h for 3 hours. What distance does it cover?",
+        "options": [
+          "290 km",
+          "260 km",
+          "300 km",
+          "270 km"
+        ],
+        "answer": "270 km",
+        "topic": "Speed, Time & Distance"
+      },
+      {
+        "question": "A vehicle travels at 60 km/h for 1.5 hours. What distance does it cover?",
+        "options": [
+          "110 km",
+          "90 km",
+          "70 km",
+          "80 km"
+        ],
+        "answer": "90 km",
+        "topic": "Speed, Time & Distance"
+      },
+      {
+        "question": "A vehicle travels at 72 km/h for 2 hours. What distance does it cover?",
+        "options": [
+          "144 km",
+          "154 km",
+          "134 km",
+          "124 km"
+        ],
+        "answer": "144 km",
+        "topic": "Speed, Time & Distance"
+      },
+      {
+        "question": "A vehicle travels at 80 km/h for 1 hours. What distance does it cover?",
+        "options": [
+          "110 km",
+          "100 km",
+          "80 km",
+          "50 km"
+        ],
+        "answer": "80 km",
+        "topic": "Speed, Time & Distance"
+      },
+      {
+        "question": "A vehicle travels at 90 km/h for 2.5 hours. What distance does it cover?",
+        "options": [
+          "235 km",
+          "225 km",
+          "255 km",
+          "195 km"
+        ],
+        "answer": "225 km",
+        "topic": "Speed, Time & Distance"
+      }
+    ]
+  },
+  {
+    "title": "Aptitude Practice \u2014 Averages",
+    "category": "Aptitude",
+    "difficulty": "Easy",
+    "is_daily_challenge": false,
+    "is_weekly_challenge": false,
+    "questions": [
+      {
+        "question": "Find the average of: 41, 49, 94, 84, 57",
+        "options": [
+          "65",
+          "70",
+          "67",
+          "68"
+        ],
+        "answer": "65",
+        "topic": "Averages"
+      },
+      {
+        "question": "Find the average of: 49, 42, 39, 25",
+        "options": [
+          "38.8",
+          "36.8",
+          "33.8",
+          "35.8"
+        ],
+        "answer": "38.8",
+        "topic": "Averages"
+      },
+      {
+        "question": "Find the average of: 71, 45, 85, 77, 86",
+        "options": [
+          "69.8",
+          "72.8",
+          "70.8",
+          "67.8"
+        ],
+        "answer": "72.8",
+        "topic": "Averages"
+      },
+      {
+        "question": "Find the average of: 78, 26, 45, 15, 16",
+        "options": [
+          "36",
+          "34",
+          "38",
+          "33"
+        ],
+        "answer": "36",
+        "topic": "Averages"
+      },
+      {
+        "question": "Find the average of: 71, 66, 53, 33",
+        "options": [
+          "50.8",
+          "53.8",
+          "57.8",
+          "55.8"
+        ],
+        "answer": "55.8",
+        "topic": "Averages"
+      },
+      {
+        "question": "Find the average of: 29, 82, 48",
+        "options": [
+          "48",
+          "55",
+          "53",
+          "50"
+        ],
+        "answer": "53",
+        "topic": "Averages"
+      },
+      {
+        "question": "Find the average of: 66, 48, 85, 64",
+        "options": [
+          "68.8",
+          "70.8",
+          "60.8",
+          "65.8"
+        ],
+        "answer": "65.8",
+        "topic": "Averages"
+      },
+      {
+        "question": "Find the average of: 94, 20, 30, 40",
+        "options": [
+          "41",
+          "43",
+          "46",
+          "48"
+        ],
+        "answer": "46",
+        "topic": "Averages"
+      },
+      {
+        "question": "Find the average of: 14, 39, 46, 46",
+        "options": [
+          "36.2",
+          "33.2",
+          "38.2",
+          "34.2"
+        ],
+        "answer": "36.2",
+        "topic": "Averages"
+      },
+      {
+        "question": "Find the average of: 38, 92, 29, 44, 28",
+        "options": [
+          "46.2",
+          "41.2",
+          "43.2",
+          "44.2"
+        ],
+        "answer": "46.2",
+        "topic": "Averages"
+      },
+      {
+        "question": "Find the average of: 98, 48, 99, 61",
+        "options": [
+          "78.5",
+          "76.5",
+          "74.5",
+          "71.5"
+        ],
+        "answer": "76.5",
+        "topic": "Averages"
+      },
+      {
+        "question": "Find the average of: 42, 13, 21, 39, 96",
+        "options": [
+          "42.2",
+          "40.2",
+          "45.2",
+          "37.2"
+        ],
+        "answer": "42.2",
+        "topic": "Averages"
+      },
+      {
+        "question": "Find the average of: 93, 66, 45, 33, 84",
+        "options": [
+          "64.2",
+          "69.2",
+          "66.2",
+          "59.2"
+        ],
+        "answer": "64.2",
+        "topic": "Averages"
+      },
+      {
+        "question": "Find the average of: 23, 30, 52, 62, 98",
+        "options": [
+          "53",
+          "51",
+          "48",
+          "55"
+        ],
+        "answer": "53",
+        "topic": "Averages"
+      },
+      {
+        "question": "Find the average of: 51, 24, 61, 75",
+        "options": [
+          "47.8",
+          "55.8",
+          "54.8",
+          "52.8"
+        ],
+        "answer": "52.8",
+        "topic": "Averages"
+      },
+      {
+        "question": "Find the average of: 73, 90, 66, 16, 36",
+        "options": [
+          "54.2",
+          "56.2",
+          "53.2",
+          "58.2"
+        ],
+        "answer": "56.2",
+        "topic": "Averages"
+      },
+      {
+        "question": "Find the average of: 87, 40, 30, 49, 80",
+        "options": [
+          "54.2",
+          "57.2",
+          "52.2",
+          "59.2"
+        ],
+        "answer": "57.2",
+        "topic": "Averages"
+      },
+      {
+        "question": "Find the average of: 47, 75, 44, 63",
+        "options": [
+          "59.2",
+          "60.2",
+          "57.2",
+          "54.2"
+        ],
+        "answer": "57.2",
+        "topic": "Averages"
+      },
+      {
+        "question": "Find the average of: 45, 63, 53",
+        "options": [
+          "53.7",
+          "51.7",
+          "48.7",
+          "56.7"
+        ],
+        "answer": "53.7",
+        "topic": "Averages"
+      },
+      {
+        "question": "Find the average of: 71, 54, 52, 80, 79",
+        "options": [
+          "67.2",
+          "65.2",
+          "64.2",
+          "69.2"
+        ],
+        "answer": "67.2",
+        "topic": "Averages"
+      }
+    ]
+  },
+  {
+    "title": "Aptitude Practice \u2014 Ratio & Proportion",
+    "category": "Aptitude",
+    "difficulty": "Medium",
+    "is_daily_challenge": false,
+    "is_weekly_challenge": false,
+    "questions": [
+      {
+        "question": "Rs. 50 is divided between A and B in the ratio 2:3. What is A's share?",
+        "options": [
+          "Rs. 35",
+          "Rs. 25",
+          "Rs. 20"
+        ],
+        "answer": "Rs. 20",
+        "topic": "Ratio & Proportion"
+      },
+      {
+        "question": "Rs. 60 is divided between A and B in the ratio 5:7. What is A's share?",
+        "options": [
+          "Rs. 20",
+          "Rs. 10",
+          "Rs. 15",
+          "Rs. 25"
+        ],
+        "answer": "Rs. 25",
+        "topic": "Ratio & Proportion"
+      },
+      {
+        "question": "Rs. 40 is divided between A and B in the ratio 2:3. What is A's share?",
+        "options": [
+          "Rs. 1",
+          "Rs. 6",
+          "Rs. 16",
+          "Rs. 11"
+        ],
+        "answer": "Rs. 16",
+        "topic": "Ratio & Proportion"
+      },
+      {
+        "question": "Rs. 35 is divided between A and B in the ratio 2:5. What is A's share?",
+        "options": [
+          "Rs. 10",
+          "Rs. 5",
+          "Rs. 15",
+          "Rs. 20"
+        ],
+        "answer": "Rs. 10",
+        "topic": "Ratio & Proportion"
+      },
+      {
+        "question": "Rs. 40 is divided between A and B in the ratio 3:5. What is A's share?",
+        "options": [
+          "Rs. 30",
+          "Rs. 15",
+          "Rs. 5",
+          "Rs. 10"
+        ],
+        "answer": "Rs. 15",
+        "topic": "Ratio & Proportion"
+      },
+      {
+        "question": "Rs. 35 is divided between A and B in the ratio 2:5. What is A's share?",
+        "options": [
+          "Rs. 15",
+          "Rs. 5",
+          "Rs. 0",
+          "Rs. 10"
+        ],
+        "answer": "Rs. 10",
+        "topic": "Ratio & Proportion"
+      },
+      {
+        "question": "Rs. 90 is divided between A and B in the ratio 4:5. What is A's share?",
+        "options": [
+          "Rs. 30",
+          "Rs. 45",
+          "Rs. 40",
+          "Rs. 50"
+        ],
+        "answer": "Rs. 40",
+        "topic": "Ratio & Proportion"
+      },
+      {
+        "question": "Rs. 75 is divided between A and B in the ratio 2:3. What is A's share?",
+        "options": [
+          "Rs. 45",
+          "Rs. 20",
+          "Rs. 30",
+          "Rs. 40"
+        ],
+        "answer": "Rs. 30",
+        "topic": "Ratio & Proportion"
+      },
+      {
+        "question": "Rs. 70 is divided between A and B in the ratio 2:5. What is A's share?",
+        "options": [
+          "Rs. 15",
+          "Rs. 20",
+          "Rs. 35",
+          "Rs. 5"
+        ],
+        "answer": "Rs. 20",
+        "topic": "Ratio & Proportion"
+      },
+      {
+        "question": "Rs. 135 is divided between A and B in the ratio 4:5. What is A's share?",
+        "options": [
+          "Rs. 55",
+          "Rs. 75",
+          "Rs. 65",
+          "Rs. 60"
+        ],
+        "answer": "Rs. 60",
+        "topic": "Ratio & Proportion"
+      },
+      {
+        "question": "Rs. 60 is divided between A and B in the ratio 5:7. What is A's share?",
+        "options": [
+          "Rs. 25",
+          "Rs. 15",
+          "Rs. 35",
+          "Rs. 20"
+        ],
+        "answer": "Rs. 25",
+        "topic": "Ratio & Proportion"
+      },
+      {
+        "question": "Rs. 45 is divided between A and B in the ratio 4:5. What is A's share?",
+        "options": [
+          "Rs. 5",
+          "Rs. 35",
+          "Rs. 20",
+          "Rs. 30"
+        ],
+        "answer": "Rs. 20",
+        "topic": "Ratio & Proportion"
+      },
+      {
+        "question": "Rs. 80 is divided between A and B in the ratio 3:5. What is A's share?",
+        "options": [
+          "Rs. 25",
+          "Rs. 30",
+          "Rs. 20",
+          "Rs. 45"
+        ],
+        "answer": "Rs. 30",
+        "topic": "Ratio & Proportion"
+      },
+      {
+        "question": "Rs. 35 is divided between A and B in the ratio 2:5. What is A's share?",
+        "options": [
+          "Rs. 15",
+          "Rs. 20",
+          "Rs. 5",
+          "Rs. 10"
+        ],
+        "answer": "Rs. 10",
+        "topic": "Ratio & Proportion"
+      },
+      {
+        "question": "Rs. 108 is divided between A and B in the ratio 4:5. What is A's share?",
+        "options": [
+          "Rs. 38",
+          "Rs. 58",
+          "Rs. 48",
+          "Rs. 43"
+        ],
+        "answer": "Rs. 48",
+        "topic": "Ratio & Proportion"
+      }
+    ]
+  },
+  {
+    "title": "Reasoning Practice \u2014 Number Series",
+    "category": "Reasoning",
+    "difficulty": "Medium",
+    "is_daily_challenge": false,
+    "is_weekly_challenge": false,
+    "questions": [
+      {
+        "question": "Find the next number in the series: 4, 12, 36, 108, 324, ?",
+        "options": [
+          "962",
+          "967",
+          "972",
+          "974"
+        ],
+        "answer": "972",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 14, 16, 18, 20, 22, ?",
+        "options": [
+          "34",
+          "14",
+          "24",
+          "22"
+        ],
+        "answer": "24",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 9, 16, 25, 36, 49, ?",
+        "options": [
+          "66",
+          "64",
+          "74",
+          "69"
+        ],
+        "answer": "64",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 1, 4, 9, 16, 25, ?",
+        "options": [
+          "34",
+          "36",
+          "38",
+          "46"
+        ],
+        "answer": "36",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 11, 20, 29, 38, 47, ?",
+        "options": [
+          "46",
+          "56",
+          "51",
+          "58"
+        ],
+        "answer": "56",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 36, 49, 64, 81, 100, ?",
+        "options": [
+          "116",
+          "131",
+          "111",
+          "121"
+        ],
+        "answer": "121",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 9, 16, 25, 36, 49, ?",
+        "options": [
+          "64",
+          "66",
+          "59",
+          "54"
+        ],
+        "answer": "64",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 14, 20, 26, 32, 38, ?",
+        "options": [
+          "44",
+          "39",
+          "46",
+          "34"
+        ],
+        "answer": "44",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 6, 11, 16, 21, 26, ?",
+        "options": [
+          "36",
+          "31",
+          "26",
+          "21"
+        ],
+        "answer": "31",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 3, 6, 12, 24, 48, ?",
+        "options": [
+          "106",
+          "86",
+          "96",
+          "101"
+        ],
+        "answer": "96",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 20, 27, 34, 41, 48, ?",
+        "options": [
+          "45",
+          "55",
+          "50",
+          "53"
+        ],
+        "answer": "55",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 1, 4, 9, 16, 25, ?",
+        "options": [
+          "36",
+          "34",
+          "38",
+          "41"
+        ],
+        "answer": "36",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 1, 4, 9, 16, 25, ?",
+        "options": [
+          "38",
+          "36",
+          "41",
+          "34"
+        ],
+        "answer": "36",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 5, 10, 20, 40, 80, ?",
+        "options": [
+          "150",
+          "170",
+          "160",
+          "162"
+        ],
+        "answer": "160",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 4, 12, 36, 108, 324, ?",
+        "options": [
+          "970",
+          "972",
+          "977",
+          "974"
+        ],
+        "answer": "972",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 36, 49, 64, 81, 100, ?",
+        "options": [
+          "131",
+          "121",
+          "116",
+          "123"
+        ],
+        "answer": "121",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 5, 10, 20, 40, 80, ?",
+        "options": [
+          "160",
+          "158",
+          "162",
+          "170"
+        ],
+        "answer": "160",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 4, 7, 10, 13, 16, ?",
+        "options": [
+          "21",
+          "9",
+          "19",
+          "17"
+        ],
+        "answer": "19",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 25, 36, 49, 64, 81, ?",
+        "options": [
+          "100",
+          "98",
+          "102",
+          "105"
+        ],
+        "answer": "100",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 4, 12, 36, 108, 324, ?",
+        "options": [
+          "967",
+          "972",
+          "962",
+          "977"
+        ],
+        "answer": "972",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 4, 8, 16, 32, 64, ?",
+        "options": [
+          "123",
+          "130",
+          "133",
+          "128"
+        ],
+        "answer": "128",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 7, 13, 19, 25, 31, ?",
+        "options": [
+          "32",
+          "47",
+          "37",
+          "35"
+        ],
+        "answer": "37",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 6, 8, 10, 12, 14, ?",
+        "options": [
+          "16",
+          "6",
+          "11",
+          "18"
+        ],
+        "answer": "16",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 4, 12, 36, 108, 324, ?",
+        "options": [
+          "962",
+          "967",
+          "972",
+          "977"
+        ],
+        "answer": "972",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 5, 15, 45, 135, 405, ?",
+        "options": [
+          "1213",
+          "1210",
+          "1220",
+          "1215"
+        ],
+        "answer": "1215",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 11, 20, 29, 38, 47, ?",
+        "options": [
+          "46",
+          "51",
+          "54",
+          "56"
+        ],
+        "answer": "56",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 3, 6, 12, 24, 48, ?",
+        "options": [
+          "94",
+          "98",
+          "96",
+          "86"
+        ],
+        "answer": "96",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 3, 9, 27, 81, 243, ?",
+        "options": [
+          "739",
+          "731",
+          "729",
+          "719"
+        ],
+        "answer": "729",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 16, 25, 36, 49, 64, ?",
+        "options": [
+          "83",
+          "86",
+          "81",
+          "79"
+        ],
+        "answer": "81",
+        "topic": "Number Series"
+      },
+      {
+        "question": "Find the next number in the series: 3, 9, 27, 81, 243, ?",
+        "options": [
+          "729",
+          "719",
+          "724",
+          "727"
+        ],
+        "answer": "729",
+        "topic": "Number Series"
+      }
+    ]
+  },
+  {
+    "title": "Reasoning Practice \u2014 Coding-Decoding",
+    "category": "Reasoning",
+    "difficulty": "Medium",
+    "is_daily_challenge": false,
+    "is_weekly_challenge": false,
+    "questions": [
+      {
+        "question": "If each letter in 'TABLE' is shifted forward by 1 position(s) in the alphabet, what is the coded word?",
+        "options": [
+          "UBCMF",
+          "TABLE",
+          "VCDNG"
+        ],
+        "answer": "UBCMF",
+        "topic": "Coding-Decoding"
+      },
+      {
+        "question": "If each letter in 'TREE' is shifted forward by 1 position(s) in the alphabet, what is the coded word?",
+        "options": [
+          "VTGG",
+          "USFF",
+          "TREE"
+        ],
+        "answer": "USFF",
+        "topic": "Coding-Decoding"
+      },
+      {
+        "question": "If each letter in 'DOG' is shifted forward by 3 position(s) in the alphabet, what is the coded word?",
+        "options": [
+          "GRJ",
+          "HSK",
+          "FQI",
+          "DOG"
+        ],
+        "answer": "GRJ",
+        "topic": "Coding-Decoding"
+      },
+      {
+        "question": "If each letter in 'TREE' is shifted forward by 2 position(s) in the alphabet, what is the coded word?",
+        "options": [
+          "VTGG",
+          "TREE",
+          "USFF",
+          "WUHH"
+        ],
+        "answer": "VTGG",
+        "topic": "Coding-Decoding"
+      },
+      {
+        "question": "If each letter in 'SUN' is shifted forward by 2 position(s) in the alphabet, what is the coded word?",
+        "options": [
+          "UWP",
+          "TVO",
+          "VXQ",
+          "SUN"
+        ],
+        "answer": "UWP",
+        "topic": "Coding-Decoding"
+      },
+      {
+        "question": "If each letter in 'DOG' is shifted forward by 1 position(s) in the alphabet, what is the coded word?",
+        "options": [
+          "DOG",
+          "FQI",
+          "EPH"
+        ],
+        "answer": "EPH",
+        "topic": "Coding-Decoding"
+      },
+      {
+        "question": "If each letter in 'CHAIR' is shifted forward by 3 position(s) in the alphabet, what is the coded word?",
+        "options": [
+          "CHAIR",
+          "EJCKT",
+          "FKDLU",
+          "GLEMV"
+        ],
+        "answer": "FKDLU",
+        "topic": "Coding-Decoding"
+      },
+      {
+        "question": "If each letter in 'TREE' is shifted forward by 1 position(s) in the alphabet, what is the coded word?",
+        "options": [
+          "VTGG",
+          "USFF",
+          "TREE"
+        ],
+        "answer": "USFF",
+        "topic": "Coding-Decoding"
+      },
+      {
+        "question": "If each letter in 'CHAIR' is shifted forward by 2 position(s) in the alphabet, what is the coded word?",
+        "options": [
+          "EJCKT",
+          "DIBJS",
+          "CHAIR",
+          "FKDLU"
+        ],
+        "answer": "EJCKT",
+        "topic": "Coding-Decoding"
+      },
+      {
+        "question": "If each letter in 'TREE' is shifted forward by 3 position(s) in the alphabet, what is the coded word?",
+        "options": [
+          "XVII",
+          "TREE",
+          "WUHH",
+          "VTGG"
+        ],
+        "answer": "WUHH",
+        "topic": "Coding-Decoding"
+      },
+      {
+        "question": "If each letter in 'CHAIR' is shifted forward by 1 position(s) in the alphabet, what is the coded word?",
+        "options": [
+          "DIBJS",
+          "EJCKT",
+          "CHAIR"
+        ],
+        "answer": "DIBJS",
+        "topic": "Coding-Decoding"
+      },
+      {
+        "question": "If each letter in 'PLAN' is shifted forward by 1 position(s) in the alphabet, what is the coded word?",
+        "options": [
+          "PLAN",
+          "QMBO",
+          "RNCP"
+        ],
+        "answer": "QMBO",
+        "topic": "Coding-Decoding"
+      },
+      {
+        "question": "If each letter in 'PHONE' is shifted forward by 3 position(s) in the alphabet, what is the coded word?",
+        "options": [
+          "SKRQH",
+          "PHONE",
+          "TLSRI",
+          "RJQPG"
+        ],
+        "answer": "SKRQH",
+        "topic": "Coding-Decoding"
+      },
+      {
+        "question": "If each letter in 'CHAIR' is shifted forward by 3 position(s) in the alphabet, what is the coded word?",
+        "options": [
+          "CHAIR",
+          "FKDLU",
+          "GLEMV",
+          "EJCKT"
+        ],
+        "answer": "FKDLU",
+        "topic": "Coding-Decoding"
+      },
+      {
+        "question": "If each letter in 'TABLE' is shifted forward by 1 position(s) in the alphabet, what is the coded word?",
+        "options": [
+          "TABLE",
+          "VCDNG",
+          "UBCMF"
+        ],
+        "answer": "UBCMF",
+        "topic": "Coding-Decoding"
+      },
+      {
+        "question": "If each letter in 'DOG' is shifted forward by 2 position(s) in the alphabet, what is the coded word?",
+        "options": [
+          "GRJ",
+          "EPH",
+          "FQI",
+          "DOG"
+        ],
+        "answer": "FQI",
+        "topic": "Coding-Decoding"
+      },
+      {
+        "question": "If each letter in 'CAT' is shifted forward by 1 position(s) in the alphabet, what is the coded word?",
+        "options": [
+          "DBU",
+          "ECV",
+          "CAT"
+        ],
+        "answer": "DBU",
+        "topic": "Coding-Decoding"
+      },
+      {
+        "question": "If each letter in 'CHAIR' is shifted forward by 3 position(s) in the alphabet, what is the coded word?",
+        "options": [
+          "CHAIR",
+          "FKDLU",
+          "GLEMV",
+          "EJCKT"
+        ],
+        "answer": "FKDLU",
+        "topic": "Coding-Decoding"
+      },
+      {
+        "question": "If each letter in 'PLAN' is shifted forward by 2 position(s) in the alphabet, what is the coded word?",
+        "options": [
+          "QMBO",
+          "PLAN",
+          "SODQ",
+          "RNCP"
+        ],
+        "answer": "RNCP",
+        "topic": "Coding-Decoding"
+      },
+      {
+        "question": "If each letter in 'TREE' is shifted forward by 1 position(s) in the alphabet, what is the coded word?",
+        "options": [
+          "VTGG",
+          "USFF",
+          "TREE"
+        ],
+        "answer": "USFF",
+        "topic": "Coding-Decoding"
+      }
+    ]
+  },
+  {
+    "title": "Python Programming \u2014 Intermediate",
+    "category": "Programming",
+    "difficulty": "Medium",
+    "is_daily_challenge": false,
+    "is_weekly_challenge": false,
+    "questions": [
+      {
+        "question": "What does the 'self' keyword refer to in a Python class method?",
+        "options": [
+          "The class itself",
+          "The current instance",
+          "A global variable",
+          "The parent class"
+        ],
+        "answer": "The current instance",
+        "topic": "OOP"
+      },
+      {
+        "question": "Which method is used to add an item to a Python list?",
+        "options": [
+          "add()",
+          "append()",
+          "insert_end()",
+          "push()"
+        ],
+        "answer": "append()",
+        "topic": "Lists"
+      },
+      {
+        "question": "What is the output of bool(0)?",
+        "options": [
+          "True",
+          "False",
+          "0",
+          "Error"
+        ],
+        "answer": "False",
+        "topic": "Data Types"
+      },
+      {
+        "question": "Which of these is used to handle exceptions in Python?",
+        "options": [
+          "catch/throw",
+          "try/except",
+          "try/catch",
+          "handle/error"
+        ],
+        "answer": "try/except",
+        "topic": "Exception Handling"
+      },
+      {
+        "question": "What does the range(5) function generate?",
+        "options": [
+          "1 to 5",
+          "0 to 4",
+          "0 to 5",
+          "1 to 4"
+        ],
+        "answer": "0 to 4",
+        "topic": "Loops"
+      },
+      {
+        "question": "Which data structure does Python use for key-value pairs?",
+        "options": [
+          "List",
+          "Tuple",
+          "Dictionary",
+          "Set"
+        ],
+        "answer": "Dictionary",
+        "topic": "Data Structures"
+      },
+      {
+        "question": "What is a lambda function in Python?",
+        "options": [
+          "A named function",
+          "An anonymous inline function",
+          "A class method",
+          "A loop construct"
+        ],
+        "answer": "An anonymous inline function",
+        "topic": "Functions"
+      },
+      {
+        "question": "What does len('hello') return?",
+        "options": [
+          "4",
+          "5",
+          "6",
+          "Error"
+        ],
+        "answer": "5",
+        "topic": "Strings"
+      },
+      {
+        "question": "Which keyword is used to create a class in Python?",
+        "options": [
+          "class",
+          "def",
+          "object",
+          "struct"
+        ],
+        "answer": "class",
+        "topic": "OOP"
+      },
+      {
+        "question": "What is the correct way to import a module named 'math'?",
+        "options": [
+          "#include math",
+          "import math",
+          "using math",
+          "require math"
+        ],
+        "answer": "import math",
+        "topic": "Modules"
+      },
+      {
+        "question": "What does the '==' operator check in Python?",
+        "options": [
+          "Assignment",
+          "Value equality",
+          "Identity",
+          "Type equality"
+        ],
+        "answer": "Value equality",
+        "topic": "Operators"
+      },
+      {
+        "question": "Which loop is guaranteed to execute at least once?",
+        "options": [
+          "for",
+          "while",
+          "do-while (Python has no direct equivalent but conceptually)",
+          "None of these"
+        ],
+        "answer": "do-while (Python has no direct equivalent but conceptually)",
+        "topic": "Loops"
+      },
+      {
+        "question": "What is the output of 3 // 2 in Python?",
+        "options": [
+          "1.5",
+          "1",
+          "2",
+          "Error"
+        ],
+        "answer": "1",
+        "topic": "Operators"
+      },
+      {
+        "question": "Which of these creates an empty set in Python (not a dict)?",
+        "options": [
+          "{}",
+          "set()",
+          "[]",
+          "()"
+        ],
+        "answer": "set()",
+        "topic": "Data Structures"
+      },
+      {
+        "question": "What does 'pip' stand for/refer to in Python?",
+        "options": [
+          "Python Installed Packages",
+          "Pip Installs Packages",
+          "Package Index Program",
+          "Python Interpreter Program"
+        ],
+        "answer": "Pip Installs Packages",
+        "topic": "Tooling"
+      }
+    ]
+  },
+  {
+    "title": "Java Programming Basics",
+    "category": "Programming",
+    "difficulty": "Easy",
+    "is_daily_challenge": false,
+    "is_weekly_challenge": false,
+    "questions": [
+      {
+        "question": "Which keyword is used to create an object in Java?",
+        "options": [
+          "new",
+          "create",
+          "object",
+          "make"
+        ],
+        "answer": "new",
+        "topic": "OOP"
+      },
+      {
+        "question": "What is the default value of a boolean variable in Java?",
+        "options": [
+          "true",
+          "false",
+          "0",
+          "null"
+        ],
+        "answer": "false",
+        "topic": "Data Types"
+      },
+      {
+        "question": "Which of these is NOT a Java access modifier?",
+        "options": [
+          "public",
+          "private",
+          "protected",
+          "internal"
+        ],
+        "answer": "internal",
+        "topic": "OOP"
+      },
+      {
+        "question": "What is the entry point method of a Java program?",
+        "options": [
+          "start()",
+          "main()",
+          "run()",
+          "init()"
+        ],
+        "answer": "main()",
+        "topic": "Basics"
+      },
+      {
+        "question": "Which collection class does NOT allow duplicate elements?",
+        "options": [
+          "ArrayList",
+          "LinkedList",
+          "HashSet",
+          "Vector"
+        ],
+        "answer": "HashSet",
+        "topic": "Collections"
+      },
+      {
+        "question": "What does JVM stand for?",
+        "options": [
+          "Java Virtual Machine",
+          "Java Verified Method",
+          "Java Variable Manager",
+          "Joint Virtual Machine"
+        ],
+        "answer": "Java Virtual Machine",
+        "topic": "Basics"
+      },
+      {
+        "question": "Which keyword is used to inherit a class in Java?",
+        "options": [
+          "implements",
+          "extends",
+          "inherits",
+          "super"
+        ],
+        "answer": "extends",
+        "topic": "OOP"
+      },
+      {
+        "question": "What is the size of an int in Java?",
+        "options": [
+          "16 bits",
+          "32 bits",
+          "64 bits",
+          "8 bits"
+        ],
+        "answer": "32 bits",
+        "topic": "Data Types"
+      }
+    ]
+  },
+  {
+    "title": "SQL Fundamentals",
+    "category": "Technical",
+    "difficulty": "Medium",
+    "is_daily_challenge": false,
+    "is_weekly_challenge": false,
+    "questions": [
+      {
+        "question": "Which SQL command is used to retrieve data?",
+        "options": [
+          "GET",
+          "SELECT",
+          "FETCH",
+          "RETRIEVE"
+        ],
+        "answer": "SELECT",
+        "topic": "SQL Basics"
+      },
+      {
+        "question": "Which clause is used to filter rows before grouping?",
+        "options": [
+          "HAVING",
+          "WHERE",
+          "GROUP BY",
+          "FILTER"
+        ],
+        "answer": "WHERE",
+        "topic": "SQL Clauses"
+      },
+      {
+        "question": "What does the DISTINCT keyword do?",
+        "options": [
+          "Sorts results",
+          "Removes duplicate rows",
+          "Filters rows",
+          "Joins tables"
+        ],
+        "answer": "Removes duplicate rows",
+        "topic": "SQL Basics"
+      },
+      {
+        "question": "Which JOIN returns only matching rows from both tables?",
+        "options": [
+          "LEFT JOIN",
+          "RIGHT JOIN",
+          "INNER JOIN",
+          "FULL JOIN"
+        ],
+        "answer": "INNER JOIN",
+        "topic": "Joins"
+      },
+      {
+        "question": "Which SQL statement is used to add a new row to a table?",
+        "options": [
+          "ADD",
+          "INSERT INTO",
+          "CREATE",
+          "APPEND"
+        ],
+        "answer": "INSERT INTO",
+        "topic": "SQL Basics"
+      },
+      {
+        "question": "What is a primary key?",
+        "options": [
+          "A duplicate-allowing column",
+          "A column that uniquely identifies each row",
+          "A foreign table reference",
+          "An index type"
+        ],
+        "answer": "A column that uniquely identifies each row",
+        "topic": "Database Design"
+      },
+      {
+        "question": "Which function returns the number of rows in a result set?",
+        "options": [
+          "SUM()",
+          "COUNT()",
+          "TOTAL()",
+          "ROWS()"
+        ],
+        "answer": "COUNT()",
+        "topic": "Aggregate Functions"
+      },
+      {
+        "question": "What does 'ORDER BY' do by default (ascending or descending)?",
+        "options": [
+          "Ascending",
+          "Descending",
+          "Random",
+          "No default"
+        ],
+        "answer": "Ascending",
+        "topic": "SQL Clauses"
+      }
+    ]
+  },
+  {
+    "title": "Computer Science Fundamentals",
+    "category": "Technical",
+    "difficulty": "Medium",
+    "is_daily_challenge": false,
+    "is_weekly_challenge": false,
+    "questions": [
+      {
+        "question": "What is the time complexity of binary search?",
+        "options": [
+          "O(n)",
+          "O(log n)",
+          "O(n^2)",
+          "O(1)"
+        ],
+        "answer": "O(log n)",
+        "topic": "Algorithms"
+      },
+      {
+        "question": "Which data structure uses FIFO order?",
+        "options": [
+          "Stack",
+          "Queue",
+          "Tree",
+          "Graph"
+        ],
+        "answer": "Queue",
+        "topic": "Data Structures"
+      },
+      {
+        "question": "What does RAM stand for?",
+        "options": [
+          "Random Access Memory",
+          "Read Access Memory",
+          "Run Access Memory",
+          "Rapid Access Memory"
+        ],
+        "answer": "Random Access Memory",
+        "topic": "Computer Basics"
+      },
+      {
+        "question": "Which layer of the OSI model handles routing?",
+        "options": [
+          "Physical",
+          "Data Link",
+          "Network",
+          "Transport"
+        ],
+        "answer": "Network",
+        "topic": "Networking"
+      },
+      {
+        "question": "What is the primary purpose of an operating system?",
+        "options": [
+          "Run applications only",
+          "Manage hardware and software resources",
+          "Only manage memory",
+          "Only manage files"
+        ],
+        "answer": "Manage hardware and software resources",
+        "topic": "Operating Systems"
+      },
+      {
+        "question": "Which of these is a NoSQL database?",
+        "options": [
+          "MySQL",
+          "PostgreSQL",
+          "MongoDB",
+          "Oracle"
+        ],
+        "answer": "MongoDB",
+        "topic": "Databases"
+      },
+      {
+        "question": "What does HTTP stand for?",
+        "options": [
+          "HyperText Transfer Protocol",
+          "High Transfer Text Protocol",
+          "HyperText Technical Protocol",
+          "Home Transfer Text Protocol"
+        ],
+        "answer": "HyperText Transfer Protocol",
+        "topic": "Networking"
+      },
+      {
+        "question": "Which sorting algorithm has the best average-case time complexity?",
+        "options": [
+          "Bubble Sort",
+          "Selection Sort",
+          "Quick Sort",
+          "Insertion Sort"
+        ],
+        "answer": "Quick Sort",
+        "topic": "Algorithms"
+      }
+    ]
+  },
+  {
+    "title": "English Grammar & Vocabulary",
+    "category": "English",
+    "difficulty": "Easy",
+    "is_daily_challenge": false,
+    "is_weekly_challenge": false,
+    "questions": [
+      {
+        "question": "Choose the correctly spelled word.",
+        "options": [
+          "Recieve",
+          "Receive",
+          "Receeve",
+          "Receve"
+        ],
+        "answer": "Receive",
+        "topic": "Spelling"
+      },
+      {
+        "question": "Identify the synonym of 'Articulate'.",
+        "options": [
+          "Confusing",
+          "Eloquent",
+          "Silent",
+          "Vague"
+        ],
+        "answer": "Eloquent",
+        "topic": "Vocabulary"
+      },
+      {
+        "question": "Which sentence is grammatically correct?",
+        "options": [
+          "He don't like it.",
+          "He doesn't likes it.",
+          "He doesn't like it.",
+          "He not like it."
+        ],
+        "answer": "He doesn't like it.",
+        "topic": "Grammar"
+      },
+      {
+        "question": "What is the antonym of 'Confident'?",
+        "options": [
+          "Assured",
+          "Timid",
+          "Bold",
+          "Certain"
+        ],
+        "answer": "Timid",
+        "topic": "Vocabulary"
+      },
+      {
+        "question": "Which is the correct plural of 'Analysis'?",
+        "options": [
+          "Analysises",
+          "Analyses",
+          "Analysis's",
+          "Analysix"
+        ],
+        "answer": "Analyses",
+        "topic": "Grammar"
+      },
+      {
+        "question": "Choose the correct passive voice: 'She writes a letter.'",
+        "options": [
+          "A letter is written by her.",
+          "A letter was written by her.",
+          "A letter writes her.",
+          "A letter is writing by her."
+        ],
+        "answer": "A letter is written by her.",
+        "topic": "Grammar"
+      },
+      {
+        "question": "What does the idiom 'break the ice' mean?",
+        "options": [
+          "To start a fight",
+          "To initiate conversation in an awkward situation",
+          "To end a relationship",
+          "To cause damage"
+        ],
+        "answer": "To initiate conversation in an awkward situation",
+        "topic": "Idioms"
+      },
+      {
+        "question": "Identify the correctly punctuated sentence.",
+        "options": [
+          "Its a nice day.",
+          "It's a nice day.",
+          "Its' a nice day.",
+          "It is a nice day, isnt it"
+        ],
+        "answer": "It's a nice day.",
+        "topic": "Punctuation"
+      },
+      {
+        "question": "Which word means the same as 'Meticulous'?",
+        "options": [
+          "Careless",
+          "Detailed and careful",
+          "Fast",
+          "Confused"
+        ],
+        "answer": "Detailed and careful",
+        "topic": "Vocabulary"
+      },
+      {
+        "question": "Choose the correct comparative form: 'This book is ___ than that one.'",
+        "options": [
+          "gooder",
+          "more good",
+          "better",
+          "best"
+        ],
+        "answer": "better",
+        "topic": "Grammar"
+      }
+    ]
+  },
+  {
+    "title": "Indian Polity & Constitution Basics",
+    "category": "Government",
+    "difficulty": "Medium",
+    "is_daily_challenge": false,
+    "is_weekly_challenge": false,
+    "questions": [
+      {
+        "question": "How many fundamental rights are guaranteed by the Indian Constitution?",
+        "options": [
+          "5",
+          "6",
+          "7",
+          "9"
+        ],
+        "answer": "6",
+        "topic": "Fundamental Rights"
+      },
+      {
+        "question": "Which article of the Constitution abolishes untouchability?",
+        "options": [
+          "Article 15",
+          "Article 17",
+          "Article 19",
+          "Article 21"
+        ],
+        "answer": "Article 17",
+        "topic": "Constitution"
+      },
+      {
+        "question": "The Directive Principles of State Policy are inspired by which country's constitution?",
+        "options": [
+          "USA",
+          "UK",
+          "Ireland",
+          "France"
+        ],
+        "answer": "Ireland",
+        "topic": "Constitution"
+      },
+      {
+        "question": "Who is the ceremonial head of the Indian state?",
+        "options": [
+          "Prime Minister",
+          "President",
+          "Chief Justice",
+          "Speaker of Lok Sabha"
+        ],
+        "answer": "President",
+        "topic": "Polity"
+      },
+      {
+        "question": "How many members does the Lok Sabha have at full strength (approximate constitutional provision)?",
+        "options": [
+          "245",
+          "545",
+          "790",
+          "500"
+        ],
+        "answer": "545",
+        "topic": "Polity"
+      },
+      {
+        "question": "What is the minimum age to become a member of the Lok Sabha?",
+        "options": [
+          "18 years",
+          "21 years",
+          "25 years",
+          "30 years"
+        ],
+        "answer": "25 years",
+        "topic": "Polity"
+      },
+      {
+        "question": "Which schedule of the Constitution deals with anti-defection law?",
+        "options": [
+          "Fifth Schedule",
+          "Ninth Schedule",
+          "Tenth Schedule",
+          "Twelfth Schedule"
+        ],
+        "answer": "Tenth Schedule",
+        "topic": "Constitution"
+      },
+      {
+        "question": "Who has the power to dissolve the Lok Sabha?",
+        "options": [
+          "Prime Minister",
+          "President",
+          "Speaker",
+          "Chief Justice"
+        ],
+        "answer": "President",
+        "topic": "Polity"
+      }
+    ]
+  },
+  {
+    "title": "Banking Awareness Basics",
+    "category": "Banking",
+    "difficulty": "Medium",
+    "is_daily_challenge": false,
+    "is_weekly_challenge": false,
+    "questions": [
+      {
+        "question": "What is the full form of RBI?",
+        "options": [
+          "Reserve Bank of India",
+          "Regional Bank of India",
+          "Rural Bank of India",
+          "Registered Bank of India"
+        ],
+        "answer": "Reserve Bank of India",
+        "topic": "Banking Basics"
+      },
+      {
+        "question": "What is the rate at which RBI lends money to commercial banks called?",
+        "options": [
+          "Reverse Repo Rate",
+          "Repo Rate",
+          "Bank Rate",
+          "SLR"
+        ],
+        "answer": "Repo Rate",
+        "topic": "Monetary Policy"
+      },
+      {
+        "question": "What does NEFT stand for?",
+        "options": [
+          "National Electronic Funds Transfer",
+          "National Express Funds Transfer",
+          "New Electronic Funds Transfer",
+          "National Emergency Funds Transfer"
+        ],
+        "answer": "National Electronic Funds Transfer",
+        "topic": "Banking Products"
+      },
+      {
+        "question": "What is the minimum capital requirement concept called that banks must maintain against risk-weighted assets?",
+        "options": [
+          "CRR",
+          "SLR",
+          "CRAR (Capital Adequacy Ratio)",
+          "Repo Rate"
+        ],
+        "answer": "CRAR (Capital Adequacy Ratio)",
+        "topic": "Banking Regulation"
+      },
+      {
+        "question": "What does CRR stand for?",
+        "options": [
+          "Cash Reserve Ratio",
+          "Credit Reserve Ratio",
+          "Capital Reserve Ratio",
+          "Currency Reserve Ratio"
+        ],
+        "answer": "Cash Reserve Ratio",
+        "topic": "Monetary Policy"
+      },
+      {
+        "question": "Which type of account typically does not earn interest and is used for frequent transactions?",
+        "options": [
+          "Savings Account",
+          "Fixed Deposit",
+          "Current Account",
+          "Recurring Deposit"
+        ],
+        "answer": "Current Account",
+        "topic": "Banking Products"
+      },
+      {
+        "question": "What is a Non-Performing Asset (NPA)?",
+        "options": [
+          "A profitable loan",
+          "A loan where interest/principal is overdue beyond a specified period",
+          "A new bank account",
+          "A type of fixed deposit"
+        ],
+        "answer": "A loan where interest/principal is overdue beyond a specified period",
+        "topic": "Banking Terms"
+      },
+      {
+        "question": "What does IFSC code identify in Indian banking?",
+        "options": [
+          "The customer's account",
+          "A specific bank branch",
+          "The bank's CEO",
+          "The account type"
+        ],
+        "answer": "A specific bank branch",
+        "topic": "Banking Basics"
+      }
+    ]
+  },
+  {
+    "title": "Aptitude Practice \u2014 Profit & Loss",
+    "category": "Aptitude",
+    "difficulty": "Medium",
+    "is_daily_challenge": false,
+    "is_weekly_challenge": false,
+    "questions": [
+      {
+        "question": "A shopkeeper buys an item for Rs. 1000 and sells it at a 20% profit. What is the selling price?",
+        "options": [
+          "Rs. 1200",
+          "Rs. 1100",
+          "Rs. 1250",
+          "Rs. 1220"
+        ],
+        "answer": "Rs. 1200",
+        "topic": "Profit & Loss"
+      },
+      {
+        "question": "A shopkeeper buys an item for Rs. 1000 and sells it at a 10% loss. What is the selling price?",
+        "options": [
+          "Rs. 880",
+          "Rs. 950",
+          "Rs. 900",
+          "Rs. 850"
+        ],
+        "answer": "Rs. 900",
+        "topic": "Profit & Loss"
+      },
+      {
+        "question": "A shopkeeper buys an item for Rs. 1000 and sells it at a 30% loss. What is the selling price?",
+        "options": [
+          "Rs. 600",
+          "Rs. 650",
+          "Rs. 700"
+        ],
+        "answer": "Rs. 700",
+        "topic": "Profit & Loss"
+      },
+      {
+        "question": "A shopkeeper buys an item for Rs. 400 and sells it at a 10% profit. What is the selling price?",
+        "options": [
+          "Rs. 490",
+          "Rs. 340",
+          "Rs. 460",
+          "Rs. 440"
+        ],
+        "answer": "Rs. 440",
+        "topic": "Profit & Loss"
+      },
+      {
+        "question": "A shopkeeper buys an item for Rs. 1000 and sells it at a 25% profit. What is the selling price?",
+        "options": [
+          "Rs. 1300",
+          "Rs. 1270",
+          "Rs. 1250",
+          "Rs. 1230"
+        ],
+        "answer": "Rs. 1250",
+        "topic": "Profit & Loss"
+      },
+      {
+        "question": "A shopkeeper buys an item for Rs. 1500 and sells it at a 15% loss. What is the selling price?",
+        "options": [
+          "Rs. 1175",
+          "Rs. 1275",
+          "Rs. 1295",
+          "Rs. 1375"
+        ],
+        "answer": "Rs. 1275",
+        "topic": "Profit & Loss"
+      },
+      {
+        "question": "A shopkeeper buys an item for Rs. 1000 and sells it at a 30% loss. What is the selling price?",
+        "options": [
+          "Rs. 700",
+          "Rs. 600",
+          "Rs. 720",
+          "Rs. 800"
+        ],
+        "answer": "Rs. 700",
+        "topic": "Profit & Loss"
+      },
+      {
+        "question": "A shopkeeper buys an item for Rs. 200 and sells it at a 25% loss. What is the selling price?",
+        "options": [
+          "Rs. 200",
+          "Rs. 50",
+          "Rs. 170",
+          "Rs. 150"
+        ],
+        "answer": "Rs. 150",
+        "topic": "Profit & Loss"
+      },
+      {
+        "question": "A shopkeeper buys an item for Rs. 800 and sells it at a 10% loss. What is the selling price?",
+        "options": [
+          "Rs. 620",
+          "Rs. 670",
+          "Rs. 720",
+          "Rs. 740"
+        ],
+        "answer": "Rs. 720",
+        "topic": "Profit & Loss"
+      },
+      {
+        "question": "A shopkeeper buys an item for Rs. 500 and sells it at a 15% profit. What is the selling price?",
+        "options": [
+          "Rs. 575",
+          "Rs. 625",
+          "Rs. 525",
+          "Rs. 595"
+        ],
+        "answer": "Rs. 575",
+        "topic": "Profit & Loss"
+      },
+      {
+        "question": "A shopkeeper buys an item for Rs. 400 and sells it at a 25% loss. What is the selling price?",
+        "options": [
+          "Rs. 250",
+          "Rs. 300",
+          "Rs. 280",
+          "Rs. 320"
+        ],
+        "answer": "Rs. 300",
+        "topic": "Profit & Loss"
+      },
+      {
+        "question": "A shopkeeper buys an item for Rs. 400 and sells it at a 10% profit. What is the selling price?",
+        "options": [
+          "Rs. 390",
+          "Rs. 440",
+          "Rs. 540",
+          "Rs. 340"
+        ],
+        "answer": "Rs. 440",
+        "topic": "Profit & Loss"
+      },
+      {
+        "question": "A shopkeeper buys an item for Rs. 1500 and sells it at a 15% profit. What is the selling price?",
+        "options": [
+          "Rs. 1775",
+          "Rs. 1705",
+          "Rs. 1725",
+          "Rs. 1745"
+        ],
+        "answer": "Rs. 1725",
+        "topic": "Profit & Loss"
+      },
+      {
+        "question": "A shopkeeper buys an item for Rs. 1000 and sells it at a 20% profit. What is the selling price?",
+        "options": [
+          "Rs. 1200",
+          "Rs. 1250",
+          "Rs. 1180",
+          "Rs. 1150"
+        ],
+        "answer": "Rs. 1200",
+        "topic": "Profit & Loss"
+      },
+      {
+        "question": "A shopkeeper buys an item for Rs. 1500 and sells it at a 20% loss. What is the selling price?",
+        "options": [
+          "Rs. 1100",
+          "Rs. 1250",
+          "Rs. 1300",
+          "Rs. 1200"
+        ],
+        "answer": "Rs. 1200",
+        "topic": "Profit & Loss"
+      },
+      {
+        "question": "A shopkeeper buys an item for Rs. 500 and sells it at a 15% loss. What is the selling price?",
+        "options": [
+          "Rs. 425",
+          "Rs. 375",
+          "Rs. 525",
+          "Rs. 325"
+        ],
+        "answer": "Rs. 425",
+        "topic": "Profit & Loss"
+      },
+      {
+        "question": "A shopkeeper buys an item for Rs. 400 and sells it at a 15% loss. What is the selling price?",
+        "options": [
+          "Rs. 390",
+          "Rs. 290",
+          "Rs. 340",
+          "Rs. 240"
+        ],
+        "answer": "Rs. 340",
+        "topic": "Profit & Loss"
+      },
+      {
+        "question": "A shopkeeper buys an item for Rs. 400 and sells it at a 20% loss. What is the selling price?",
+        "options": [
+          "Rs. 320",
+          "Rs. 370",
+          "Rs. 340",
+          "Rs. 420"
+        ],
+        "answer": "Rs. 320",
+        "topic": "Profit & Loss"
+      },
+      {
+        "question": "A shopkeeper buys an item for Rs. 400 and sells it at a 25% profit. What is the selling price?",
+        "options": [
+          "Rs. 450",
+          "Rs. 520",
+          "Rs. 500",
+          "Rs. 400"
+        ],
+        "answer": "Rs. 500",
+        "topic": "Profit & Loss"
+      },
+      {
+        "question": "A shopkeeper buys an item for Rs. 500 and sells it at a 30% profit. What is the selling price?",
+        "options": [
+          "Rs. 750",
+          "Rs. 650",
+          "Rs. 700",
+          "Rs. 550"
+        ],
+        "answer": "Rs. 650",
+        "topic": "Profit & Loss"
+      }
+    ]
+  },
+  {
+    "title": "Aptitude Practice \u2014 Time & Work",
+    "category": "Aptitude",
+    "difficulty": "Hard",
+    "is_daily_challenge": false,
+    "is_weekly_challenge": false,
+    "questions": [
+      {
+        "question": "A can complete a job in 12 days, B can complete it in 24 days. Working together, how many days will they take?",
+        "options": [
+          "6 days",
+          "8 days",
+          "9 days",
+          "7 days"
+        ],
+        "answer": "8 days",
+        "topic": "Time & Work"
+      },
+      {
+        "question": "A can complete a job in 24 days, B can complete it in 20 days. Working together, how many days will they take?",
+        "options": [
+          "11.9 days",
+          "10.9 days",
+          "12.9 days",
+          "8.9 days"
+        ],
+        "answer": "10.9 days",
+        "topic": "Time & Work"
+      },
+      {
+        "question": "A can complete a job in 30 days, B can complete it in 30 days. Working together, how many days will they take?",
+        "options": [
+          "14 days",
+          "13 days",
+          "16 days",
+          "15 days"
+        ],
+        "answer": "15 days",
+        "topic": "Time & Work"
+      },
+      {
+        "question": "A can complete a job in 15 days, B can complete it in 15 days. Working together, how many days will they take?",
+        "options": [
+          "10.5 days",
+          "6.5 days",
+          "5.5 days",
+          "7.5 days"
+        ],
+        "answer": "7.5 days",
+        "topic": "Time & Work"
+      },
+      {
+        "question": "A can complete a job in 20 days, B can complete it in 12 days. Working together, how many days will they take?",
+        "options": [
+          "9.5 days",
+          "4.5 days",
+          "7.5 days",
+          "8.5 days"
+        ],
+        "answer": "7.5 days",
+        "topic": "Time & Work"
+      },
+      {
+        "question": "A can complete a job in 10 days, B can complete it in 15 days. Working together, how many days will they take?",
+        "options": [
+          "8 days",
+          "7 days",
+          "6 days"
+        ],
+        "answer": "6 days",
+        "topic": "Time & Work"
+      },
+      {
+        "question": "A can complete a job in 10 days, B can complete it in 30 days. Working together, how many days will they take?",
+        "options": [
+          "8.5 days",
+          "6.5 days",
+          "7.5 days",
+          "9.5 days"
+        ],
+        "answer": "7.5 days",
+        "topic": "Time & Work"
+      },
+      {
+        "question": "A can complete a job in 24 days, B can complete it in 20 days. Working together, how many days will they take?",
+        "options": [
+          "9.9 days",
+          "10.9 days",
+          "12.9 days",
+          "7.9 days"
+        ],
+        "answer": "10.9 days",
+        "topic": "Time & Work"
+      },
+      {
+        "question": "A can complete a job in 30 days, B can complete it in 24 days. Working together, how many days will they take?",
+        "options": [
+          "12.3 days",
+          "10.3 days",
+          "14.3 days",
+          "13.3 days"
+        ],
+        "answer": "13.3 days",
+        "topic": "Time & Work"
+      },
+      {
+        "question": "A can complete a job in 15 days, B can complete it in 15 days. Working together, how many days will they take?",
+        "options": [
+          "8.5 days",
+          "7.5 days",
+          "5.5 days",
+          "4.5 days"
+        ],
+        "answer": "7.5 days",
+        "topic": "Time & Work"
+      },
+      {
+        "question": "A can complete a job in 15 days, B can complete it in 15 days. Working together, how many days will they take?",
+        "options": [
+          "5.5 days",
+          "4.5 days",
+          "6.5 days",
+          "7.5 days"
+        ],
+        "answer": "7.5 days",
+        "topic": "Time & Work"
+      },
+      {
+        "question": "A can complete a job in 20 days, B can complete it in 24 days. Working together, how many days will they take?",
+        "options": [
+          "10.9 days",
+          "11.9 days",
+          "8.9 days",
+          "7.9 days"
+        ],
+        "answer": "10.9 days",
+        "topic": "Time & Work"
+      },
+      {
+        "question": "A can complete a job in 24 days, B can complete it in 20 days. Working together, how many days will they take?",
+        "options": [
+          "9.9 days",
+          "13.9 days",
+          "10.9 days",
+          "7.9 days"
+        ],
+        "answer": "10.9 days",
+        "topic": "Time & Work"
+      },
+      {
+        "question": "A can complete a job in 20 days, B can complete it in 24 days. Working together, how many days will they take?",
+        "options": [
+          "8.9 days",
+          "10.9 days",
+          "9.9 days",
+          "7.9 days"
+        ],
+        "answer": "10.9 days",
+        "topic": "Time & Work"
+      },
+      {
+        "question": "A can complete a job in 12 days, B can complete it in 24 days. Working together, how many days will they take?",
+        "options": [
+          "6 days",
+          "8 days",
+          "7 days",
+          "5 days"
+        ],
+        "answer": "8 days",
+        "topic": "Time & Work"
+      },
+      {
+        "question": "A can complete a job in 15 days, B can complete it in 30 days. Working together, how many days will they take?",
+        "options": [
+          "7 days",
+          "10 days",
+          "8 days",
+          "11 days"
+        ],
+        "answer": "10 days",
+        "topic": "Time & Work"
+      },
+      {
+        "question": "A can complete a job in 30 days, B can complete it in 20 days. Working together, how many days will they take?",
+        "options": [
+          "11 days",
+          "10 days",
+          "9 days",
+          "12 days"
+        ],
+        "answer": "12 days",
+        "topic": "Time & Work"
+      },
+      {
+        "question": "A can complete a job in 24 days, B can complete it in 15 days. Working together, how many days will they take?",
+        "options": [
+          "9.2 days",
+          "12.2 days",
+          "8.2 days",
+          "10.2 days"
+        ],
+        "answer": "9.2 days",
+        "topic": "Time & Work"
+      },
+      {
+        "question": "A can complete a job in 10 days, B can complete it in 10 days. Working together, how many days will they take?",
+        "options": [
+          "2 days",
+          "6 days",
+          "5 days",
+          "3 days"
+        ],
+        "answer": "5 days",
+        "topic": "Time & Work"
+      },
+      {
+        "question": "A can complete a job in 12 days, B can complete it in 24 days. Working together, how many days will they take?",
+        "options": [
+          "9 days",
+          "7 days",
+          "8 days",
+          "6 days"
+        ],
+        "answer": "8 days",
+        "topic": "Time & Work"
+      }
+    ]
+  },
+  {
+    "title": "Aptitude Practice \u2014 Ages",
+    "category": "Aptitude",
+    "difficulty": "Easy",
+    "is_daily_challenge": false,
+    "is_weekly_challenge": false,
+    "questions": [
+      {
+        "question": "A person is currently 30 years old. What will their age be after 12 years?",
+        "options": [
+          "44",
+          "39",
+          "42"
+        ],
+        "answer": "42",
+        "topic": "Ages"
+      },
+      {
+        "question": "A person is currently 20 years old. What will their age be after 8 years?",
+        "options": [
+          "30",
+          "28",
+          "26",
+          "24"
+        ],
+        "answer": "28",
+        "topic": "Ages"
+      },
+      {
+        "question": "A person is currently 35 years old. What will their age be after 5 years?",
+        "options": [
+          "40",
+          "38",
+          "36",
+          "37"
+        ],
+        "answer": "40",
+        "topic": "Ages"
+      },
+      {
+        "question": "A person is currently 35 years old. What will their age be after 10 years?",
+        "options": [
+          "45",
+          "43",
+          "48",
+          "41"
+        ],
+        "answer": "45",
+        "topic": "Ages"
+      },
+      {
+        "question": "A person is currently 28 years old. What will their age be after 12 years?",
+        "options": [
+          "42",
+          "38",
+          "40",
+          "37"
+        ],
+        "answer": "40",
+        "topic": "Ages"
+      },
+      {
+        "question": "A person is currently 40 years old. What will their age be after 8 years?",
+        "options": [
+          "48",
+          "44",
+          "52"
+        ],
+        "answer": "48",
+        "topic": "Ages"
+      },
+      {
+        "question": "A person is currently 40 years old. What will their age be after 12 years?",
+        "options": [
+          "52",
+          "48",
+          "49",
+          "50"
+        ],
+        "answer": "52",
+        "topic": "Ages"
+      },
+      {
+        "question": "A person is currently 40 years old. What will their age be after 12 years?",
+        "options": [
+          "52",
+          "48",
+          "50",
+          "49"
+        ],
+        "answer": "52",
+        "topic": "Ages"
+      },
+      {
+        "question": "A person is currently 20 years old. What will their age be after 5 years?",
+        "options": [
+          "25",
+          "23",
+          "21",
+          "22"
+        ],
+        "answer": "25",
+        "topic": "Ages"
+      },
+      {
+        "question": "A person is currently 30 years old. What will their age be after 5 years?",
+        "options": [
+          "32",
+          "35",
+          "33",
+          "38"
+        ],
+        "answer": "35",
+        "topic": "Ages"
+      },
+      {
+        "question": "A person is currently 40 years old. What will their age be after 12 years?",
+        "options": [
+          "52",
+          "48",
+          "49",
+          "55"
+        ],
+        "answer": "52",
+        "topic": "Ages"
+      },
+      {
+        "question": "A person is currently 20 years old. What will their age be after 8 years?",
+        "options": [
+          "28",
+          "26",
+          "31"
+        ],
+        "answer": "28",
+        "topic": "Ages"
+      },
+      {
+        "question": "A person is currently 24 years old. What will their age be after 10 years?",
+        "options": [
+          "37",
+          "36",
+          "38",
+          "34"
+        ],
+        "answer": "34",
+        "topic": "Ages"
+      },
+      {
+        "question": "A person is currently 28 years old. What will their age be after 12 years?",
+        "options": [
+          "42",
+          "40",
+          "38",
+          "37"
+        ],
+        "answer": "40",
+        "topic": "Ages"
+      },
+      {
+        "question": "A person is currently 30 years old. What will their age be after 12 years?",
+        "options": [
+          "42",
+          "40",
+          "38",
+          "46"
+        ],
+        "answer": "42",
+        "topic": "Ages"
+      }
+    ]
+  },
+  {
+    "title": "Reasoning Practice \u2014 Blood Relations",
+    "category": "Reasoning",
+    "difficulty": "Medium",
+    "is_daily_challenge": false,
+    "is_weekly_challenge": false,
+    "questions": [
+      {
+        "question": "If P is the husband of Q, and R is the mother of P, how is R related to Q?",
+        "options": [
+          "Mother-in-law",
+          "Sister-in-law",
+          "Aunt",
+          "Grandmother"
+        ],
+        "answer": "Mother-in-law",
+        "topic": "Blood Relations"
+      },
+      {
+        "question": "Pointing to a man, a woman says, 'His mother is the only daughter of my mother.' How is the woman related to the man?",
+        "options": [
+          "Mother",
+          "Sister",
+          "Aunt",
+          "Grandmother"
+        ],
+        "answer": "Mother",
+        "topic": "Blood Relations"
+      },
+      {
+        "question": "M's father is N. N's only sister is O. How is O related to M?",
+        "options": [
+          "Aunt",
+          "Mother",
+          "Grandmother",
+          "Sister"
+        ],
+        "answer": "Aunt",
+        "topic": "Blood Relations"
+      },
+      {
+        "question": "A's father is B's brother. How is B related to A?",
+        "options": [
+          "Uncle",
+          "Father",
+          "Cousin",
+          "Grandfather"
+        ],
+        "answer": "Uncle",
+        "topic": "Blood Relations"
+      },
+      {
+        "question": "A introduces B as the son of his father's only son. How is B related to A (if A is male)?",
+        "options": [
+          "Son",
+          "Brother",
+          "Nephew",
+          "Cousin"
+        ],
+        "answer": "Son",
+        "topic": "Blood Relations"
+      },
+      {
+        "question": "X is the son of Y. Y is the daughter of Z. How is X related to Z?",
+        "options": [
+          "Grandson",
+          "Son",
+          "Nephew",
+          "Grandfather"
+        ],
+        "answer": "Grandson",
+        "topic": "Blood Relations"
+      },
+      {
+        "question": "M is the daughter of N. N is the son of O. How is M related to O?",
+        "options": [
+          "Granddaughter",
+          "Daughter",
+          "Niece",
+          "Sister"
+        ],
+        "answer": "Granddaughter",
+        "topic": "Blood Relations"
+      },
+      {
+        "question": "P and Q are siblings. R is P's son. How is R related to Q?",
+        "options": [
+          "Nephew/Niece",
+          "Son",
+          "Cousin",
+          "Grandson"
+        ],
+        "answer": "Nephew/Niece",
+        "topic": "Blood Relations"
+      },
+      {
+        "question": "A is B's husband's sister. How is A related to B?",
+        "options": [
+          "Sister-in-law",
+          "Sister",
+          "Cousin",
+          "Aunt"
+        ],
+        "answer": "Sister-in-law",
+        "topic": "Blood Relations"
+      },
+      {
+        "question": "X's mother is Y's daughter. How is Y related to X?",
+        "options": [
+          "Grandmother",
+          "Mother",
+          "Aunt",
+          "Sister"
+        ],
+        "answer": "Grandmother",
+        "topic": "Blood Relations"
+      },
+      {
+        "question": "Introducing a boy, a girl said, 'He is the son of my grandfather's only son.' How is the boy related to the girl?",
+        "options": [
+          "Brother",
+          "Cousin",
+          "Uncle",
+          "Nephew"
+        ],
+        "answer": "Brother",
+        "topic": "Blood Relations"
+      },
+      {
+        "question": "A is B's brother. C is B's mother. D is C's father. How is A related to D?",
+        "options": [
+          "Grandson",
+          "Son",
+          "Nephew",
+          "Cousin"
+        ],
+        "answer": "Grandson",
+        "topic": "Blood Relations"
+      },
+      {
+        "question": "P is Q's son. R is P's grandmother. How is R related to Q?",
+        "options": [
+          "Mother",
+          "Grandmother",
+          "Aunt",
+          "Sister"
+        ],
+        "answer": "Mother",
+        "topic": "Blood Relations"
+      },
+      {
+        "question": "If D is E's father and F is D's mother, how is F related to E?",
+        "options": [
+          "Grandmother",
+          "Mother",
+          "Aunt",
+          "Sister"
+        ],
+        "answer": "Grandmother",
+        "topic": "Blood Relations"
+      },
+      {
+        "question": "A is the mother of B. B is the sister of C. How is A related to C?",
+        "options": [
+          "Mother",
+          "Aunt",
+          "Grandmother",
+          "Sister"
+        ],
+        "answer": "Mother",
+        "topic": "Blood Relations"
+      }
+    ]
+  },
+  {
+    "title": "Reasoning Practice \u2014 Direction Sense",
+    "category": "Reasoning",
+    "difficulty": "Medium",
+    "is_daily_challenge": false,
+    "is_weekly_challenge": false,
+    "questions": [
+      {
+        "question": "A person walks 4 km East then 4 km North. In which direction is he from the start?",
+        "options": [
+          "North-East",
+          "North-West",
+          "South-East",
+          "South-West"
+        ],
+        "answer": "North-East",
+        "topic": "Direction Sense"
+      },
+      {
+        "question": "Facing North, if you turn 90\u00b0 clockwise, which direction do you face?",
+        "options": [
+          "East",
+          "West",
+          "South",
+          "North"
+        ],
+        "answer": "East",
+        "topic": "Direction Sense"
+      },
+      {
+        "question": "Facing East, turning 45\u00b0 clockwise twice (90\u00b0 total), which direction do you face?",
+        "options": [
+          "South",
+          "North",
+          "West",
+          "East"
+        ],
+        "answer": "South",
+        "topic": "Direction Sense"
+      },
+      {
+        "question": "Starting at point A, walking North to B, then East to C \u2014 C is in which direction from A?",
+        "options": [
+          "North-East",
+          "North-West",
+          "South-East",
+          "South-West"
+        ],
+        "answer": "North-East",
+        "topic": "Direction Sense"
+      },
+      {
+        "question": "At noon, if a man's shadow points North, which direction is the sun roughly in (Northern hemisphere)?",
+        "options": [
+          "South",
+          "North",
+          "East",
+          "West"
+        ],
+        "answer": "South",
+        "topic": "Direction Sense"
+      },
+      {
+        "question": "Facing West, if you turn 90\u00b0 anticlockwise, which direction do you face?",
+        "options": [
+          "South",
+          "North",
+          "East",
+          "West"
+        ],
+        "answer": "South",
+        "topic": "Direction Sense"
+      },
+      {
+        "question": "Facing South, if you turn 180\u00b0, which direction do you face?",
+        "options": [
+          "North",
+          "South",
+          "East",
+          "West"
+        ],
+        "answer": "North",
+        "topic": "Direction Sense"
+      },
+      {
+        "question": "A man walks 6 km South then 8 km West. How far is he from the starting point (straight line)?",
+        "options": [
+          "10 km",
+          "14 km",
+          "8 km",
+          "6 km"
+        ],
+        "answer": "10 km",
+        "topic": "Direction Sense"
+      },
+      {
+        "question": "If South-East becomes North, South becomes North-East, what does West become?",
+        "options": [
+          "South-East",
+          "North-West",
+          "North-East",
+          "South-West"
+        ],
+        "answer": "South-East",
+        "topic": "Direction Sense"
+      },
+      {
+        "question": "A man walks 5 km North, then 3 km East. How far is he from the starting point (approx, straight line)?",
+        "options": [
+          "5.8 km",
+          "8 km",
+          "3 km",
+          "5 km"
+        ],
+        "answer": "5.8 km",
+        "topic": "Direction Sense"
+      }
+    ]
+  }
+]
