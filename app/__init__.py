@@ -237,6 +237,8 @@ def _register_cli_commands(app: Flask) -> None:
     def seed_db():
         """Seed the complete database."""
 
+        from app.models import Admin
+
         from app.utils.seed import (
             run_seed,
             run_seed_quizzes,
@@ -249,11 +251,32 @@ def _register_cli_commands(app: Flask) -> None:
         run_seed_guides()
         run_seed_drives()
 
+        admin_email = os.environ.get("ADMIN_EMAIL")
+        admin_password = os.environ.get("ADMIN_PASSWORD")
+
+        if admin_email and admin_password:
+            admin_email = admin_email.strip().lower()
+
+            admin = Admin.query.filter_by(email=admin_email).first()
+
+            if not admin:
+                admin = Admin(
+                    name="Administrator",
+                    email=admin_email,
+                    role="admin"
+                )
+                admin.set_password(admin_password)
+                db.session.add(admin)
+            else:
+                admin.set_password(admin_password)
+
+            db.session.commit()
+            print("Admin account seeded successfully.")
+
         print(
             "Database seeded successfully "
             "(career roles + quizzes + guides + campus drives)."
         )
-
     @app.cli.command("seed-quizzes")
     def seed_quizzes():
         """Seed only the Practice Hub quiz bank."""
