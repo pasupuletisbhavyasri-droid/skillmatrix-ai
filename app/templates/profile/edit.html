@@ -4,26 +4,107 @@
 
 {% block content %}
 <div class="dashboard-panel" style="max-width:720px;">
+
+    {# Show all validation errors in one alert #}
+    {% if form.errors %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Please correct the following errors:</strong>
+        <ul class="mb-0 mt-2">
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <li>{{ field.label.text }}: {{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    {% endif %}
+
     <form method="POST" enctype="multipart/form-data" novalidate>
         {{ form.hidden_tag() }}
+
         <div class="row g-3">
-            <div class="col-md-6">{{ form.name.label(class="form-label small") }}{{ form.name(class="form-control") }}</div>
-            <div class="col-md-6">{{ form.phone.label(class="form-label small") }}{{ form.phone(class="form-control") }}</div>
-            <div class="col-md-6">{{ form.gender.label(class="form-label small") }}{{ form.gender(class="form-select") }}</div>
-            <div class="col-md-6">{{ form.dob.label(class="form-label small") }}{{ form.dob(class="form-control") }}</div>
-            <div class="col-md-6">{{ form.college.label(class="form-label small") }}{{ form.college(class="form-control") }}</div>
-            <div class="col-md-6">{{ form.branch.label(class="form-label small") }}{{ form.branch(class="form-control") }}</div>
-            <div class="col-md-6">{{ form.year.label(class="form-label small") }}{{ form.year(class="form-select") }}</div>
-            <div class="col-md-6">{{ form.cgpa.label(class="form-label small") }}{{ form.cgpa(class="form-control") }}</div>
-            <div class="col-12">{{ form.address.label(class="form-label small") }}{{ form.address(class="form-control") }}</div>
-            <div class="col-md-6">{{ form.github_url.label(class="form-label small") }}{{ form.github_url(class="form-control") }}</div>
-            <div class="col-md-6">{{ form.linkedin_url.label(class="form-label small") }}{{ form.linkedin_url(class="form-control") }}</div>
-            <div class="col-md-6">{{ form.career_interest.label(class="form-label small") }}{{ form.career_interest(class="form-control") }}</div>
-            <div class="col-md-6">{{ form.communication_skill_rating.label(class="form-label small") }}{{ form.communication_skill_rating(class="form-control") }}</div>
-            <div class="col-12">{{ form.photo.label(class="form-label small") }}{{ form.photo(class="form-control") }}</div>
+
+            <div class="col-md-6">
+                {{ form.name.label(class="form-label small") }}
+                {{ form.name(class="form-control" + (" is-invalid" if form.name.errors else "")) }}
+            </div>
+
+            <div class="col-md-6">
+                {{ form.phone.label(class="form-label small") }}
+                {{ form.phone(class="form-control" + (" is-invalid" if form.phone.errors else "")) }}
+            </div>
+
+            <div class="col-md-6">
+                {{ form.gender.label(class="form-label small") }}
+                {{ form.gender(class="form-select" + (" is-invalid" if form.gender.errors else "")) }}
+            </div>
+
+            <div class="col-md-6">
+                {{ form.dob.label(class="form-label small") }}
+                {{ form.dob(class="form-control" + (" is-invalid" if form.dob.errors else "")) }}
+            </div>
+
+            <div class="col-md-6">
+                {{ form.college.label(class="form-label small") }}
+                {{ form.college(class="form-control" + (" is-invalid" if form.college.errors else "")) }}
+            </div>
+
+            <div class="col-md-6">
+                {{ form.branch.label(class="form-label small") }}
+                {{ form.branch(class="form-control" + (" is-invalid" if form.branch.errors else "")) }}
+            </div>
+
+            <div class="col-md-6">
+                {{ form.year.label(class="form-label small") }}
+                {{ form.year(class="form-select" + (" is-invalid" if form.year.errors else "")) }}
+            </div>
+
+            <div class="col-md-6">
+                {{ form.cgpa.label(class="form-label small") }}
+                {{ form.cgpa(class="form-control" + (" is-invalid" if form.cgpa.errors else "")) }}
+            </div>
+
+            <div class="col-12">
+                {{ form.address.label(class="form-label small") }}
+                {{ form.address(class="form-control" + (" is-invalid" if form.address.errors else "")) }}
+            </div>
+
+            <div class="col-md-6">
+                {{ form.github_url.label(class="form-label small") }}
+                {{ form.github_url(class="form-control" + (" is-invalid" if form.github_url.errors else "")) }}
+            </div>
+
+            <div class="col-md-6">
+                {{ form.linkedin_url.label(class="form-label small") }}
+                {{ form.linkedin_url(class="form-control" + (" is-invalid" if form.linkedin_url.errors else "")) }}
+            </div>
+
+            <div class="col-md-6">
+                {{ form.career_interest.label(class="form-label small") }}
+                {{ form.career_interest(class="form-control" + (" is-invalid" if form.career_interest.errors else "")) }}
+            </div>
+
+            <div class="col-md-6">
+                {{ form.communication_skill_rating.label(class="form-label small") }}
+                {{ form.communication_skill_rating(class="form-control" + (" is-invalid" if form.communication_skill_rating.errors else "")) }}
+            </div>
+
+            <div class="col-12">
+                {{ form.photo.label(class="form-label small") }}
+                {{ form.photo(class="form-control" + (" is-invalid" if form.photo.errors else "")) }}
+            </div>
+
         </div>
-        <button type="submit" class="btn btn-gradient mt-4">{{ form.submit.label.text }}</button>
-        <a href="{{ url_for('profile.index') }}" class="btn btn-outline-glass mt-4">Cancel</a>
+
+        <button type="submit" class="btn btn-gradient mt-4">
+            {{ form.submit.label.text }}
+        </button>
+
+        <a href="{{ url_for('profile.index') }}" class="btn btn-outline-glass mt-4">
+            Cancel
+        </a>
+
     </form>
 </div>
 {% endblock %}
